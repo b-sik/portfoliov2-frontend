@@ -3,7 +3,7 @@ const chunk = require(`lodash/chunk`);
 
 // This is a simple debugging tool
 // dd() will prettily dump to the terminal and kill the process
-// const { dd } = require(`dumper.js`)
+const { dd } = require(`dumper.js`);
 
 /**
  * exports.createPages is a built-in Gatsby Node API.
@@ -11,9 +11,14 @@ const chunk = require(`lodash/chunk`);
  *
  * See https://www.gatsbyjs.com/docs/node-apis/#createPages for more info.
  */
-exports.createPages = async (gatsbyUtilities) => {
+exports.createPages = async ({ actions, graphql, reporter }) => {
+	const { createPage } = actions;
+
+	// Create front page.
+	await createFrontPage({ graphql, createPage });
+
 	// Query our posts from the GraphQL server
-	const posts = await getPosts(gatsbyUtilities);
+	const posts = await getPosts({ graphql, reporter });
 
 	// If there are no posts in WordPress, don't do anything
 	if (!posts.length) {
@@ -21,21 +26,56 @@ exports.createPages = async (gatsbyUtilities) => {
 	}
 
 	// If there are posts, create pages for them
-	await createIndividualBlogPostPages({ posts, gatsbyUtilities });
+	await createIndividualBlogPostPages({ posts, createPage });
 
 	// And a paginated archive
-	await createBlogPostArchive({ posts, gatsbyUtilities });
+	await createBlogPostArchive({ posts, graphql, createPage });
+};
+
+/**
+ * This function creates the front page.
+ */
+const createFrontPage = async ({ createPage, graphql }) => {
+	const {
+		data: { wpPage },
+	} = await graphql(/* GraphQL */ `
+		{
+			wpPage {
+				id
+				content
+				databaseId
+				title
+				uri
+				isFrontPage
+			}
+		}
+	`);
+
+	// dd(graphqlResult);
+
+	// createPage is an action passed to createPages
+	// See https://www.gatsbyjs.com/docs/actions#createPage for more info
+	return createPage({
+		// landing page.
+		path: '/',
+
+		// use the blog post template as the page component
+		component: path.resolve(`./src/pages/front-page.js`),
+		context: {
+			id: wpPage.id,
+		},
+	});
 };
 
 /**
  * This function creates all the individual blog pages in this site
  */
-const createIndividualBlogPostPages = async ({ posts, gatsbyUtilities }) =>
+const createIndividualBlogPostPages = async ({ posts, createPage }) =>
 	Promise.all(
 		posts.map(({ previous, post, next }) =>
 			// createPage is an action passed to createPages
 			// See https://www.gatsbyjs.com/docs/actions#createPage for more info
-			gatsbyUtilities.actions.createPage({
+			createPage({
 				// Use the WordPress uri as the Gatsby page path
 				// This is a good idea so that internal links and menus work 👍
 				path: post.uri,
@@ -62,8 +102,8 @@ const createIndividualBlogPostPages = async ({ posts, gatsbyUtilities }) =>
 /**
  * This function creates all the individual blog pages in this site
  */
-async function createBlogPostArchive({ posts, gatsbyUtilities }) {
-	const graphqlResult = await gatsbyUtilities.graphql(/* GraphQL */ `
+async function createBlogPostArchive({ posts, graphql, createPage }) {
+	const graphqlResult = await graphql(/* GraphQL */ `
 		{
 			wp {
 				readingSettings {
@@ -88,7 +128,7 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
 					// we want the first page to be "/" and any additional pages
 					// to be numbered.
 					// "/blog/2" for example
-					return page === 1 ? `/` : `/blog/${page}`;
+					return page === 1 ? `/blog` : `/blog/${page}`;
 				}
 
 				return null;
@@ -96,7 +136,7 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
 
 			// createPage is an action passed to createPages
 			// See https://www.gatsbyjs.com/docs/actions#createPage for more info
-			await gatsbyUtilities.actions.createPage({
+			await createPage({
 				path: getPagePath(pageNumber),
 
 				// use the blog post archive template as the page component
