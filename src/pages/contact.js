@@ -1,33 +1,32 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import parse from 'html-react-parser';
 
 import Nav from '../components/nav';
 import Seo from '../components/seo';
 
-const FrontPage = ({
+const Contact = ({
 	data: {
 		allWpPage: { edges },
 	},
 }) => {
-	const {
+    const {
 		node: { content },
 	} = edges[0];
-
 	return (
-		<div className="front-page-wrapper">
-			<Nav location='/'/>
-			<Seo title="Brian Siklinski - Web Developer" />
-			{parse(content)}
+		<div>
+			<Nav location='contact'/>
+			<Seo title="Contact" />
+            {parse(content)}
 		</div>
 	);
 };
 
-export default FrontPage;
+export default Contact;
 
 export const pageQuery = graphql`
 	{
-		allWpPage(filter: { isFrontPage: { eq: true } }) {
+		allWpPage(filter: { databaseId: { eq: 24 } }) {
 			edges {
 				node {
 					content

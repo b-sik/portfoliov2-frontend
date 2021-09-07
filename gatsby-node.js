@@ -17,6 +17,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 	// Create front page.
 	await createFrontPage({ graphql, createPage });
 
+	// About, Projects, Contact
+	await createPagePages({ graphql, createPage });
+
 	// Query our posts from the GraphQL server
 	const posts = await getPosts({ graphql, reporter });
 
@@ -37,34 +40,70 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
  */
 const createFrontPage = async ({ createPage, graphql }) => {
 	const {
-		data: { wpPage },
+		data: {
+			allWpPage: { edges },
+		},
 	} = await graphql(/* GraphQL */ `
 		{
-			wpPage {
-				id
-				content
-				databaseId
-				title
-				uri
-				isFrontPage
+			allWpPage(filter: { isFrontPage: { eq: true } }) {
+				edges {
+					node {
+						id
+					}
+				}
 			}
 		}
 	`);
 
-	// dd(graphqlResult);
+	const {
+		node: { id },
+	} = edges[0];
 
-	// createPage is an action passed to createPages
-	// See https://www.gatsbyjs.com/docs/actions#createPage for more info
 	return createPage({
 		// landing page.
 		path: '/',
-
-		// use the blog post template as the page component
 		component: path.resolve(`./src/pages/front-page.js`),
 		context: {
-			id: wpPage.id,
+			id,
 		},
 	});
+};
+
+/**
+ * This function creates pages.
+ */
+const createPagePages = async ({ createPage, graphql }) => {
+	const {
+		data: {
+			allWpPage: {
+				edges: { node },
+			},
+		},
+	} = await graphql(/* GraphQL */ `
+		{
+			allWpPage(filter: { id: {}, isFrontPage: { eq: false } }) {
+				edges {
+					node {
+						uri
+						databaseId
+						slug
+					}
+				}
+			}
+		}
+	`);
+
+	return Promise.all(
+		node.map(({ uri, databaseId, slug }) =>
+			createPage({
+				path: uri,
+				component: path.resolve(`./src/templates/${slug}.js`),
+				context: {
+					id: databaseId,
+				},
+			})
+		)
+	);
 };
 
 /**
