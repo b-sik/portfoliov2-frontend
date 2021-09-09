@@ -10,14 +10,14 @@ const Contact = ({
 		allWpPage: { edges },
 	},
 }) => {
-    const {
+	const {
 		node: { content },
 	} = edges[0];
 	return (
 		<div>
-			<Nav location='contact'/>
+			<Nav location="/contact" />
 			<Seo title="Contact" />
-            {parse(content)}
+			{parse(content)}
 		</div>
 	);
 };
