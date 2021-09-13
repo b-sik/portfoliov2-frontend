@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 /**
  * 👋 Hey there!
  * This file is the starting point for your new WordPress/Gatsby site! 🚀
@@ -45,6 +47,13 @@ module.exports = {
 				path: `${__dirname}/content/assets`,
 			},
 		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `wp-uploads`,
+				path: process.env.LOCALWP_MEDIA
+			},
+		},
 
 		/**
 		 * The following two plugins are required if you want to use Gatsby image
@@ -53,7 +62,7 @@ module.exports = {
 		 */
 		`gatsby-transformer-sharp`,
 		`gatsby-plugin-sharp`,
-
+		`gatsby-plugin-image`,
 		{
 			// See https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/?=gatsby-plugin-manifest
 			resolve: `gatsby-plugin-manifest`,

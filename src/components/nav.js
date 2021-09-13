@@ -4,10 +4,6 @@ import { __ } from '@wordpress/i18n';
 
 const config = [
 	{
-		name: __('Home', 'bszyk-portfolio'),
-		slug: '/',
-	},
-	{
 		name: __('About', 'bszyk-portfolio'),
 		slug: '/about',
 	},
@@ -23,7 +19,7 @@ const config = [
 
 const Nav = ({ location }) => {
 	return (
-		<nav className="border border-black border-b-2 w-full overflow-hidden flex-grow-0">
+		<nav className="bg-white border border-black border-b-2 w-full overflow-hidden flex-grow-0">
 			<ul className="flex justify-around content-center">
 				{config.map((page, i) => {
 					const { name, slug } = page;

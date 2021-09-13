@@ -64,7 +64,7 @@ const createFrontPage = async ({ createPage, graphql }) => {
 		path: '/',
 		component: path.resolve(`./src/pages/front-page.js`),
 		context: {
-			id,
+			id
 		},
 	});
 };
@@ -92,6 +92,10 @@ const createPagePages = async ({ createPage, graphql }) => {
 			}
 		}
 	`);
+
+	if ('undefined' === typeof node) {
+		return;
+	}
 
 	return Promise.all(
 		node.map(({ uri, databaseId, slug }) =>

@@ -6,7 +6,7 @@ module.exports = {
 			gridTemplateRows: {
 				// Complex site-specific row configuration
 			   'nav-about-layout': 'auto 1fr',
-			  }
+			  },
 		},
 	},
 	variants: {
