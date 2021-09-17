@@ -12,7 +12,9 @@ import { getImage } from 'gatsby-plugin-image';
 
 import Nav from '../components/nav';
 import Seo from '../components/seo';
-import Projects from '../components/projects';
+import Section from '../components/section';
+import { useProjectsData }  from '../hooks/use-projects-data.js';
+import { useSkillsData }  from '../hooks/use-skills-data.js';
 
 const FrontPage = ({
 	data: {
@@ -67,15 +69,12 @@ const FrontPage = ({
 			{/* 
 				Row 2
 			*/}
-			<div
-				id="projects-wrapper"
-				className="bg-gradient-to-b from-white to-indigo-100 flex flex-wrap overflow-hidden  grid grid-cols-12 auto-rows-min"
-			>
-				<h2 className="col-span-full row-start-1 row-end-2 text-center">
-					Projects
-				</h2>
-				<Projects />
-			</div>
+			<Section section="projects" edges={useProjectsData()} />
+
+			{/* 
+				Row 3
+			*/}
+			<Section section="skills" edges={useSkillsData()} />
 		</div>
 	);
 };

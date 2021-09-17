@@ -247,3 +247,18 @@ async function getPosts({ graphql, reporter }) {
 
 	return graphqlResult.data.allWpPost.edges;
 }
+
+/**
+ * Hack to fix npm run develop error when wp-graphql-gutenberg is enabled.
+ * 
+ * @see https://github.com/wp-graphql/wp-graphql/issues/1460#issuecomment-742235504
+ */
+exports.createSchemaCustomization = ({ actions }) => {
+	const { createTypes } = actions;
+	const typeDefs = `
+	  type WpBlockAttributesObject {
+		foobar: String
+	  }
+	`;
+	createTypes(typeDefs);
+  };
