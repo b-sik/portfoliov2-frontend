@@ -13,23 +13,31 @@ import { getImage } from 'gatsby-plugin-image';
 import Nav from '../components/nav';
 import Seo from '../components/seo';
 import Section from '../components/section';
-import { useProjectsData }  from '../hooks/use-projects-data.js';
-import { useSkillsData }  from '../hooks/use-skills-data.js';
+import Contact from '../components/contact';
+import { useProjectsData } from '../hooks/use-projects-data.js';
+import { useSkillsData } from '../hooks/use-skills-data.js';
+import { useAboutPageData } from '../hooks/use-about-page-data.js';
+// import { useContactPageData } from '../hooks/use-contact-page-data.js';
 
 const FrontPage = ({
 	data: {
-		allWpPage: { edges, nodes },
+		allWpPage: { edges },
 	},
 }) => {
 	/**
-	 * Pages data.
+	 * Front page data.
 	 */
-	const aboutData = edges[0].node;
+	const frontPageData = edges[0].node;
+
+	/**
+	 * About page data.
+	 */
+	const aboutPageData = useAboutPageData();
 
 	/**
 	 * Background image.
 	 */
-	const bgImgData = getImage(nodes[1].featuredImage.node.localFile);
+	const bgImgData = getImage(frontPageData.featuredImage.node.localFile);
 	const bgImgSrc = bgImgData.images.fallback.src;
 
 	return (
@@ -61,7 +69,7 @@ const FrontPage = ({
 						id="about--excerpt"
 						className="col-start-4 col-end-10 row-start-2 row-end-3"
 					>
-						{parse(aboutData.excerpt)}
+						{parse(aboutPageData.excerpt)}
 					</div>
 				</div>
 			</div>
@@ -75,6 +83,11 @@ const FrontPage = ({
 				Row 3
 			*/}
 			<Section section="skills" edges={useSkillsData()} />
+
+			{/*
+				Row 4
+			*/}
+			<Contact />
 		</div>
 	);
 };
@@ -83,28 +96,17 @@ export default FrontPage;
 
 export const pageQuery = graphql`
 	{
-		allWpPage(filter: { databaseId: { in: [12, 27] } }) {
+		allWpPage(filter: { isFrontPage: { eq: true } }) {
 			edges {
 				node {
+					id
+					content
 					excerpt
-				}
-			}
-			nodes {
-				title
-				uri
-				featuredImage {
-					node {
-						id
-						localFile {
-							childImageSharp {
-								gatsbyImageData
-								fluid {
-									base64
-									tracedSVG
-									srcWebp
-									srcSetWebp
-									originalImg
-									originalName
+					featuredImage {
+						node {
+							localFile {
+								childImageSharp {
+									gatsbyImageData
 								}
 							}
 						}
