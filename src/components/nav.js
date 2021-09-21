@@ -21,20 +21,20 @@ const config = [
 	},
 ];
 
-const Nav = ({ location }) => {
+const Nav = ({ location, bgColor }) => {
 	return (
-		<nav className="bg-white border-b-2 w-full overflow-hidden flex-grow-0">
+		<nav className={`bg-${bgColor}-500 border-b-1 w-full overflow-hidden flex-grow-0`}>
 			<ul className="flex justify-around content-center">
 				{config.map((page, i) => {
 					const { name, slug } = page;
-					const linkClassName = `inline-block border border-white hover:border-gray-200 ${
+					const linkClassName = `inline-block hover:border-gray-200 ${
 						location === slug ? 'text-red-500' : 'text-blue-500'
 					} hover:bg-gray-200 py-2 px-4 h-full`;
 
 					return (
 						<li key={i} className="my-2">
 							<Link className={linkClassName} to={slug}>
-								{name}
+								<h6>{name}</h6>
 							</Link>
 						</li>
 					);

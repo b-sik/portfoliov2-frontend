@@ -1,12 +1,11 @@
 import React from 'react';
-// import { __ } from '@wordpress/i18n';
 import { isMobileOnly } from 'react-device-detect';
 
 import SectionCard from './section-card';
 
 const chunk = require(`lodash/chunk`);
 
-const Section = ({ section, edges }) => {
+const Section = ({ section, edges, bgGradient }) => {
 	if (!edges) {
 		return null;
 	}
@@ -17,7 +16,7 @@ const Section = ({ section, edges }) => {
 	return (
 		<div
 			id={`${section}-wrapper`}
-			className="p-4 bg-gradient-to-b from-white to-indigo-100 flex flex-wrap overflow-hidden  grid grid-cols-12 auto-rows-min"
+			className={`${bgGradient} p-4 flex flex-wrap overflow-hidden  grid grid-cols-12 auto-rows-min`}
 		>
 			<h2 className="col-span-full row-start-1 row-end-2 text-center my-4">
 				{section[0].toUpperCase() + section.substring(1)}
@@ -31,7 +30,7 @@ const Section = ({ section, edges }) => {
 							rowStart + i
 						} row-end-${
 							rowStart + 1 + i
-						} flex justify-around my-10`}
+						} flex items-center justify-around my-10`}
 					>
 						{nodes.map((node, j) => (
 							<SectionCard key={`${i}-${j}`} node={node} />

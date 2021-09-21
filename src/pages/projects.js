@@ -1,17 +1,26 @@
 import React from 'react';
-// import { graphql } from 'gatsby';
-// import parse from 'html-react-parser';
-
 import Layout from '../components/layout';
 import Section from '../components/section';
 import { useProjectsData } from '../hooks/use-projects-data.js';
 import { useSkillsData } from '../hooks/use-skills-data.js';
+import { getBgColor, getBgGradientClass } from '../utilities/background';
 
 const Projects = () => {
+	const bgColor = getBgColor();
+	const bgGradient = getBgGradientClass(bgColor, 't');
+
 	return (
-		<Layout location="/projects">
-			<Section section="projects" edges={useProjectsData()} />
-			<Section section="skills" edges={useSkillsData()} />
+		<Layout location="/projects" bgColor={bgColor}>
+			<Section
+				section="projects"
+				edges={useProjectsData()}
+				bgGradient={bgGradient}
+			/>
+			<Section
+				section="skills"
+				edges={useSkillsData()}
+				bgGradient={bgGradient}
+			/>
 		</Layout>
 	);
 };

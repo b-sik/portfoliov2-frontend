@@ -1,10 +1,9 @@
 import React from 'react';
 import { getImage } from 'gatsby-plugin-image';
-// import { __ } from '@wordpress/i18n';
-// import { isMobileOnly } from 'react-device-detect';
 import parse from 'html-react-parser';
 import Layout from '../components/layout';
 import { useAboutPageData } from '../hooks/use-about-page-data.js';
+import { getBgColor, getBgGradientClass } from '../utilities/background';
 
 const About = ({ isExcerpt }) => {
 	const { content, excerpt, featuredImage } = useAboutPageData();
@@ -12,11 +11,14 @@ const About = ({ isExcerpt }) => {
 	const bgImgData = getImage(featuredImage.node.localFile);
 	const bgImgSrc = bgImgData.images.fallback.src;
 
+	const bgColor = getBgColor();
+	const bgGradient = getBgGradientClass(bgColor);
+
 	return (
-		<Layout location={isExcerpt ? '/' : '/about'} bgImgSrc={bgImgSrc}>
+		<Layout location={isExcerpt ? '/' : '/about'} bgImgSrc={bgImgSrc} bgColor={bgColor}>
 			<div
 				id="about"
-				className="bg-white opacity-90 w-full h-screen overflow-hidden flex-grow grid grid-cols-12 grid-rows-3"
+				className={`${bgGradient} opacity-90 w-full h-screen overflow-hidden flex-grow grid grid-cols-12 grid-rows-3`}
 			>
 				<div
 					id="about--excerpt"

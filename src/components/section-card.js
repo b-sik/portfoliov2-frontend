@@ -38,7 +38,7 @@ const SectionCard = ({ node }) => {
 	const { description, code, image } = content;
 
 	return (
-		<div className="inline-block mx-8 p-8 h-auto w-auto bg-green-100 border rounded-2xl flex flex-col items-center justify-center shadow-lg">
+		<div className="inline-block mx-8 p-8 h-auto w-auto bg-white opacity-90 border rounded-2xl flex flex-col items-center justify-center shadow-lg">
 			<h3 className="my-4">{title}</h3>
 			{description && <p className="m-4">{description}</p>}
 			{code && (
