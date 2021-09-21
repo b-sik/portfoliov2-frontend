@@ -1,45 +1,37 @@
 import React from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import parse from 'html-react-parser';
+// import { graphql, useStaticQuery } from 'gatsby';
+// import parse from 'html-react-parser';
+// import {
+// 	BrowserView,
+// 	MobileView,
+// 	isBrowser,
+// 	isMobile
+//   } from "react-device-detect";
 
-const Layout = ({ isHomePage, children }) => {
-	const {
-		wp: {
-			generalSettings: { title },
-		},
-	} = useStaticQuery(graphql`
-		query LayoutQuery {
-			wp {
-				generalSettings {
-					title
-					description
-				}
-			}
-		}
-	`);
+import Nav from '../components/nav';
+import Seo from '../components/seo';
+
+const Layout = ({ location, children, bgImgSrc }) => {
 
 	return (
-		<div className="global-wrapper" data-is-root-path={isHomePage}>
-			<header className="global-header">
-				{isHomePage ? (
-					<h1 className="main-heading">
-						<Link to="/">{parse(title)}</Link>
-					</h1>
-				) : (
-					<Link className="header-link-home" to="/">
-						{title}
-					</Link>
-				)}
-			</header>
+		<div
+			id="front-page-wrapper"
+			className="flex flex-wrap overflow-hidden grid grid-cols-1 auto-rows-min"
+		>
+			<div
+				id="nav-and-section-wrapper"
+				className="bg-cover bg-center bg-no-repeat flex flex-wrap overflow-hidden h-auto grid grid-cols-1 grid-rows-nav-section-layout"
+				style={{
+					backgroundImage: `url(${bgImgSrc})`,
+				}}
+			>
+				<Nav location={location} />
+				<Seo title="Brian Siklinski - Web Developer" />
 
-			<main>{children}</main>
-
-			<footer>
-				© {new Date().getFullYear()}, Built with
-				{` `}
-				<a href="https://www.gatsbyjs.com">Gatsby</a>
-				{` `}
-				And <a href="https://wordpress.org/">WordPress</a>
+				{children}
+			</div>
+			<footer className="text-center">
+				{`© ${new Date().getFullYear()} Brian Siklinski. Created with React, Gatsby, Wordpress and Tailwind.`}
 			</footer>
 		</div>
 	);

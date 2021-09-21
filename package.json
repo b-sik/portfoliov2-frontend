@@ -58,6 +58,7 @@
 		"clean": "gatsby clean",
 		"test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
 		"dd": "gatsby clean && gatsby develop",
-		"debug": "node --nolazy node_modules/.bin/gatsby develop --inspect-brk"
+		"debug": "node --nolazy node_modules/.bin/gatsby develop --inspect-brk",
+		"refresh": "curl -X POST http://localhost:8000/__refresh"
 	}
 }

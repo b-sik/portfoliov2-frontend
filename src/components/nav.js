@@ -4,11 +4,15 @@ import { __ } from '@wordpress/i18n';
 
 const config = [
 	{
+		name: __('Home', 'bszyk-portfolio'),
+		slug: '/',
+	},
+	{
 		name: __('About', 'bszyk-portfolio'),
 		slug: '/about',
 	},
 	{
-		name: __('Projects', 'bszyk-portfolio'),
+		name: __('Projects & Skills', 'bszyk-portfolio'),
 		slug: '/projects',
 	},
 	{
@@ -28,7 +32,7 @@ const Nav = ({ location }) => {
 					} hover:bg-gray-200 py-2 px-4 h-full`;
 
 					return (
-						<li key={i} className="my-4">
+						<li key={i} className="my-2">
 							<Link className={linkClassName} to={slug}>
 								{name}
 							</Link>

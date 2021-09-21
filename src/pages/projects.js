@@ -1,37 +1,19 @@
 import React from 'react';
-import { graphql } from 'gatsby';
-import parse from 'html-react-parser';
+// import { graphql } from 'gatsby';
+// import parse from 'html-react-parser';
 
-import Nav from '../components/nav';
-import Seo from '../components/seo';
+import Layout from '../components/layout';
+import Section from '../components/section';
+import { useProjectsData } from '../hooks/use-projects-data.js';
+import { useSkillsData } from '../hooks/use-skills-data.js';
 
-const Projects = ({
-	data: {
-		allWpPage: { edges },
-	},
-}) => {
-    const {
-		node: { content },
-	} = edges[0];
+const Projects = () => {
 	return (
-		<div>
-			<Nav location='/projects'/>
-			<Seo title="Projects" />
-            {parse(content)}
-		</div>
+		<Layout location="/projects">
+			<Section section="projects" edges={useProjectsData()} />
+			<Section section="skills" edges={useSkillsData()} />
+		</Layout>
 	);
 };
 
 export default Projects;
-
-export const pageQuery = graphql`
-	{
-		allWpPage(filter: { databaseId: { eq: 30 } }) {
-			edges {
-				node {
-					content
-				}
-			}
-		}
-	}
-`;

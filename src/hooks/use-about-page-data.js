@@ -11,6 +11,15 @@ export const useAboutPageData = () => {
 						id
 						content
 						excerpt
+						featuredImage {
+							node {
+								localFile {
+									childImageSharp {
+										gatsbyImageData
+									}
+								}
+							}
+						}
 					}
 				}
 			}

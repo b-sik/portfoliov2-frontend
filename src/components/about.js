@@ -7,22 +7,34 @@ import Layout from '../components/layout';
 import { useAboutPageData } from '../hooks/use-about-page-data.js';
 
 const About = ({ isExcerpt }) => {
-	const { content, excerpt, featuredImage } = useAboutPageData();
+	const { excerpt, featuredImage } = useAboutPageData();
 
 	const bgImgData = getImage(featuredImage.node.localFile);
 	const bgImgSrc = bgImgData.images.fallback.src;
 
-	return (
-		<Layout location={isExcerpt ? '/' : '/about'} bgImgSrc={bgImgSrc}>
+	return isExcerpt ? (
+		<div
+			id="about"
+			className="bg-white opacity-90 w-full overflow-hidden flex-grow grid grid-cols-12 grid-rows-3"
+		>
+			<div
+				id="about--excerpt"
+				className="col-start-4 col-end-10 row-start-2 row-end-3"
+			>
+				{parse(excerpt)}
+			</div>
+		</div>
+	) : (
+		<Layout location="/about" bgImgSrc={bgImgSrc}>
 			<div
 				id="about"
-				className="bg-white opacity-90 w-full h-screen overflow-hidden flex-grow grid grid-cols-12 grid-rows-3"
+				className="bg-white opacity-90 w-full overflow-hidden flex-grow grid grid-cols-12 grid-rows-3"
 			>
 				<div
 					id="about--excerpt"
 					className="col-start-4 col-end-10 row-start-2 row-end-3"
 				>
-					{isExcerpt ? parse(excerpt) : parse(content)}
+					{parse(excerpt)}
 				</div>
 			</div>
 		</Layout>
