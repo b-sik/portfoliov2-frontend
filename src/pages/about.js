@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getImage } from 'gatsby-plugin-image';
 import parse from 'html-react-parser';
 import {
 	defaultBlockParse as mdParse,
 	defaultOutput as mdOutput,
 } from 'simple-markdown';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMarkdown } from '@fortawesome/free-brands-svg-icons'
 import Layout from '../components/layout';
 import Toggle from '../components/UI/toggle';
 import { useAboutPageData } from '../hooks/use-about-page-data.js';
@@ -15,6 +17,30 @@ const About = ({ isExcerpt }) => {
 	 * Markdown view state.
 	 */
 	const [mdView, setMdView] = useState(true);
+
+	/**
+	 * Bg color state.
+	 */
+	const [bgColor, setBgColor] = useState(null);
+
+	/**
+	 * Bg gradient state.
+	 */
+	const [bgGradient, setBgGradient] = useState(null);
+
+	/**
+	 * Set bg color.
+	 */
+	useEffect(() => {
+		setBgColor(getBgColor());
+	}, []);
+
+	/**
+	 * Set gradient class.
+	 */
+	useEffect(() => {
+		setBgGradient(getBgGradientClass(bgColor));
+	}, [bgColor]);
 
 	/**
 	 * GQL query data.
@@ -29,11 +55,8 @@ const About = ({ isExcerpt }) => {
 	const bgImgSrc = bgImgData.images.fallback.src;
 
 	/**
-	 * Get bg color info.
+	 * Toggle.
 	 */
-	const bgColor = getBgColor();
-	const bgGradient = getBgGradientClass(bgColor);
-
 	const onToggleChange = () => {
 		setMdView(!mdView);
 	};
@@ -56,8 +79,10 @@ const About = ({ isExcerpt }) => {
 				</div>
 				<Toggle
 					wrapperClasses="row-start-3 row-end-4 col-start-9 col-end-10"
-					label="md"
+					label={<FontAwesomeIcon icon={faMarkdown} />}
 					onChange={onToggleChange}
+					checked={mdView}
+					bgColor={bgColor}
 				/>
 			</div>
 		</Layout>

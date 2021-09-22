@@ -3,7 +3,7 @@ import React from 'react';
 /**
  * @see CSS /css/UI/toggle.css
  */
-const Toggle = ({ label, onChange, wrapperClasses }) => {
+const Toggle = ({ label, onChange, wrapperClasses, bgColor, checked }) => {
 	return (
 		<div className={wrapperClasses}>
 			<div className="relative inline-block w-10 mr-1 align-middle select-none transition duration-200 ease-in">
@@ -12,6 +12,7 @@ const Toggle = ({ label, onChange, wrapperClasses }) => {
 					name="toggle"
 					id="toggle"
 					className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"
+					checked={checked}
 					onChange={() => onChange()}
 				/>
 				<label

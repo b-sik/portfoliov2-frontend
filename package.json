@@ -8,6 +8,11 @@
 		"url": "https://github.com/gatsbyjs/gatsby/issues"
 	},
 	"dependencies": {
+		"@fortawesome/fontawesome-svg-core": "^1.2.36",
+		"@fortawesome/free-brands-svg-icons": "^5.15.4",
+		"@fortawesome/free-regular-svg-icons": "^5.15.4",
+		"@fortawesome/free-solid-svg-icons": "^5.15.4",
+		"@fortawesome/react-fontawesome": "^0.1.15",
 		"@wordpress/components": "^17.0.0",
 		"@wordpress/i18n": "^4.2.1",
 		"autoprefixer": "^10.3.4",
