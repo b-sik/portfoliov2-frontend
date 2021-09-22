@@ -8,6 +8,7 @@
 		"url": "https://github.com/gatsbyjs/gatsby/issues"
 	},
 	"dependencies": {
+		"@wordpress/components": "^17.0.0",
 		"@wordpress/i18n": "^4.2.1",
 		"autoprefixer": "^10.3.4",
 		"dotenv": "^10.0.0",
@@ -31,9 +32,8 @@
 		"react-dom": "^17.0.1",
 		"react-helmet": "^5.2.1",
 		"react-particles-js": "^3.5.3",
-		"tailwindcss": "^2.2.9",
-		"typeface-merriweather": "1.1.13",
-		"typeface-montserrat": "1.1.13"
+		"simple-markdown": "^0.7.3",
+		"tailwindcss": "^2.2.9"
 	},
 	"devDependencies": {
 		"@wordpress/prettier-config": "^1.1.0",
@@ -45,7 +45,6 @@
 		"gatsby"
 	],
 	"license": "0BSD",
-	"main": "n/a",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"

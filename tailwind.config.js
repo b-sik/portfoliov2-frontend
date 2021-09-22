@@ -4,7 +4,6 @@ module.exports = {
 	theme: {
 		extend: {
 			gridTemplateRows: {
-				// Complex site-specific row configuration
 			   'nav-section-layout': 'auto 1fr',
 			  },
 		},

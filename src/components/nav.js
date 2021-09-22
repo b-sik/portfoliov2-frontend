@@ -12,7 +12,7 @@ const config = [
 		slug: '/about',
 	},
 	{
-		name: __('Projects & Skills', 'bszyk-portfolio'),
+		name: __('Projects', 'bszyk-portfolio'),
 		slug: '/projects',
 	},
 	{

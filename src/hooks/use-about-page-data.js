@@ -5,7 +5,12 @@ export const useAboutPageData = () => {
 		allWpPage: { edges },
 	} = useStaticQuery(graphql`
 		query AboutQuery {
-			allWpPage(filter: { slug: { eq: "about" } }) {
+			allWpPage(
+				filter: {
+					slug: { eq: "about" }
+					blocks: { elemMatch: { tagName: { eq: "pre" } } }
+				}
+			) {
 				edges {
 					node {
 						id
@@ -19,6 +24,9 @@ export const useAboutPageData = () => {
 									}
 								}
 							}
+						}
+						blocks {
+							innerHtml
 						}
 					}
 				}

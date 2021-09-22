@@ -90,9 +90,10 @@ footer {
 }
 
 hr {
-  background: var(--color-accent);
+  background: #000;
   height: 1px;
   border: 0;
+  margin: 1rem 0;
 }
 
 /* Heading */
@@ -108,6 +109,8 @@ h6 {
   margin-bottom: var(--spacing-6); */
   line-height: var(--lineHeight-tight);
   letter-spacing: -0.025em;
+  padding: 0;
+  margin: 0;
 }
 
 h2,
@@ -334,8 +337,4 @@ a:focus {
   ol {
     list-style-position: inside;
   }
-}
-
-.particles-js-canvas-el {
-  height: 100px !important;
 }

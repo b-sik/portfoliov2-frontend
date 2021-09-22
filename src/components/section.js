@@ -1,9 +1,7 @@
 import React from 'react';
 import { isMobileOnly } from 'react-device-detect';
-
 import SectionCard from './section-card';
-
-const chunk = require(`lodash/chunk`);
+import { chunk } from 'lodash';
 
 const Section = ({ section, edges, bgGradient }) => {
 	if (!edges) {
@@ -26,7 +24,7 @@ const Section = ({ section, edges, bgGradient }) => {
 					<div
 						key={i}
 						id={`${section}-container-${i}`}
-						className={`col-start-2 col-end-12 row-start-${
+						className={`${isMobileOnly ? "col-span-full" : "col-start-2 col-end-12"} row-start-${
 							rowStart + i
 						} row-end-${
 							rowStart + 1 + i

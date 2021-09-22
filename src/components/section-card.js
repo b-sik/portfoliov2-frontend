@@ -43,7 +43,7 @@ const SectionCard = ({ node }) => {
 			{description && <p className="m-4">{description}</p>}
 			{code && (
 				<div className="overflow-scroll h-60 w-auto">
-					<pre>{code}</pre>
+					{code}
 				</div>
 			)}
 			{image && image}
