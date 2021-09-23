@@ -1,10 +1,12 @@
 module.exports = {
 	purge: ['./src/**/*.html', './src/**/*.js'],
-	darkMode: false, // or 'media' or 'class'
+	darkMode: 'class',
 	theme: {
 		extend: {
 			gridTemplateRows: {
 			   'nav-section-layout': 'auto 1fr',
+			   'about-layout': '25vh 1fr 1fr',
+			   'about-layout-mobile': '20vh 1fr 1fr'
 			  },
 		},
 	},

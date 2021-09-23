@@ -3,7 +3,7 @@ const chunk = require(`lodash/chunk`);
 
 // This is a simple debugging tool
 // dd() will prettily dump to the terminal and kill the process
-const { dd } = require(`dumper.js`);
+// const { dd } = require(`dumper.js`);
 
 /**
  * exports.createPages is a built-in Gatsby Node API.
@@ -251,7 +251,7 @@ async function getPosts({ graphql, reporter }) {
 /**
  * Hack to fix npm run develop error when wp-graphql-gutenberg is enabled.
  * 
- * @see https://github.com/wp-graphql/wp-graphql/issues/1460#issuecomment-742235504
+ * @see {@link https://github.com/wp-graphql/wp-graphql/issues/1460#issuecomment-742235504}
  */
 exports.createSchemaCustomization = ({ actions }) => {
 	const { createTypes } = actions;

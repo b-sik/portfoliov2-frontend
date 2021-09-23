@@ -20,7 +20,7 @@ export const useAboutPageData = () => {
 							node {
 								localFile {
 									childImageSharp {
-										gatsbyImageData
+										gatsbyImageData(width: 1440)
 									}
 								}
 							}

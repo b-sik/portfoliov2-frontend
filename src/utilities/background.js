@@ -7,5 +7,5 @@ export const getBgColor = () => {
 };
 
 export const getBgGradientClass = (bgColor, dir = 'r') => {
-    return `bg-gradient-to-${dir} from-${bgColor}-300 to-white`;
+    return `bg-gradient-to-${dir} from-${bgColor}-300 to-white dark:from-${bgColor}-500 dark:to-black`;
 };

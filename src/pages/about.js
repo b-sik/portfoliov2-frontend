@@ -5,11 +5,13 @@ import {
 	defaultBlockParse as mdParse,
 	defaultOutput as mdOutput,
 } from 'simple-markdown';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMarkdown } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMarkdown } from '@fortawesome/free-brands-svg-icons';
 import Layout from '../components/layout';
-import Toggle from '../components/UI/toggle';
+import Section from '../components/section';
+import Toggle from '../components-ui/toggle';
 import { useAboutPageData } from '../hooks/use-about-page-data.js';
+import { useSkillsData } from '../hooks/use-skills-data.js';
 import { getBgColor, getBgGradientClass } from '../utilities/background';
 
 const About = ({ isExcerpt }) => {
@@ -39,13 +41,13 @@ const About = ({ isExcerpt }) => {
 	 * Set gradient class.
 	 */
 	useEffect(() => {
-		setBgGradient(getBgGradientClass(bgColor));
+		setBgGradient(getBgGradientClass(bgColor, 't'));
 	}, [bgColor]);
 
 	/**
 	 * GQL query data.
 	 */
-	const { content, excerpt, featuredImage, blocks } = useAboutPageData();
+	const { content, featuredImage, blocks } = useAboutPageData();
 	const mdString = blocks[0].innerHtml;
 
 	/**
@@ -53,6 +55,11 @@ const About = ({ isExcerpt }) => {
 	 */
 	const bgImgData = getImage(featuredImage.node.localFile);
 	const bgImgSrc = bgImgData.images.fallback.src;
+
+	/**
+	 * Skills CPT data.
+	 */
+	const skillsData = useSkillsData();
 
 	/**
 	 * Toggle.
@@ -69,22 +76,29 @@ const About = ({ isExcerpt }) => {
 		>
 			<div
 				id="about"
-				className={`${bgGradient} opacity-90 w-full h-screen overflow-hidden flex-grow grid grid-cols-12 grid-rows-3`}
+				className={`${bgGradient} opacity-90 w-full h-screen overflow-hidden flex-grow grid grid-cols-12 sm:grid-rows-about-layout grid-rows-about-layout-mobile`}
 			>
 				<div
 					id="about--excerpt"
-					className="col-start-4 col-end-10 row-start-2 row-end-3 -my-10"
+					className="col-start-2 col-end-12 sm:col-start-4 sm:col-end-10 row-start-2 row-end-3 self-center"
 				>
 					{mdView ? mdOutput(mdParse(mdString)) : parse(content)}
 				</div>
 				<Toggle
-					wrapperClasses="row-start-3 row-end-4 col-start-9 col-end-10"
+					wrapperClassNames="row-start-3 row-end-4 col-start-11 col-end-12 sm:col-start-9 sm:col-end-10 opacity-70 h-auto justify-self-end mt-2"
 					label={<FontAwesomeIcon icon={faMarkdown} />}
 					onChange={onToggleChange}
 					checked={mdView}
 					bgColor={bgColor}
 				/>
 			</div>
+			{!isExcerpt && (
+				<Section
+					section="skills"
+					edges={skillsData}
+					bgGradient={getBgGradientClass(bgColor, 'b')}
+				/>
+			)}
 		</Layout>
 	);
 };

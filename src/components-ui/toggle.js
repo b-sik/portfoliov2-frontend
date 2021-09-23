@@ -3,9 +3,9 @@ import React from 'react';
 /**
  * @see CSS /css/UI/toggle.css
  */
-const Toggle = ({ label, onChange, wrapperClasses, bgColor, checked }) => {
+const Toggle = ({ label, onChange, wrapperClassNames, bgColor, checked }) => {
 	return (
-		<div className={wrapperClasses}>
+		<div className={wrapperClassNames}>
 			<div className="relative inline-block w-10 mr-1 align-middle select-none transition duration-200 ease-in">
 				<input
 					type="checkbox"

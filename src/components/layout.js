@@ -12,7 +12,7 @@ const Layout = ({ location, children, bgImgSrc, bgColor }) => {
 		>
 			<div
 				id="nav-and-section-wrapper"
-				className="bg-cover bg-center bg-no-repeat flex flex-wrap overflow-hidden h-auto grid grid-cols-1 grid-rows-nav-section-layout"
+				className={`bg-auto bg-left-top bg-no-repeat flex flex-wrap overflow-hidden h-auto grid grid-cols-1 grid-rows-nav-section-layout`}
 				style={
 					bgImgSrc
 						? {
@@ -27,10 +27,7 @@ const Layout = ({ location, children, bgImgSrc, bgColor }) => {
 				{children}
 			</div>
 			<footer className="text-center py-2 bg-black overflow-hidden relative">
-				<Particles
-					params={spaceParams}
-					className="absolute"
-				/>
+				<Particles params={spaceParams} className="absolute" />
 				<span className="text-sm text-white">{`© ${new Date().getFullYear()} Brian Siklinski. Created with React, Gatsby, Wordpress and Tailwind.`}</span>
 			</footer>
 		</div>
