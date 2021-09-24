@@ -1,55 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { handleKeyDown } from '../../utilities/keydown';
+import { useDarkMode } from '../../hooks/use-dark-mode';
 
 const DarkMode = () => {
-	const initialDarkModeState = () => {
-		let enabled = localStorage.getItem('darkMode');
+	const [darkMode, setDarkMode] = useDarkMode();
 
-		if (typeof enabled === 'string') {
-			switch (enabled) {
-				case 'true':
-					enabled = true;
-					break;
-				case 'false':
-					enabled = false;
-					break;
-				default:
-					enabled = false;
-			}
-		}
-
-		if (null === enabled) {
-			enabled = true;
-		}
-
-		return enabled;
-	};
-
-	/**
-	 * Dark mode state.
-	 */
-	const [darkMode, setDarkMode] = useState(initialDarkModeState());
-
-	/**
-	 * Toggle cb.
-	 */
 	const toggleDarkMode = () => {
 		setDarkMode(!darkMode);
-	};
-
-	useEffect(() => {
-		localStorage.setItem('darkMode', darkMode);
-
-		const { classList } = document.documentElement;
-
-		if (true === darkMode) {
-			classList.add('dark');
-		} else if (false === darkMode) {
-			classList.remove('dark');
-		}
-	}, [darkMode]);
+	}
 
 	return (
 		<div
