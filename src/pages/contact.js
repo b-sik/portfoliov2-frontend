@@ -11,7 +11,7 @@ const config = [
 
 const Contact = () => {
 	const bgColor = getBgColor();
-	const bgGradient = getBgGradientClass(bgColor, 't');
+	const bgGradient = getBgGradientClass(bgColor, 'b');
 
 	return (
 		<Layout location="/contact" bgColor={bgColor}>

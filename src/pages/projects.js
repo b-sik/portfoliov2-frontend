@@ -26,7 +26,7 @@ const Projects = () => {
 	 * Set gradient class.
 	 */
 	useEffect(() => {
-		setBgGradient(getBgGradientClass(bgColor, 't'));
+		setBgGradient(getBgGradientClass(bgColor, 'b'));
 	}, [bgColor]);
 
 	return (

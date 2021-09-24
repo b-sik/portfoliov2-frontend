@@ -1,9 +1,10 @@
 import React from 'react';
+import { handleKeyDown } from '../utilities/keydown';
 
 /**
  * @see CSS /css/UI/toggle.css
  */
-const Toggle = ({ label, onChange, wrapperClassNames, bgColor, checked }) => {
+const Toggle = ({ label, onChange, wrapperClassNames, checked }) => {
 	return (
 		<div className={wrapperClassNames}>
 			<div className="relative inline-block w-10 mr-1 align-middle select-none transition duration-200 ease-in">
@@ -14,7 +15,9 @@ const Toggle = ({ label, onChange, wrapperClassNames, bgColor, checked }) => {
 					className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"
 					checked={checked}
 					onChange={() => onChange()}
+					onKeyDown={(e) => handleKeyDown(e, onChange)}
 				/>
+				{/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
 				<label
 					htmlFor="toggle"
 					className="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"

@@ -3,7 +3,7 @@ import { getImage } from 'gatsby-plugin-image';
 import parse from 'html-react-parser';
 import {
 	defaultBlockParse as mdParse,
-	defaultOutput as mdOutput,
+	defaultReactOutput as mdOutput,
 } from 'simple-markdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMarkdown } from '@fortawesome/free-brands-svg-icons';
@@ -80,16 +80,15 @@ const About = ({ isExcerpt }) => {
 			>
 				<div
 					id="about--excerpt"
-					className="col-start-2 col-end-12 sm:col-start-4 sm:col-end-10 row-start-2 row-end-3 self-center"
+					className="col-start-2 col-end-12 sm:col-start-4 sm:col-end-10 row-start-2 row-end-3 self-center opacity-90"
 				>
 					{mdView ? mdOutput(mdParse(mdString)) : parse(content)}
 				</div>
 				<Toggle
 					wrapperClassNames="row-start-3 row-end-4 col-start-11 col-end-12 sm:col-start-9 sm:col-end-10 opacity-70 h-auto justify-self-end mt-2"
-					label={<FontAwesomeIcon icon={faMarkdown} />}
+					label={<FontAwesomeIcon icon={faMarkdown} className="dark:text-white cursor-pointer" />}
 					onChange={onToggleChange}
 					checked={mdView}
-					bgColor={bgColor}
 				/>
 			</div>
 			{!isExcerpt && (

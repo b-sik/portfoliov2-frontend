@@ -1,14 +1,14 @@
 import React from 'react';
-import Particles from 'react-particles-js';
 import Nav from '../components/nav';
 import Seo from '../components/seo';
-import { spaceParams } from '../utilities/particles-params';
+import Footer from '../components/footer';
 
 const Layout = ({ location, children, bgImgSrc, bgColor }) => {
+	
 	return (
 		<div
 			id="front-page-wrapper"
-			className="flex flex-wrap overflow-hidden grid grid-cols-1 auto-rows-min"
+			className="flex flex-wrap overflow-hidden grid grid-cols-1 auto-rows-min dark:text-white"
 		>
 			<div
 				id="nav-and-section-wrapper"
@@ -26,10 +26,7 @@ const Layout = ({ location, children, bgImgSrc, bgColor }) => {
 
 				{children}
 			</div>
-			<footer className="text-center py-2 bg-black overflow-hidden relative">
-				<Particles params={spaceParams} className="absolute" />
-				<span className="text-sm text-white">{`© ${new Date().getFullYear()} Brian Siklinski. Created with React, Gatsby, Wordpress and Tailwind.`}</span>
-			</footer>
+			<Footer />
 		</div>
 	);
 };

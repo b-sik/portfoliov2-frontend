@@ -1,32 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon, faSun } from '@fortawesome/free-regular-svg-icons';
-import { toggleDarkMode } from '../utilities/dark-mode';
+import React from 'react';
+import DarkMode from './nav-tools/dark-mode';
+import ColorPicker from './nav-tools/color-picker';
+import ReactTooltip from 'react-tooltip';
 
 const NavToolbar = () => {
-	/**
-	 * Dark mode.
-	 */
-    const [darkMode, setDarkMode] = useState(false);
-    
-	useEffect(() => {
-		toggleDarkMode(darkMode);
-    }, [darkMode]);
-    
 	return (
 		<div
 			id="nav-toolbar"
-			className="flex justify-around content-center w-10"
+			role="tablist"
+			className="flex justify-around content-center w-10 justify-self-end"
 		>
-			<div onClick={() => setDarkMode(!darkMode)} className="my-auto">
-				<FontAwesomeIcon
-					className={`${!darkMode && 'text-xl text-black'} ${
-						darkMode &&
-						'transform -rotate-12 text-lg text-white opacity-80'
-					}`}
-					icon={darkMode ? faMoon : faSun}
-				/>
-			</div>
+			<ReactTooltip
+				type={'light'}
+				delayShow={500}
+				place={'left'}
+			/>
+			<DarkMode />
+			<ColorPicker />
 		</div>
 	);
 };

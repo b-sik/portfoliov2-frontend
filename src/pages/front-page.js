@@ -2,7 +2,7 @@ import React from 'react';
 import About from '../pages/about';
 
 const FrontPage = () => {
-	return <About isExcerpt={true} />;
+	return <About />;
 };
 
 export default FrontPage;
