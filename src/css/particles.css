@@ -1,3 +1,9 @@
-.particles-js-canvas-el {
-    height: 100px !important;
+#tsparticles {
+  width: 100%;
+}
+
+.tsparticles-canvas-el {
+    /* height: 100px !important; */
+    width: 100%;
+    /* z-index: - !important; */
   }

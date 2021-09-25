@@ -10,6 +10,7 @@ module.exports = {
 			},
 			animation: {
 				'hover-pulse': 'hoverPulse 1s linear infinite',
+				'hover-grow': 'hoverGrow 200ms linear 1 forwards',
 			},
 			keyframes: {
 				hoverPulse: {
@@ -18,6 +19,14 @@ module.exports = {
 					},
 					'50%': {
 						transform: 'scale(1.05)',
+					},
+				},
+				hoverGrow: {
+					'0%': {
+						transform: 'scale(1)',
+					},
+					'100%': {
+						transform: 'scale(1.025)',
 					},
 				},
 			},

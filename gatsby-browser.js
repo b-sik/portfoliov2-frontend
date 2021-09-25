@@ -11,3 +11,5 @@ import './src/css/style.css';
 import './src/css/particles.css';
 
 import './src/css/UI/toggle.css';
+
+import './src/css/brand-icons.css';

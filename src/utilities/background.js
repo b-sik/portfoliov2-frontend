@@ -3,7 +3,9 @@
  */
 export const getBgColor = () => {
     const bgColors = ['yellow', 'red', 'blue', 'green', 'indigo', 'purple', 'pink'];
-    return bgColors[Math.floor(Math.random() * bgColors.length)];
+    const color = bgColors[Math.floor(Math.random() * bgColors.length)];
+
+    return color;
 };
 
 export const getBgGradientClass = (bgColor, dir = 'r') => {

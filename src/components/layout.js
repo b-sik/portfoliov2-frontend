@@ -26,7 +26,7 @@ const Layout = ({ location, children, bgImgSrc, bgColor }) => {
 
 				{children}
 			</div>
-			<Footer />
+			<Footer bgColor={bgColor} />
 		</div>
 	);
 };

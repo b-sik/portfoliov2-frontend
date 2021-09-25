@@ -1,0 +1,16 @@
+.brand-icon-anchor:hover .brand-icon-linkedin {
+	color: #0177b5;
+	transition: all 0.2s ease-in;
+}
+.brand-icon-anchor:hover .brand-icon-twitter {
+	color: #1c9bef;
+	transition: all 0.2s ease-in;
+}
+.brand-icon-anchor:hover .brand-icon-github {
+	color: #9900fd;
+	transition: all 0.2s ease-in;
+}
+.brand-icon-anchor:hover .brand-icon-email {
+	color: #ef4444;
+	transition: all 0.2s ease-in;
+}

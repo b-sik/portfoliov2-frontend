@@ -1,5 +1,11 @@
 import { useState, useEffect } from 'react';
 
+/**
+ * Custom hook for dark mode functionality.
+ * @param {boolean} defaultValue Default mode.
+ * 
+ * @returns {Array<Boolean, Function>}
+ */
 export const useDarkMode = (defaultValue = false) => {
 	const key = 'darkMode';
 
