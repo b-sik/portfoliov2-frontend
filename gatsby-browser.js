@@ -7,9 +7,8 @@ import './src/css/normalize.css';
 // custom CSS styles
 import './src/css/style.css';
 
-// particle.js
+// custom
 import './src/css/particles.css';
-
 import './src/css/UI/toggle.css';
-
 import './src/css/brand-icons.css';
+import './src/css/about-page-tweaks.css';

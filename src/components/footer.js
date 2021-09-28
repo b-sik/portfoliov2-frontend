@@ -1,19 +1,26 @@
 import React from 'react';
 import { contactConfig } from '../config/contact-config';
-import { useDarkMode } from '../hooks/use-dark-mode';
 
-const Footer = ({ bgColor }) => {
-	const [darkMode] = useDarkMode();
-
+const Footer = ({ bgColor, location }) => {
 	return (
-		<footer className="py-2 bg-white dark:bg-black overflow-hidden relative">
-			<div className="flex place-content-center z-50">
-				<span className="text-sm text-black dark:text-white leading-none my-auto">{`© ${new Date().getFullYear()} Brian Siklinski. Created with React, Gatsby, Wordpress and Tailwind.`}</span>
-				<span className={`text-lg text-black dark:text-white ml-2`}>
-					{' '}
-					|{' '}
-				</span>
-				<ul className="inline flex">
+		<footer className="py-2 bg-white dark:bg-black overflow-hidden relative text-center">
+			<div className="flex flex-col sm:flex-row place-content-center">
+				<div id="footer-copyright-div flex place-content-center">
+					<span className="text-xs sm:text-sm text-black dark:text-white leading-none my-auto">{`© ${new Date().getFullYear()} Brian Siklinski. `}</span>
+					<br className='inline sm:hidden' />
+					<span className="text-xs sm:text-sm text-black dark:text-white leading-none my-auto">{`Created with React, Gatsby, Wordpress and Tailwind.`}</span>
+					<span
+						className={`text-lg text-black dark:text-white ml-2 hidden sm:inline`}
+					>
+						{' '}
+						|{' '}
+					</span>
+				</div>
+				<ul
+					className={`${
+						location === '/contact' ? 'hidden sm:inline-block' : 'inline-block'
+					}  w-auto mx-auto sm:mx-0 flex justify-items-center order-first sm:order-none`}
+				>
 					{contactConfig.map((link, i) => {
 						const { name, url, icon } = link;
 

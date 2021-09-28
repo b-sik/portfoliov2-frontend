@@ -25,7 +25,7 @@ const Contact = () => {
 					className="absolute"
 				/>
 				<h2 className="row-start-1 row-end-2 col-span-full">Contact</h2>
-				<ul className="z-50 row-start-2 row-end-3 text-white flex justify-center content-center col-span-full">
+				<ul className="z-50 row-start-2 row-end-3 text-white flex flex-col sm:flex-row justify-center text-center content-center col-span-full">
 					{contactConfig.map((link, i, arr) => {
 						const { name, url, icon } = link;
 
@@ -66,7 +66,7 @@ const Contact = () => {
 								</li>
 								{i !== arr.length - 1 && (
 									<li
-										className={`my-4 mx-4 text-2xl text-black dark:text-white`}
+										className={`my-4 mx-4 text-2xl text-black dark:text-white hidden sm:inline`}
 									>
 										|
 									</li>

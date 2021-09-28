@@ -2,7 +2,7 @@ import React from 'react';
 import { handleKeyDown } from '../utilities/keydown';
 
 /**
- * @see CSS /css/UI/toggle.css
+ * @see {@file './css/UI/toggle.css'}
  */
 const Toggle = ({ label, onChange, wrapperClassNames, checked }) => {
 	return (

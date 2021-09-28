@@ -8,7 +8,7 @@ const NavToolbar = () => {
 		<div
 			id="nav-toolbar"
 			role="tablist"
-			className="flex justify-around content-center w-10 justify-self-end"
+			className="flex justify-around content-center w-auto justify-self-end pt-1"
 		>
 			<ReactTooltip
 				type={'light'}

@@ -4,7 +4,6 @@ import Seo from '../components/seo';
 import Footer from '../components/footer';
 
 const Layout = ({ location, children, bgImgSrc, bgColor }) => {
-	
 	return (
 		<div
 			id="front-page-wrapper"
@@ -26,7 +25,7 @@ const Layout = ({ location, children, bgImgSrc, bgColor }) => {
 
 				{children}
 			</div>
-			<Footer bgColor={bgColor} />
+			<Footer bgColor={bgColor} location={location} />
 		</div>
 	);
 };

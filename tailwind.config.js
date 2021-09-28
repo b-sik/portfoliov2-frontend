@@ -5,7 +5,7 @@ module.exports = {
 		extend: {
 			gridTemplateRows: {
 				'nav-section-layout': 'auto 1fr',
-				'about-layout': '25vh 1fr 1fr',
+				'about-layout': '20% minmax(min-content, 1fr) 1fr',
 				'about-layout-mobile': '20vh 1fr 1fr',
 			},
 			animation: {

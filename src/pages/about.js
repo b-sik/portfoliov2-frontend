@@ -76,7 +76,7 @@ const About = ({ isExcerpt }) => {
 		>
 			<div
 				id="about"
-				className={`${bgGradient} opacity-90 w-full h-screen overflow-hidden flex-grow grid grid-cols-12 sm:grid-rows-about-layout grid-rows-about-layout-mobile`}
+				className={`${bgGradient} opacity-90 w-full h-auto overflow-hidden flex-grow grid grid-cols-12 sm:grid-rows-about-layout grid-rows-about-layout-mobile`}
 			>
 				<div
 					id="about--excerpt"
@@ -85,7 +85,7 @@ const About = ({ isExcerpt }) => {
 					{mdView ? mdOutput(mdParse(mdString)) : parse(content)}
 				</div>
 				<Toggle
-					wrapperClassNames="row-start-3 row-end-4 col-start-11 col-end-12 sm:col-start-9 sm:col-end-10 opacity-70 h-auto justify-self-end mt-2"
+					wrapperClassNames="row-start-3 row-end-4 col-start-11 col-end-12 sm:col-start-9 sm:col-end-10 opacity-70 h-auto justify-self-end py-4"
 					label={<FontAwesomeIcon icon={faMarkdown} className="dark:text-white cursor-pointer" />}
 					onChange={onToggleChange}
 					checked={mdView}
