@@ -80,12 +80,12 @@ const About = ({ isExcerpt }) => {
 			>
 				<div
 					id="about--excerpt"
-					className="col-start-2 col-end-12 sm:col-start-4 sm:col-end-10 row-start-2 row-end-3 self-center opacity-90"
+					className="col-start-2 col-end-12 md:col-start-4 md:col-end-10 row-start-2 row-end-3 self-center opacity-90"
 				>
 					{mdView ? mdOutput(mdParse(mdString)) : parse(content)}
 				</div>
 				<Toggle
-					wrapperClassNames="row-start-3 row-end-4 col-start-11 col-end-12 sm:col-start-9 sm:col-end-10 opacity-70 h-auto justify-self-end py-4"
+					wrapperClassNames="row-start-3 row-end-4 col-start-10 col-end-12 sm:col-start-9 sm:col-end-10 opacity-70 h-auto justify-self-end py-4"
 					label={<FontAwesomeIcon icon={faMarkdown} className="dark:text-white cursor-pointer" />}
 					onChange={onToggleChange}
 					checked={mdView}

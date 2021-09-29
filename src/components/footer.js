@@ -7,10 +7,12 @@ const Footer = ({ bgColor, location }) => {
 			<div className="flex flex-col sm:flex-row place-content-center">
 				<div id="footer-copyright-div flex place-content-center">
 					<span className="text-xs sm:text-sm text-black dark:text-white leading-none my-auto">{`© ${new Date().getFullYear()} Brian Siklinski. `}</span>
-					<br className='inline sm:hidden' />
+					<br className="inline sm:hidden" />
 					<span className="text-xs sm:text-sm text-black dark:text-white leading-none my-auto">{`Created with React, Gatsby, Wordpress and Tailwind.`}</span>
 					<span
-						className={`text-lg text-black dark:text-white ml-2 hidden sm:inline`}
+						className={`text-lg text-black dark:text-white ml-2 ${
+							location === '/contact' ? 'hidden' : 'inline'
+						}`}
 					>
 						{' '}
 						|{' '}
@@ -18,8 +20,8 @@ const Footer = ({ bgColor, location }) => {
 				</div>
 				<ul
 					className={`${
-						location === '/contact' ? 'hidden sm:inline-block' : 'inline-block'
-					}  w-auto mx-auto sm:mx-0 flex justify-items-center order-first sm:order-none`}
+						location === '/contact' ? 'hidden' : 'inline'
+					} w-auto mx-auto sm:mx-0 flex justify-items-center order-first sm:order-none`}
 				>
 					{contactConfig.map((link, i) => {
 						const { name, url, icon } = link;
@@ -29,7 +31,7 @@ const Footer = ({ bgColor, location }) => {
 								<a
 									href={
 										name === 'email'
-											? 'bszyk.codes@gmail.com'
+											? 'mailto:bszyk.codes@gmail.com'
 											: url
 									}
 									target="_blank"
