@@ -6,7 +6,6 @@ export const useSkillsData = () => {
 	} = useStaticQuery(graphql`
 		query SkillsQuery {
 			allWpSkill {
-				totalCount
 				edges {
 					node {
 						blocks {
@@ -14,6 +13,9 @@ export const useSkillsData = () => {
 							type
 						}
 						title
+						iconName {
+							skillIconName
+						}
 					}
 				}
 			}
