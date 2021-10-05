@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../components/layout';
-import { getBgColor, getBgGradientClass } from '../utilities/background';
+import { getBgGradientClass } from '../utilities/background';
 import { contactConfig } from '../config/contact-config';
 import { lightSpaceParams, darkSpaceParams } from '../config/particles-params';
 import Particles from 'react-particles-js';
@@ -9,7 +9,7 @@ import { useDarkMode } from '../hooks/use-dark-mode';
 const Contact = () => {
 	const [darkMode] = useDarkMode();
 
-	const bgColor = getBgColor();
+	const bgColor = 'green';
 	const bgGradient = getBgGradientClass(bgColor, 'b');
 
 	const currentEmail = 'bszyk.codes@gmail.com';
