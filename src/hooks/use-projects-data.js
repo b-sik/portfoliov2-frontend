@@ -14,6 +14,10 @@ export const useProjectsData = () => {
 							type
 						}
 						title
+						projects {
+							github
+							liveDemo
+						}
 					}
 				}
 			}
