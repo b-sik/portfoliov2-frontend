@@ -7,6 +7,7 @@ import {
 } from 'simple-markdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMarkdown } from '@fortawesome/free-brands-svg-icons';
+import ReactTooltip from 'react-tooltip';
 import Layout from '../components/layout';
 import Section from '../components/section';
 import Toggle from '../components-ui/toggle';
@@ -84,11 +85,23 @@ const About = ({ isExcerpt }) => {
 				>
 					{mdView ? mdOutput(mdParse(mdString)) : parse(content)}
 				</div>
+				<ReactTooltip
+					type={'light'}
+					delayShow={500}
+					place={'left'}
+					id={'tooltip-markdown'}
+				/>
 				<Toggle
 					wrapperClassNames="row-start-3 row-end-4 col-start-10 col-end-12 sm:col-start-9 sm:col-end-10 opacity-70 h-auto justify-self-end py-4"
-					label={<FontAwesomeIcon icon={faMarkdown} className="dark:text-white cursor-pointer" />}
+					label={
+						<FontAwesomeIcon
+							icon={faMarkdown}
+							className="dark:text-white cursor-pointer"
+						/>
+					}
 					onChange={onToggleChange}
 					checked={mdView}
+					dataTip={'Toggle markdown view on/off'}
 				/>
 			</div>
 			{!isExcerpt && (

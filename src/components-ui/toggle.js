@@ -4,9 +4,9 @@ import { handleKeyDown } from '../utilities/keydown';
 /**
  * @see {@file './css/UI/toggle.css'}
  */
-const Toggle = ({ label, onChange, wrapperClassNames, checked }) => {
+const Toggle = ({ label, onChange, wrapperClassNames, checked, dataTip }) => {
 	return (
-		<div className={wrapperClassNames}>
+		<div className={wrapperClassNames} >
 			<div className="relative inline-block w-10 mr-1 align-middle select-none transition duration-200 ease-in">
 				<input
 					type="checkbox"
@@ -16,6 +16,8 @@ const Toggle = ({ label, onChange, wrapperClassNames, checked }) => {
 					checked={checked}
 					onChange={() => onChange()}
 					onKeyDown={(e) => handleKeyDown(e, onChange)}
+					data-tip={dataTip}
+					data-for={'tooltip-markdown'}
 				/>
 				{/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
 				<label
