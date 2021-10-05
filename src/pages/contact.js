@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Layout from '../components/layout';
 import { getBgColor, getBgGradientClass } from '../utilities/background';
 import { contactConfig } from '../config/contact-config';
@@ -30,12 +30,13 @@ const Contact = () => {
 						const { name, url, icon } = link;
 
 						return (
-							<>
+							<Fragment key={i}>
 								<li
 									key={i}
 									className={`my-4 hover:animate-hover-grow`}
 								>
 									<a
+										key={`anchor-${i}`}
 										href={
 											name === 'email'
 												? `mailto:${currentEmail}`
@@ -49,6 +50,7 @@ const Contact = () => {
 											// @see '../css/brand-icons.css'
 										}
 										<span
+											key={`icon-${i}`}
 											className={`brand-icon-${name.toLowerCase()} ${
 												name === 'email' &&
 												`hover:text-${bgColor}-500`
@@ -57,7 +59,7 @@ const Contact = () => {
 											{icon}
 										</span>
 										&nbsp;&nbsp;
-										<span>
+										<span key={`name-${i}`}>
 											{name === 'email'
 												? currentEmail
 												: name}
@@ -66,12 +68,13 @@ const Contact = () => {
 								</li>
 								{i !== arr.length - 1 && (
 									<li
+										key={`divider-${i}`}
 										className={`my-4 mx-4 text-2xl text-black dark:text-white hidden sm:inline`}
 									>
 										|
 									</li>
 								)}
-							</>
+							</Fragment>
 						);
 					})}
 				</ul>
