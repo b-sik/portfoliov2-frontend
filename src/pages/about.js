@@ -13,7 +13,7 @@ import Section from '../components/section';
 import Toggle from '../components-ui/toggle';
 import { useAboutPageData } from '../hooks/use-about-page-data.js';
 import { useSkillsData } from '../hooks/use-skills-data.js';
-import { getBgColor, getBgGradientClass } from '../utilities/background';
+import { getBgGradientClass } from '../utilities/background';
 
 const About = ({ isExcerpt }) => {
 	/**
@@ -24,7 +24,7 @@ const About = ({ isExcerpt }) => {
 	/**
 	 * Bg color state.
 	 */
-	const [bgColor, setBgColor] = useState(null);
+	const bgColor = 'green';
 
 	/**
 	 * Bg gradient state.
@@ -34,9 +34,9 @@ const About = ({ isExcerpt }) => {
 	/**
 	 * Set bg color.
 	 */
-	useEffect(() => {
-		setBgColor(getBgColor());
-	}, []);
+	// useEffect(() => {
+	// 	setBgColor(getBgColor());
+	// }, []);
 
 	/**
 	 * Set gradient class.

@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Layout from '../components/layout';
 import Section from '../components/section';
 import { useProjectsData } from '../hooks/use-projects-data.js';
-import { getBgColor, getBgGradientClass } from '../utilities/background';
+import { getBgGradientClass } from '../utilities/background';
 
 const Projects = () => {
 	/**
 	 * Bg color state.
 	 */
-	const [bgColor, setBgColor] = useState(null);
+	const bgColor = 'green';
 
 	/**
 	 * Bg gradient state.
@@ -18,9 +18,9 @@ const Projects = () => {
 	/**
 	 * Set bg color.
 	 */
-	useEffect(() => {
-		setBgColor(getBgColor());
-	}, []);
+	// useEffect(() => {
+	// 	setBgColor(getBgColor());
+	// }, []);
 
 	/**
 	 * Set gradient class.
