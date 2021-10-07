@@ -9,7 +9,7 @@ import { useDarkMode } from '../hooks/use-dark-mode';
 const Contact = () => {
 	const [darkMode] = useDarkMode();
 
-	const bgColor = 'green';
+	const bgColor = 'indigo';
 	const bgGradient = getBgGradientClass(bgColor, 'b');
 
 	const currentEmail = 'bszyk.codes@gmail.com';

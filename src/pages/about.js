@@ -24,7 +24,7 @@ const About = ({ isExcerpt }) => {
 	/**
 	 * Bg color state.
 	 */
-	const bgColor = 'green';
+	const bgColor = 'indigo';
 
 	/**
 	 * Bg gradient state.

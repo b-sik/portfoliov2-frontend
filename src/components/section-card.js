@@ -41,7 +41,6 @@ const SectionCard = ({ node }) => {
 
 	const {
 		description,
-		code,
 		image,
 		icon,
 		gitHubLink,
@@ -51,7 +50,7 @@ const SectionCard = ({ node }) => {
 	return (
 		<div className="section-card hover:animate-hover-grow text-left opacity-85 inline-block mx-8 p-2 md:p-6 h-auto w-auto bg-white dark:bg-black border dark:border-black rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-xl dark:hover:shadow-xl-white transition-all dark:shadow-lg-white">
 			<div className="section-card-title flex w-full justify-between">
-				<h4>{title}</h4>
+				<h4 className="mb-2">{title}</h4>
 				{icon && (
 					<Icons
 						iconName={icon}
@@ -62,8 +61,7 @@ const SectionCard = ({ node }) => {
 				)}
 			</div>
 			{description && <p className="mt-2">{description}</p>}
-			{/* {code && <div className="overflow-scroll h-60 w-auto">{code}</div>} */}
-			{image && <div className={`mt-4`}>{image}</div>}
+			{image && <div className={`mt-4 border`}>{image}</div>}
 			{projects && (
 				<div className={`w-full flex justify-between`}>
 					{gitHubLink && (
