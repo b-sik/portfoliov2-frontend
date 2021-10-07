@@ -1,5 +1,5 @@
 import React from 'react';
-import { handleKeyDown } from '../utilities/keydown';
+import { handleKeyDown } from '../../utilities/keydown';
 
 /**
  * @see {@file './css/UI/toggle.css'}

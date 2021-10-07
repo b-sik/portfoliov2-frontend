@@ -10,12 +10,12 @@ import { faMarkdown } from '@fortawesome/free-brands-svg-icons';
 import ReactTooltip from 'react-tooltip';
 import Layout from '../components/layout';
 import Section from '../components/section';
-import Toggle from '../components-ui/toggle';
+import Toggle from '../components/ui/toggle';
 import { useAboutPageData } from '../hooks/use-about-page-data.js';
 import { useSkillsData } from '../hooks/use-skills-data.js';
 import { getBgGradientClass } from '../utilities/background';
 
-const About = ({ isExcerpt }) => {
+const About = () => {
 	/**
 	 * Markdown view state.
 	 */
@@ -70,11 +70,7 @@ const About = ({ isExcerpt }) => {
 	};
 
 	return (
-		<Layout
-			location={isExcerpt ? '/' : '/about'}
-			bgImgSrc={bgImgSrc}
-			bgColor={bgColor}
-		>
+		<Layout location={'/about'} bgImgSrc={bgImgSrc} bgColor={bgColor}>
 			<div
 				id="about"
 				className={`${bgGradient} opacity-90 w-full h-auto overflow-hidden flex-grow grid grid-cols-12 sm:grid-rows-about-layout grid-rows-about-layout-mobile`}
@@ -104,13 +100,11 @@ const About = ({ isExcerpt }) => {
 					dataTip={'Toggle markdown view on/off'}
 				/>
 			</div>
-			{!isExcerpt && (
-				<Section
-					section="skills"
-					edges={skillsData}
-					bgGradient={getBgGradientClass(bgColor, 'b')}
-				/>
-			)}
+			<Section
+				section="skills"
+				edges={skillsData}
+				bgGradient={getBgGradientClass(bgColor, 'b')}
+			/>
 		</Layout>
 	);
 };

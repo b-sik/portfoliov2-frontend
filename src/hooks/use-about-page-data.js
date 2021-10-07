@@ -15,7 +15,6 @@ export const useAboutPageData = () => {
 					node {
 						id
 						content
-						excerpt
 						featuredImage {
 							node {
 								localFile {
