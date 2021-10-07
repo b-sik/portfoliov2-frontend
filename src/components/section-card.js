@@ -15,7 +15,7 @@ const SectionCard = ({ node }) => {
 	const content = {
 		description: null,
 		code: null,
-		image: null,
+		images: [],
 		icon: iconName ? iconName.skillIconName : null,
 		gitHubLink: projects ? projects.github : null,
 		liveDemoLink: projects ? projects.liveDemo : null,
@@ -32,20 +32,18 @@ const SectionCard = ({ node }) => {
 				Object.assign(content, { code: parse(innerHtml) });
 				break;
 			case 'CORE_IMAGE':
-				Object.assign(content, { image: parse(innerHtml) });
+				Object.assign(content, {
+					images: [...content.images, parse(innerHtml)],
+				});
 				break;
 			default:
 				break;
 		}
 	});
 
-	const {
-		description,
-		image,
-		icon,
-		gitHubLink,
-		liveDemoLink,
-	} = content;
+	const { description, images, icon, gitHubLink, liveDemoLink } = content;
+
+	console.log({images});
 
 	return (
 		<div className="section-card hover:animate-hover-grow text-left opacity-85 inline-block mx-8 p-2 md:p-6 h-auto w-auto bg-white dark:bg-black border dark:border-black rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-xl dark:hover:shadow-xl-white transition-all dark:shadow-lg-white">
@@ -61,7 +59,12 @@ const SectionCard = ({ node }) => {
 				)}
 			</div>
 			{description && <p className="mt-2">{description}</p>}
-			{image && <div className={`mt-4 border`}>{image}</div>}
+			{images.length > 0 &&
+				images.map((image, i) => (
+					<div key={i} className={`mt-4 border`}>
+						{image}
+					</div>
+				))}
 			{projects && (
 				<div className={`w-full flex justify-between`}>
 					{gitHubLink && (
