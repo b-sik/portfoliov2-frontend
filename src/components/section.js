@@ -17,7 +17,7 @@ const Section = ({ section, edges, bgGradient }) => {
 	return (
 		<div
 			id={`${section}-wrapper`}
-			className={`${bgGradient} p-4 flex flex-wrap overflow-hidden grid grid-cols-12 auto-rows-min`}
+			className={`${bgGradient} p-4 overflow-hidden grid grid-cols-12 auto-rows-min`}
 		>
 			<h2 className="col-span-full row-start-1 row-end-2 text-center my-4">
 				{section[0].toUpperCase() + section.substring(1)}
@@ -27,11 +27,9 @@ const Section = ({ section, edges, bgGradient }) => {
 					<div
 						key={i}
 						id={`${section}-container-${i}`}
-						className={`${
-							isMobileOnly
-								? 'col-span-full'
-								: 'col-start-2 col-end-12'
-						} row-start-${rowStart + i} row-end-${
+						className={`col-span-full md:col-start-2 md:col-end-12 row-start-${
+							rowStart + i
+						} row-end-${
 							rowStart + 1 + i
 						} flex items-center justify-around my-6`}
 					>

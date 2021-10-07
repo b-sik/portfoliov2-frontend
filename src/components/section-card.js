@@ -43,16 +43,18 @@ const SectionCard = ({ node }) => {
 
 	const { description, images, icon, gitHubLink, liveDemoLink } = content;
 
-	console.log({images});
-
 	return (
-		<div className="section-card hover:animate-hover-grow text-left opacity-85 inline-block mx-8 p-2 md:p-6 h-auto w-auto bg-white dark:bg-black border dark:border-black rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-xl dark:hover:shadow-xl-white transition-all dark:shadow-lg-white">
+		<div
+			className={`section-card ${
+				projects ? 'w-1/2' : ''
+			} hover:animate-hover-grow text-left opacity-85 inline-block mx-8 p-4 md:p-6 h-auto w-auto bg-white dark:bg-black border dark:border-black rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-xl dark:hover:shadow-xl-white transition-all dark:shadow-lg-white`}
+		>
 			<div className="section-card-title flex w-full justify-between">
 				<h4 className="mb-2">{title}</h4>
 				{icon && (
 					<Icons
 						iconName={icon}
-						classnames={`text-3xl -mt-2 -mr-2 ${
+						classnames={`text-3xl -mt-1 -mr-1 md:-mt-2 md:-mr-2 ${
 							icon === 'faReact' && 'hover:animate-spin'
 						}`}
 					/>
