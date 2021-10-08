@@ -47,13 +47,6 @@ module.exports = {
 				path: `${__dirname}/content/assets`,
 			},
 		},
-		{
-			resolve: `gatsby-source-filesystem`,
-			options: {
-				name: `wp-uploads`,
-				path: process.env.LOCALWP_MEDIA
-			},
-		},
 
 		/**
 		 * The following two plugins are required if you want to use Gatsby image
