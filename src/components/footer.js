@@ -10,7 +10,11 @@ const Footer = ({ bgColor, location }) => {
 					<br className="inline sm:hidden" />
 					<span className="text-xs sm:text-sm text-black dark:text-white leading-none my-auto">{`Created with React, Gatsby, Wordpress and Tailwind.`}</span>
 					<span
-						className={`text-lg text-black dark:text-white ml-2 hidden md:inline`}
+						className={`text-lg text-black dark:text-white ml-2 ${
+							location === '/contact'
+								? 'hidden'
+								: 'hidden md:inline'
+						}`}
 					>
 						{' '}
 						|{' '}

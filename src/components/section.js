@@ -3,7 +3,7 @@ import { isMobileOnly } from 'react-device-detect';
 import SectionCard from './section-card';
 import { chunk, shuffle } from 'lodash';
 
-const Section = ({ section, edges, bgGradient }) => {
+const Section = ({ section, description, edges, bgGradient }) => {
 	if (!edges) {
 		return null;
 	}
@@ -17,11 +17,12 @@ const Section = ({ section, edges, bgGradient }) => {
 	return (
 		<div
 			id={`${section}-wrapper`}
-			className={`${bgGradient} p-4 overflow-hidden grid grid-cols-12 auto-rows-min`}
+			className={`${bgGradient} py-8 overflow-hidden grid grid-cols-12 auto-rows-min`}
 		>
-			<h2 className="col-span-full row-start-1 row-end-2 text-center my-4">
-				{section[0].toUpperCase() + section.substring(1)}
-			</h2>
+			<div className="col-start-2 col-end-13 row-start-1 row-end-2 my-4">
+				<h3>{section[0].toUpperCase() + section.substring(1)}</h3>
+				<p>{description}</p>
+			</div>
 			{chunked.map((nodes, i) => {
 				return (
 					<div
