@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getImage } from 'gatsby-plugin-image';
+import { __ } from '@wordpress/i18n';
 import parse from 'html-react-parser';
 import {
 	defaultBlockParse as mdParse,
@@ -97,11 +98,12 @@ const About = () => {
 					}
 					onChange={onToggleChange}
 					checked={mdView}
-					dataTip={'Toggle markdown view on/off'}
+					dataTip={__('Toggle markdown view on/off', 'bszyk-portfolio')}
 				/>
 			</div>
 			<Section
-				section="skills"
+				section={__('skills', 'bszyk-portfolio')}
+				description={__('This is a description.', 'bszyk-portfolio')}
 				edges={skillsData}
 				bgGradient={getBgGradientClass(bgColor, 'b')}
 			/>
