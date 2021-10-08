@@ -8,7 +8,6 @@ import './src/css/normalize.css';
 import './src/css/style.css';
 
 // custom
-import './src/css/particles.css';
 import './src/css/toggle.css';
 import './src/css/icons.css';
 import './src/css/about-page-tweaks.css';
