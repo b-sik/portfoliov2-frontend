@@ -7,7 +7,7 @@ const Button = ({ url, label, iconName = null, link = false }) => {
 		'p-4 mt-4 bg-gray-200 hover:bg-gray-300 text-black rounded';
 
 	return link ? (
-		<Link href={url} className={`${defaultClasses} flex-grow text-center m-10`}>
+		<Link href={url} className={`${defaultClasses} flex-grow text-center m-6 md:m-10`}>
 			{label}&nbsp;{iconName && <Icons iconName={iconName} />}
 		</Link>
 	) : (
