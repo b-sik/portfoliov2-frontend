@@ -1,23 +1,23 @@
 import React from 'react';
 import { isMobileOnly } from 'react-device-detect';
 import SectionCard from './section-card';
-import { chunk, shuffle } from 'lodash';
+import { chunk } from 'lodash';
 
 const Section = ({ section, description, edges }) => {
 	if (!edges) {
 		return null;
 	}
 
-	const chunked = isMobileOnly
-		? shuffle(chunk(edges, 1))
-		: shuffle(chunk(edges, 2));
-
-	const rowStart = 2;
+	/**
+	 * Determines num of columns.
+	 */
+	const chunked = isMobileOnly ? chunk(edges, 1) : chunk(edges, 2);
 
 	/**
 	 * Gradient.
 	 */
-	const bgGradient = 'bg-gradient-to-b from-indigo-300 to-white dark:from-indigo-500 dark:to-black';
+	const bgGradient =
+		'bg-gradient-to-b from-indigo-300 to-white dark:from-indigo-500 dark:to-black';
 
 	return (
 		<div
@@ -29,6 +29,8 @@ const Section = ({ section, description, edges }) => {
 				<p>{description}</p>
 			</div>
 			{chunked.map((nodes, i) => {
+				const rowStart = 2;
+
 				return (
 					<div
 						key={i}

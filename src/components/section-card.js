@@ -1,6 +1,7 @@
 import React from 'react';
 import parse from 'html-react-parser';
 import Icons from './icons';
+import Button from './ui/button';
 
 const SectionCard = ({ node }) => {
 	const {
@@ -72,31 +73,28 @@ const SectionCard = ({ node }) => {
 			{description && <p className="mt-2">{description}</p>}
 			{images.length > 0 &&
 				images.map((image, i) => (
-					<div key={i} className={`mt-4 border flex max-w-full rounded overflow-hidden`}>
+					<div
+						key={i}
+						className={`mt-4 border flex max-w-full rounded overflow-hidden`}
+					>
 						{image}
 					</div>
 				))}
 			{projects && (
 				<div className={`w-full flex justify-between`}>
 					{gitHubLink && (
-						<a
-							href={gitHubLink}
-							className={`p-4 mt-4 bg-gray-200 hover:bg-gray-300 text-black rounded`}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							Github <Icons iconName="faGithub" />
-						</a>
+						<Button
+							url={gitHubLink}
+							label={'GitHub'}
+							iconName={'faGithub'}
+						/>
 					)}
 					{liveDemoLink && (
-						<a
-							href={liveDemoLink}
-							className={`p-4 mt-4 bg-gray-200 hover:bg-gray-300 text-black rounded`}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							Live Demo <Icons iconName="faDesktop" />
-						</a>
+						<Button
+							url={liveDemoLink}
+							label={'Live Demo'}
+							iconName={'faDesktop'}
+						/>
 					)}
 				</div>
 			)}
