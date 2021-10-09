@@ -21,18 +21,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 	await createPagePages({ graphql, createPage });
 
 	// Query our posts from the GraphQL server
-	const posts = await getPosts({ graphql, reporter });
+	// const posts = await getPosts({ graphql, reporter });
 
-	// If there are no posts in WordPress, don't do anything
-	if (!posts.length) {
-		return;
-	}
+	// // If there are no posts in WordPress, don't do anything
+	// if (!posts.length) {
+	// 	return;
+	// }
 
-	// If there are posts, create pages for them
-	await createIndividualBlogPostPages({ posts, createPage });
+	// // If there are posts, create pages for them
+	// await createIndividualBlogPostPages({ posts, createPage });
 
-	// And a paginated archive
-	await createBlogPostArchive({ posts, graphql, createPage });
+	// // And a paginated archive
+	// await createBlogPostArchive({ posts, graphql, createPage });
 };
 
 /**
