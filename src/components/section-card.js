@@ -72,7 +72,7 @@ const SectionCard = ({ node }) => {
 			{description && <p className="mt-2">{description}</p>}
 			{images.length > 0 &&
 				images.map((image, i) => (
-					<div key={i} className={`mt-4 border max-w-full rounded overflow-hidden`}>
+					<div key={i} className={`mt-4 border flex max-w-full rounded overflow-hidden`}>
 						{image}
 					</div>
 				))}
