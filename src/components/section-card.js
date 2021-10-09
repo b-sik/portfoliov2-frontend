@@ -7,10 +7,14 @@ const SectionCard = ({ node }) => {
 		node: { blocks, title, iconName, projects },
 	} = node;
 
+	// return if no blocks.
 	if (null === blocks || 'undefined' === typeof blocks) {
 		return null;
 	}
 
+	/**
+	 * Content schema.
+	 */
 	const content = {
 		description: null,
 		code: null,
@@ -20,6 +24,9 @@ const SectionCard = ({ node }) => {
 		liveDemoLink: projects ? projects.liveDemo : null,
 	};
 
+	/**
+	 * Process individual blocks and add to content object.
+	 */
 	blocks.forEach((block) => {
 		const { type, innerHtml } = block;
 
@@ -40,6 +47,9 @@ const SectionCard = ({ node }) => {
 		}
 	});
 
+	/**
+	 * Destructure processed content.
+	 */
 	const { description, images, icon, gitHubLink, liveDemoLink } = content;
 
 	return (
@@ -62,7 +72,7 @@ const SectionCard = ({ node }) => {
 			{description && <p className="mt-2">{description}</p>}
 			{images.length > 0 &&
 				images.map((image, i) => (
-					<div key={i} className={`mt-4 border`}>
+					<div key={i} className={`mt-4 border max-width-full rounded overflow-hidden`}>
 						{image}
 					</div>
 				))}
