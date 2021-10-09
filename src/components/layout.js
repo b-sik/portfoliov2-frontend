@@ -2,12 +2,13 @@ import React from 'react';
 import Nav from '../components/nav';
 import Seo from '../components/seo';
 import Footer from '../components/footer';
+import FooterNav from '../components/footer-nav';
 
 const Layout = ({ location, children, bgImgSrc }) => {
 	return (
 		<div
 			id="front-page-wrapper"
-			className="flex flex-wrap overflow-hidden grid grid-cols-1 auto-rows-min dark:text-white"
+			className="flex flex-wrap overflow-hidden grid grid-cols-1 auto-rows-min dark:text-gray-300"
 		>
 			<div
 				id="nav-and-section-wrapper"
