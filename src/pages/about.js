@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { getImage } from 'gatsby-plugin-image';
 import { __ } from '@wordpress/i18n';
 import parse from 'html-react-parser';
@@ -14,37 +14,12 @@ import Section from '../components/section';
 import Toggle from '../components/ui/toggle';
 import { useAboutPageData } from '../hooks/use-about-page-data.js';
 import { useSkillsData } from '../hooks/use-skills-data.js';
-import { getBgGradientClass } from '../utilities/background';
 
 const About = () => {
 	/**
 	 * Markdown view state.
 	 */
 	const [mdView, setMdView] = useState(true);
-
-	/**
-	 * Bg color state.
-	 */
-	const bgColor = 'indigo';
-
-	/**
-	 * Bg gradient state.
-	 */
-	const [bgGradient, setBgGradient] = useState(null);
-
-	/**
-	 * Set bg color.
-	 */
-	// useEffect(() => {
-	// 	setBgColor(getBgColor());
-	// }, []);
-
-	/**
-	 * Set gradient class.
-	 */
-	useEffect(() => {
-		setBgGradient(getBgGradientClass(bgColor, 't'));
-	}, [bgColor]);
 
 	/**
 	 * GQL query data.
@@ -70,8 +45,13 @@ const About = () => {
 		setMdView(!mdView);
 	};
 
+	/**
+	 * Gradient.
+	 */
+	const bgGradient = 'bg-gradient-to-r from-indigo-300 to-white dark:from-indigo-500 dark:to-black';
+
 	return (
-		<Layout location={'/about'} bgImgSrc={bgImgSrc} bgColor={bgColor}>
+		<Layout location={'/about'} bgImgSrc={bgImgSrc}>
 			<div
 				id="about"
 				className={`${bgGradient} opacity-90 w-full h-auto overflow-hidden flex-grow grid grid-cols-12 sm:grid-rows-about-layout grid-rows-about-layout-mobile`}
@@ -105,7 +85,6 @@ const About = () => {
 				section={__('skills', 'bszyk-portfolio')}
 				description={__('This is a description.', 'bszyk-portfolio')}
 				edges={skillsData}
-				bgGradient={getBgGradientClass(bgColor, 'b')}
 			/>
 		</Layout>
 	);

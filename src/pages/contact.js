@@ -1,21 +1,25 @@
 import React, { Fragment } from 'react';
 import Layout from '../components/layout';
-import { getBgGradientClass } from '../utilities/background';
 import { contactConfig } from '../config/contact-config';
+import { __ } from '@wordpress/i18n';
 
 const Contact = () => {
-	const bgColor = 'indigo';
-	const bgGradient = getBgGradientClass(bgColor, 'b');
-
 	const currentEmail = 'bszyk.codes@gmail.com';
 
+	/**
+	 * Gradient.
+	 */
+	const bgGradient = 'bg-gradient-to-b from-indigo-300 to-white dark:from-indigo-500 dark:to-black';
+
 	return (
-		<Layout location="/contact" bgColor={bgColor}>
+		<Layout location="/contact">
 			<div
 				id="contact"
 				className={`${bgGradient} w-full h-screen overflow-hidden grid grid-cols-12 grid-rows-auto place-items-center col-span-full relative`}
 			>
-				<h2 className="row-start-1 row-end-2 col-span-full">Contact</h2>
+				<h2 className="row-start-1 row-end-2 col-span-full">
+					{__('Contact', 'bszyk-portfolio')}
+				</h2>
 				<ul className="row-start-2 row-end-3 text-white flex flex-col sm:flex-row justify-center text-center content-center col-span-full">
 					{contactConfig.map((link, i, arr) => {
 						const { name, url, icon } = link;
@@ -44,7 +48,7 @@ const Contact = () => {
 											key={`icon-${i}`}
 											className={`brand-icon-${name.toLowerCase()} ${
 												name === 'email' &&
-												`hover:text-${bgColor}-500`
+												`hover:text-red-500`
 											}`}
 										>
 											{icon}

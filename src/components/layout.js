@@ -3,7 +3,7 @@ import Nav from '../components/nav';
 import Seo from '../components/seo';
 import Footer from '../components/footer';
 
-const Layout = ({ location, children, bgImgSrc, bgColor }) => {
+const Layout = ({ location, children, bgImgSrc }) => {
 	return (
 		<div
 			id="front-page-wrapper"
@@ -20,12 +20,12 @@ const Layout = ({ location, children, bgImgSrc, bgColor }) => {
 						: {}
 				}
 			>
-				<Nav location={location} bgColor={bgColor} />
+				<Nav location={location} />
 				<Seo title="Brian Siklinski - Web Developer" />
 
 				{children}
 			</div>
-			<Footer bgColor={bgColor} location={location} />
+			<Footer location={location} />
 		</div>
 	);
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { contactConfig } from '../config/contact-config';
 
-const Footer = ({ bgColor, location }) => {
+const Footer = ({ location }) => {
 	return (
 		<footer className="py-2 bg-white dark:bg-black overflow-hidden relative text-center">
 			<div className="flex flex-col sm:flex-row place-content-center">
@@ -43,7 +43,7 @@ const Footer = ({ bgColor, location }) => {
 									<span
 										className={`brand-icon-${name.toLowerCase()} ${
 											name === 'email' &&
-											`hover:text-${bgColor}-500`
+											`hover:text-red-500`
 										}`}
 									>
 										{icon}

@@ -18,11 +18,11 @@ const config = [
 	},
 ];
 
-const Nav = ({ location, bgColor }) => {
+const Nav = ({ location }) => {
 	
 	return (
 		<nav
-			className={`bg-${bgColor}-500 dark:bg-${bgColor}-900 border-b-1 w-full overflow-hidden flex-grow-0 relative dark:opacity-50 shadow-xl`}
+			className={`bg-indigo-500 dark:bg-indigo-900 border-b-1 w-full overflow-hidden flex-grow-0 relative dark:opacity-50 shadow-xl`}
 		>
 			<ul className="flex justify-around content-center">
 				{config.map((page, i) => {

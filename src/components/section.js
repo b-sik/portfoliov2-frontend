@@ -3,7 +3,7 @@ import { isMobileOnly } from 'react-device-detect';
 import SectionCard from './section-card';
 import { chunk, shuffle } from 'lodash';
 
-const Section = ({ section, description, edges, bgGradient }) => {
+const Section = ({ section, description, edges }) => {
 	if (!edges) {
 		return null;
 	}
@@ -13,6 +13,11 @@ const Section = ({ section, description, edges, bgGradient }) => {
 		: shuffle(chunk(edges, 2));
 
 	const rowStart = 2;
+
+	/**
+	 * Gradient.
+	 */
+	const bgGradient = 'bg-gradient-to-b from-indigo-300 to-white dark:from-indigo-500 dark:to-black';
 
 	return (
 		<div
