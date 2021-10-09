@@ -56,7 +56,7 @@ const SectionCard = ({ node }) => {
 		<div
 			className={`section-card ${
 				projects ? 'w-3/4 md:w-1/2' : ''
-			} hover:animate-hover-grow text-left opacity-85 inline-block mx-8 p-4 md:p-6 h-auto w-auto bg-white dark:bg-black border dark:border-black rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-xl dark:hover:shadow-xl-white transition-all dark:shadow-lg-white`}
+			} hover:animate-hover-grow text-left opacity-85 inline-block mx-8 p-4 md:p-6 h-auto max-w-full bg-white dark:bg-black border dark:border-black rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-xl dark:hover:shadow-xl-white transition-all dark:shadow-lg-white`}
 		>
 			<div className="section-card-title flex w-full justify-between">
 				<h4 className="mb-2">{title}</h4>
@@ -72,7 +72,7 @@ const SectionCard = ({ node }) => {
 			{description && <p className="mt-2">{description}</p>}
 			{images.length > 0 &&
 				images.map((image, i) => (
-					<div key={i} className={`mt-4 border max-width-full rounded overflow-hidden`}>
+					<div key={i} className={`mt-4 border max-w-full rounded overflow-hidden`}>
 						{image}
 					</div>
 				))}
