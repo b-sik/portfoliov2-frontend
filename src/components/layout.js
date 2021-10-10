@@ -2,7 +2,6 @@ import React from 'react';
 import Nav from '../components/nav';
 import Seo from '../components/seo';
 import Footer from '../components/footer';
-import FooterNav from '../components/footer-nav';
 
 const Layout = ({ location, children, bgImgSrc }) => {
 	return (
