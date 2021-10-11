@@ -10,4 +10,4 @@ import './src/css/style.css';
 // custom
 import './src/css/toggle.css';
 import './src/css/icons.css';
-import './src/css/about-page-tweaks.css';
+import './src/css/markdown-tweaks.css';
