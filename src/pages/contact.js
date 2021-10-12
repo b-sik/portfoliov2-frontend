@@ -17,9 +17,9 @@ const Contact = () => {
 		<Layout location="/contact">
 			<div
 				id="contact"
-				className={`${bgGradient} w-full h-auto overflow-hidden grid grid-cols-12 grid-rows-auto place-items-center col-span-full pb-4`}
+				className={`${bgGradient} w-full h-auto overflow-hidden grid grid-cols-12 grid-rows-auto items-start justify-items-center col-span-full pb-4 `}
 			>
-				<div className="row-start-1 row-end-2 col-span-full my-4 md:my-0">
+				<div className="row-start-1 row-end-2 col-span-full my-4 md:my-0 self-center">
 					<h3 className="text-center">
 						{__('Contact', 'bszyk-portfolio')}
 					</h3>
