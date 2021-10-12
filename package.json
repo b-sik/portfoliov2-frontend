@@ -17,6 +17,7 @@
 		"@wordpress/i18n": "^4.2.1",
 		"autoprefixer": "^10.3.4",
 		"dotenv": "^10.0.0",
+		"formik": "^2.2.9",
 		"gatsby": "^3.3.0",
 		"gatsby-image": "^3.11.0",
 		"gatsby-plugin-image": "^1.13.0",

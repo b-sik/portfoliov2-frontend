@@ -24,7 +24,7 @@ export const contactConfig = [
 		icon: <FontAwesomeIcon icon={faGithub} />,
 	},
 	{
-		name: 'email',
+		name: 'Email',
 		url: null,
 		icon: <FontAwesomeIcon icon={faEnvelope} />,
 	},
