@@ -1,21 +1,21 @@
 /* brand icons */
-.brand-icon-anchor:hover .brand-icon-linkedin {
+.brand-icon-list-item:hover .brand-icon-linkedin {
 	color: #0177b5;
 	transition: all 0.2s ease-in;
 }
-.brand-icon-anchor:hover .brand-icon-twitter {
+.brand-icon-list-item:hover .brand-icon-twitter {
 	color: #1c9bef;
 	transition: all 0.2s ease-in;
 }
-.brand-icon-anchor:hover .brand-icon-github {
+.brand-icon-list-item:hover .brand-icon-github {
 	color: #9900fd;
 	transition: all 0.2s ease-in;
 }
-.brand-icon-anchor:hover .brand-icon-email {
+.brand-icon-list-item:hover .brand-icon-email {
 	color: #ef4444;
 	transition: all 0.2s ease-in;
 }
-.brand-icon-anchor:hover .brand-icon-css {
+.brand-icon-list-item:hover .brand-icon-css {
 	color: #264DE3;
 	transition: all 0.2s ease-in;
 }
