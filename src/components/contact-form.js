@@ -39,11 +39,18 @@ const ContactForm = () => (
 	>
 		{({ isSubmitting }) => {
 			const labelClassnames = 'mt-1.5 text-sm';
-			const inputClassnames = 'border rounded-md p-1.5 mt-px bg-white dark:bg-black bg-opacity-50 dark:bg-opacity-50';
+			const inputClassnames =
+				'border rounded-md p-1.5 mt-px bg-white dark:bg-black bg-opacity-50 dark:bg-opacity-50';
 			// const errorClassnames = 'text-xs text-red-500';
 
 			return (
-				<Form className={'flex flex-col'} data-netlify="true">
+				<Form
+					className="flex flex-col"
+					data-netlify="true"
+					data-netlify-honeypot="bot-field"
+					name="contact-form"
+				>
+					<input type="hidden" name="contact-form" value="contact" />
 					{/* 
                         Name
                     */}
