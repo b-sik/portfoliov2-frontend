@@ -6,14 +6,20 @@ const Button = ({ url, label, iconName = null, link = false }) => {
 	const defaultClasses =
 		'p-4 mt-4 bg-gray-200 hover:bg-gray-300 text-black rounded';
 
+	const darkModeClasses =
+		'border dark:border-gray-200 dark:text-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700';
+
 	return link ? (
-		<Link href={url} className={`${defaultClasses} flex-grow text-center m-6 md:m-10`}>
+		<Link
+			href={url}
+			className={`${defaultClasses} ${darkModeClasses} flex-grow text-center m-6 md:m-10`}
+		>
 			{label}&nbsp;{iconName && <Icons iconName={iconName} />}
 		</Link>
 	) : (
 		<a
 			href={url}
-			className={defaultClasses}
+			className={`${defaultClasses} ${darkModeClasses}`}
 			target="_blank"
 			rel="noopener noreferrer"
 		>
