@@ -4,9 +4,8 @@ module.exports = {
 	theme: {
 		extend: {
 			gridTemplateRows: {
-				'nav-section-layout': 'auto minmax(100vh, min-content)',
-				'about-layout': '20% minmax(min-content, 1fr) 1fr',
-				'about-layout-mobile': '20vh 1fr 1fr',
+				'nav-section-layout': 'auto minmax(95vh, min-content)',
+				'about-layout': '15% minmax(min-content, max-content) 10% 15%'
 			},
 			animation: {
 				'hover-pulse': 'hoverPulse 1s linear infinite',

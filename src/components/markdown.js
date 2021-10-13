@@ -14,7 +14,7 @@ const Markdown = ({ mdString, content }) => {
 	/**
 	 * Markdown view state.
 	 */
-	const [mdView, setMdView] = useState(true);
+	const [mdView, setMdView] = useState(false);
 
 	/**
 	 * Toggle.
