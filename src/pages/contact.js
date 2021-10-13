@@ -1,11 +1,12 @@
 import React from 'react';
 import Layout from '../components/layout';
-import { contactConfig } from '../config/contact-config';
+import { useContactPageData } from '../hooks/use-contact-page-data';
 import { __ } from '@wordpress/i18n';
 import ContactForm from '../components/contact-form';
+import Icons from '../components/icons';
 
 const Contact = () => {
-	const currentEmail = 'bszyk.codes@gmail.com';
+	const { socialLinks } = useContactPageData();
 
 	/**
 	 * Gradient.
@@ -31,8 +32,8 @@ const Contact = () => {
 					<ContactForm />
 				</div>
 				<ul className="mt-8 md:mt-0 row-start-3 row-end-4 md:row-start-2 md:row-end-3 text-white flex flex-col justify-center text-center content-center col-span-full md:col-start-8 md:col-end-11 w-full">
-					{contactConfig.map((link, i) => {
-						const { name, url, icon } = link;
+					{Object.entries(socialLinks).map((link, i) => {
+						const { name, url, icon } = link[1];
 
 						return (
 							<li
@@ -40,11 +41,7 @@ const Contact = () => {
 								className={`brand-icon-list-item my-4 hover:animate-hover-grow border rounded-xl p-2 mx-4 md:mx-0 bg-white bg-opacity-50`}
 							>
 								<a
-									href={
-										name === 'email'
-											? `mailto:${currentEmail}`
-											: url
-									}
+									href={url}
 									target="_blank"
 									rel="noreferrer noopener"
 									className={`text-2xl text-black dark:text-white brand-icon-anchor cursor-pointer`}
@@ -54,11 +51,11 @@ const Contact = () => {
 									}
 									<span
 										className={`brand-icon-${name.toLowerCase()} ${
-											name === 'email' &&
+											link[0] === 'email' &&
 											`hover:text-red-500`
 										}`}
 									>
-										{icon}
+										<Icons iconName={icon} />
 									</span>
 									&nbsp;&nbsp;
 									<span>{name}</span>

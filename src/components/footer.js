@@ -1,8 +1,11 @@
 import React from 'react';
-import { contactConfig } from '../config/contact-config';
+import { useContactPageData } from '../hooks/use-contact-page-data';
 import FooterNav from '../components/footer-nav';
+import Icons from '../components/icons';
 
 const Footer = ({ location }) => {
+	const { socialLinks } = useContactPageData();
+
 	return (
 		<>
 			<footer className="py-2 bg-white dark:bg-black overflow-hidden relative text-center">
@@ -28,28 +31,28 @@ const Footer = ({ location }) => {
 							location === '/contact' ? 'hidden' : 'inline'
 						} w-auto mx-auto sm:mx-0 flex justify-items-center order-first sm:order-none`}
 					>
-						{contactConfig.map((link, i) => {
-							const { name, url, icon } = link;
+						{Object.entries(socialLinks).map((link, i) => {
+							const { name, url, icon } = link[1];
 
 							return (
-								<li key={i} className="mx-2 cursor-pointer">
+								<li
+									key={i}
+									className="mx-2 cursor-pointer brand-icon-list-item"
+								>
 									<a
-										href={
-											name === 'email'
-												? 'mailto:bszyk.codes@gmail.com'
-												: url
-										}
+										href={url}
 										target="_blank"
 										rel="noreferrer noopener"
-										className={`text-lg text-black dark:text-white brand-icon-anchor`}
+										className={`text-lg text-black dark:text-white`}
 									>
 										<span
 											className={`brand-icon-${name.toLowerCase()} ${
-												name === 'email' &&
-												`hover:text-red-500`
+												link[0] === 'email'
+													? `hover:text-red-500`
+													: ''
 											}`}
 										>
-											{icon}
+											<Icons iconName={icon} />
 										</span>
 									</a>
 								</li>
