@@ -87,7 +87,7 @@ const ContactForm = () => {
 			{({ isSubmitting }) => {
 				const labelClassnames = 'mt-1.5 text-sm';
 				const inputClassnames =
-					'border rounded-md p-1.5 mt-px bg-white dark:bg-black bg-opacity-50 dark:bg-opacity-50';
+					'border rounded-md p-1.5 mt-px bg-white dark:bg-black dark:border-indigo-500';
 				const errorClassnames = 'text-xs text-red-500';
 
 				return (
@@ -97,7 +97,6 @@ const ContactForm = () => {
 						data-netlify-honeypot="bot-field"
 						name="contact-form"
 					>
-
 						{/* Name */}
 						<label
 							htmlFor="contact-form-name"
@@ -180,7 +179,7 @@ const ContactForm = () => {
 							id="contact-form-submit"
 							type="submit"
 							disabled={isSubmitting}
-							className="text-center p-2 mt-2 bg-gray-200 hover:bg-gray-300 text-black rounded"
+							className="text-center p-2 mt-2 bg-gray-200 hover:bg-gray-300 text-black border rounded dark:border-indigo-500 dark:text-gray-200 dark:bg-black dark:hover:bg-gray-800"
 						>
 							{__('Submit', 'bszyk-portfolio')}
 						</button>

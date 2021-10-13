@@ -38,7 +38,7 @@ const Contact = () => {
 						return (
 							<li
 								key={i}
-								className={`brand-icon-list-item my-4 hover:animate-hover-grow border rounded-xl p-2 mx-4 md:mx-0 bg-white bg-opacity-50`}
+								className={`brand-icon-list-item my-4 hover:animate-hover-grow border rounded-xl p-2 mx-4 md:mx-0 bg-white bg-opacity-50 dark:border-indigo-500 dark:text-gray-200 dark:bg-black dark:hover:bg-gray-800`}
 							>
 								<a
 									href={url}
