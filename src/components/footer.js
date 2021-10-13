@@ -14,7 +14,40 @@ const Footer = ({ location }) => {
 					<div id="footer-copyright-div flex place-content-center">
 						<span className="text-xs sm:text-sm text-black dark:text-white leading-none my-auto">{`© ${new Date().getFullYear()} Brian Siklinski. `}</span>
 						<br className="inline sm:hidden" />
-						<span className="text-xs sm:text-sm text-black dark:text-white leading-none my-auto">{`Created with React, Gatsby, Wordpress and Tailwind.`}</span>
+						<span className="text-xs sm:text-sm text-black dark:text-white leading-none my-auto">
+							Created with{' '}
+							<a
+								href="https://reactjs.org/"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								React
+							</a>
+							,&nbsp;
+							<a
+								href="https://www.gatsbyjs.com/"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Gatsby
+							</a>
+							,&nbsp;
+							<a
+								href="https://wordpress.org/"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Wordpress
+							</a>
+							,&nbsp;
+							<a
+								href="https://tailwindcss.com/"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								TailWindCSS
+							</a>
+						</span>
 						<span
 							className={`text-lg text-black dark:text-white ml-2 ${
 								location === '/contact'
