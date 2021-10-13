@@ -14,8 +14,6 @@ const About = () => {
 	const { content, featuredImage, blocks } = useAboutPageData();
 	const mdString = blocks[0].innerHtml;
 
-	console.log({ content, mdString });
-
 	/**
 	 * Process image data.
 	 */

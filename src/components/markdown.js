@@ -10,7 +10,7 @@ import { faMarkdown } from '@fortawesome/free-brands-svg-icons';
 import ReactTooltip from 'react-tooltip';
 import Toggle from '../components/ui/toggle';
 
-const Markdown = ({ mdString, content, wrapperClasses }) => {
+const Markdown = ({ mdString, content }) => {
 	/**
 	 * Markdown view state.
 	 */
