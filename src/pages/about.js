@@ -14,6 +14,8 @@ const About = () => {
 	const { content, featuredImage, blocks } = useAboutPageData();
 	const mdString = blocks[0].innerHtml;
 
+	console.log({ content, mdString });
+
 	/**
 	 * Process image data.
 	 */
@@ -31,18 +33,16 @@ const About = () => {
 	const bgGradient =
 		'bg-gradient-to-r from-indigo-300 to-white dark:from-indigo-500 dark:to-black';
 
-	/**
-	 * Markdown wrapper.
-	 */
-	const mdWrapperClasses = 'col-start-2 col-end-12 md:col-start-4 md:col-end-10 row-start-2 row-end-3 self-center opacity-90';
-
 	return (
 		<Layout location={'/about'} bgImgSrc={bgImgSrc}>
 			<div
 				id="about"
 				className={`${bgGradient} opacity-90 w-full h-auto overflow-hidden flex-grow grid grid-cols-12 sm:grid-rows-about-layout grid-rows-about-layout-mobile`}
 			>
-				<Markdown mdString={mdString} content={content} wrapperClasses={mdWrapperClasses}/>
+				<Markdown
+					mdString={mdString}
+					content={content}
+				/>
 			</div>
 			<Section
 				section={__('skills', 'bszyk-portfolio')}

@@ -27,9 +27,11 @@ const Markdown = ({ mdString, content, wrapperClasses }) => {
 		<>
 			<div
 				id="markdown"
-				className={wrapperClasses}
+				className={`col-start-2 col-end-12 md:col-start-4 md:col-end-10 row-start-2 row-end-3 self-center ${
+					mdView ? 'prose' : ''
+				}`}
 			>
-				{mdView ? mdOutput(mdParse(mdString)) : parse(content)}
+				{mdView ? parse(content) : mdOutput(mdParse(mdString))}
 			</div>
 			<ReactTooltip
 				type={'light'}
