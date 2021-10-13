@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { __ } from '@wordpress/i18n';
 
 const ContactForm = () => {
@@ -26,11 +26,11 @@ const ContactForm = () => {
 				const errors = {};
 
 				if (!values.name) {
-					errors.name = 'Required';
+					errors.name = 'Name required';
 				}
 
 				if (!values.email) {
-					errors.email = 'Required';
+					errors.email = 'Email required';
 				} else if (
 					!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
 						values.email
@@ -40,11 +40,11 @@ const ContactForm = () => {
 				}
 
 				if (!values.subject) {
-					errors.subject = 'Required';
+					errors.subject = 'Subject required';
 				}
 
 				if (!values.message) {
-					errors.message = 'Required';
+					errors.message = 'Message required';
 				}
 
 				return errors;
@@ -58,11 +58,28 @@ const ContactForm = () => {
 					body: encode({ 'form-name': 'contact-form', ...values }),
 				})
 					.then(() => {
-						alert('Success');
+						const submitBtn = document.getElementById(
+							'contact-form-submit'
+						);
+
+						submitBtn.innerText = 'Success!';
+
+						setTimeout(() => {
+							submitBtn.innerText = 'Submit';
+						}, 3000);
+
 						actions.resetForm();
 					})
 					.catch(() => {
-						alert('Error');
+						const submitBtn = document.getElementById(
+							'contact-form-submit'
+						);
+
+						submitBtn.innerText = 'Error :/';
+
+						setTimeout(() => {
+							submitBtn.innerText = 'Submit';
+						}, 3000);
 					})
 					.finally(() => actions.setSubmitting(false));
 			}}
@@ -71,7 +88,7 @@ const ContactForm = () => {
 				const labelClassnames = 'mt-1.5 text-sm';
 				const inputClassnames =
 					'border rounded-md p-1.5 mt-px bg-white dark:bg-black bg-opacity-50 dark:bg-opacity-50';
-				// const errorClassnames = 'text-xs text-red-500';
+				const errorClassnames = 'text-xs text-red-500';
 
 				return (
 					<Form
@@ -80,9 +97,8 @@ const ContactForm = () => {
 						data-netlify-honeypot="bot-field"
 						name="contact-form"
 					>
-						{/* 
-                        Name
-                    */}
+
+						{/* Name */}
 						<label
 							htmlFor="contact-form-name"
 							className={labelClassnames}
@@ -95,15 +111,13 @@ const ContactForm = () => {
 							id="contact-form-name"
 							className={inputClassnames}
 						/>
-						{/* <ErrorMessage
-						name="name"
-						component="div"
-						className={errorClassnames}
-					/> */}
+						<ErrorMessage
+							name="name"
+							component="div"
+							className={errorClassnames}
+						/>
 
-						{/* 
-                        Email
-                    */}
+						{/* Email */}
 						<label
 							htmlFor="contact-form-email"
 							className={labelClassnames}
@@ -116,15 +130,13 @@ const ContactForm = () => {
 							id="contact-form-email"
 							className={inputClassnames}
 						/>
-						{/* <ErrorMessage
-						name="email"
-						component="div"
-						className={errorClassnames}
-					/> */}
+						<ErrorMessage
+							name="email"
+							component="div"
+							className={errorClassnames}
+						/>
 
-						{/* 
-                        Subject
-                    */}
+						{/* Subject */}
 						<label
 							htmlFor="contact-form-subject"
 							className={labelClassnames}
@@ -137,15 +149,13 @@ const ContactForm = () => {
 							id="contact-form-subject"
 							className={inputClassnames}
 						/>
-						{/* <ErrorMessage
-						name="subject"
-						component="div"
-						className={errorClassnames}
-					/> */}
+						<ErrorMessage
+							name="subject"
+							component="div"
+							className={errorClassnames}
+						/>
 
-						{/* 
-                        Message
-                    */}
+						{/* Message */}
 						<label
 							htmlFor="contact-form-message"
 							className={labelClassnames}
@@ -159,21 +169,20 @@ const ContactForm = () => {
 							id="contact-form-message"
 							className={inputClassnames}
 						/>
-						{/* <ErrorMessage
-						name="message"
-						component="div"
-						className={errorClassnames}
-					/> */}
+						<ErrorMessage
+							name="message"
+							component="div"
+							className={errorClassnames}
+						/>
 
-						{/* 
-                        Submit 
-                    */}
+						{/* Submit */}
 						<button
+							id="contact-form-submit"
 							type="submit"
 							disabled={isSubmitting}
 							className="text-center p-2 mt-2 bg-gray-200 hover:bg-gray-300 text-black rounded"
 						>
-							Submit
+							{__('Submit', 'bszyk-portfolio')}
 						</button>
 					</Form>
 				);
