@@ -15,7 +15,7 @@ const ColorPicker = () => {
 			tabIndex="0"
 		>
 			<FontAwesomeIcon
-				className={'text-black dark:text-white dark:opacity-80'}
+				className={'text-black dark:text-gray-200 dark:opacity-80'}
 				icon={faEyeDropper}
 			/>
 		</div>

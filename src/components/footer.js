@@ -12,9 +12,9 @@ const Footer = ({ location }) => {
 			<FooterNav location={location} />
 			<div className="flex flex-col sm:flex-row place-content-center">
 				<div id="footer-copyright-div flex place-content-center">
-					<span className="text-xs sm:text-sm text-black dark:text-white leading-none my-auto">{`© ${new Date().getFullYear()} Brian Siklinski. `}</span>
+					<span className="text-xs sm:text-sm text-black dark:text-gray-200 leading-none my-auto">{`© ${new Date().getFullYear()} Brian Siklinski. `}</span>
 					<br className="inline sm:hidden" />
-					<span className="text-xs sm:text-sm text-black dark:text-white leading-none my-auto">
+					<span className="text-xs sm:text-sm text-black dark:text-gray-200 leading-none my-auto">
 						Created with&nbsp;
 						<a
 							href="https://reactjs.org/"
@@ -54,7 +54,7 @@ const Footer = ({ location }) => {
 						.
 					</span>
 					<span
-						className={`text-lg text-black dark:text-white ${
+						className={`text-lg text-black dark:text-gray-200 ${
 							location === '/contact'
 								? 'hidden'
 								: 'hidden md:inline'
@@ -81,7 +81,7 @@ const Footer = ({ location }) => {
 									href={url}
 									target="_blank"
 									rel="noreferrer noopener"
-									className={`text-lg text-black dark:text-white`}
+									className={`text-lg text-black dark:text-gray-200`}
 								>
 									<span
 										className={`brand-icon-${name.toLowerCase()} ${

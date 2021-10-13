@@ -31,7 +31,7 @@ const Contact = () => {
 				<div className="col-start-2 col-end-12 row-start-2 row-end-3 col-span-full md:col-start-3 md:col-end-6 w-full">
 					<ContactForm />
 				</div>
-				<ul className="mt-8 md:mt-0 row-start-3 row-end-4 md:row-start-2 md:row-end-3 text-white flex flex-col justify-center text-center content-center col-span-full md:col-start-8 md:col-end-11 w-full">
+				<ul className="mt-8 md:mt-0 row-start-3 row-end-4 md:row-start-2 md:row-end-3 text-gray-200 flex flex-col justify-center text-center content-center col-span-full md:col-start-8 md:col-end-11 w-full">
 					{Object.entries(socialLinks).map((link, i) => {
 						const { name, url, icon } = link[1];
 
@@ -44,7 +44,7 @@ const Contact = () => {
 									href={url}
 									target="_blank"
 									rel="noreferrer noopener"
-									className={`text-2xl text-black dark:text-white brand-icon-anchor cursor-pointer`}
+									className={`text-2xl text-black dark:text-gray-200 brand-icon-anchor cursor-pointer`}
 								>
 									{
 										// @see '../css/icons.css'

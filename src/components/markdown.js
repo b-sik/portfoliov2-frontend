@@ -42,7 +42,7 @@ const Markdown = ({ mdString, content, wrapperClasses }) => {
 				label={
 					<FontAwesomeIcon
 						icon={faMarkdown}
-						className="dark:text-white cursor-pointer"
+						className="dark:text-gray-200 cursor-pointer"
 					/>
 				}
 				onChange={onToggleChange}
