@@ -60,13 +60,13 @@ module.exports = {
 			// See https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/?=gatsby-plugin-manifest
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: `Gatsby Starter WordPress Blog`,
-				short_name: `GatsbyJS & WP`,
+				name: `Brian Siklinski - Web Developer`,
+				short_name: `Bszyk Dev`,
 				start_url: `/`,
 				background_color: `#ffffff`,
 				theme_color: `#663399`,
 				display: `minimal-ui`,
-				icon: `content/assets/gatsby-icon.png`,
+				icon: 'content/assets/icon-square.png'
 			},
 		},
 
@@ -82,7 +82,7 @@ module.exports = {
 			resolve: `gatsby-plugin-offline`,
 			options: {
 				precachePages: [`/pages/*`, `/templates/*`],
-				debug: true,
+				debug: false,
 			},
 		},
 	],

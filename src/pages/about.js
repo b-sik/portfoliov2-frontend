@@ -5,8 +5,9 @@ import Layout from '../components/layout';
 import Section from '../components/section';
 import Markdown from '../components/markdown';
 import Button from '../components/ui/button';
-import { useAboutPageData } from '../hooks/use-about-page-data.js';
-import { useSkillsData } from '../hooks/use-skills-data.js';
+import { useAboutPageData } from '../hooks/use-about-page-data';
+import { useSkillsData } from '../hooks/use-skills-data';
+import { useSkillsPageData } from '../hooks/use-skills-page-data';
 
 const About = () => {
 	/**
@@ -25,6 +26,11 @@ const About = () => {
 	 * Skills CPT data.
 	 */
 	const skillsData = useSkillsData();
+	
+	/**
+	 * Skills page description.
+	 */
+	const skillsDescription = useSkillsPageData().blocks[0].innerHtml;
 
 	/**
 	 * Gradient.
@@ -52,7 +58,7 @@ const About = () => {
 			</div>
 			<Section
 				section={__('skills', 'bszyk-portfolio')}
-				description={__('This is a description.', 'bszyk-portfolio')}
+				description={skillsDescription}
 				edges={skillsData}
 			/>
 		</Layout>
