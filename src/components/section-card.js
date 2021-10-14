@@ -2,10 +2,12 @@ import React from 'react';
 import parse from 'html-react-parser';
 import Icons from './icons';
 import Button from './ui/button';
+import { Link } from 'gatsby';
+import { __ } from '@wordpress/i18n';
 
 const SectionCard = ({ node }) => {
 	const {
-		node: { blocks, title, iconName, projects },
+		node: { blocks, title, projects, skills },
 	} = node;
 
 	// return if no blocks.
@@ -20,9 +22,10 @@ const SectionCard = ({ node }) => {
 		description: null,
 		code: null,
 		images: [],
-		icon: iconName ? iconName.skillIconName : null,
-		gitHubLink: projects ? projects.github : null,
-		liveDemoLink: projects ? projects.liveDemo : null,
+		icon: skills?.iconName || null,
+		gitHubLink: projects?.github || null,
+		liveDemoLink: projects?.liveDemo || null,
+		isSkill: skills?.isSkill || false,
 	};
 
 	/**
@@ -51,7 +54,14 @@ const SectionCard = ({ node }) => {
 	/**
 	 * Destructure processed content.
 	 */
-	const { description, images, icon, gitHubLink, liveDemoLink } = content;
+	const {
+		description,
+		images,
+		icon,
+		gitHubLink,
+		liveDemoLink,
+		isSkill,
+	} = content;
 
 	return (
 		<div
@@ -80,6 +90,14 @@ const SectionCard = ({ node }) => {
 						{image}
 					</div>
 				))}
+			{isSkill && (
+				<Link
+					to="/projects"
+					className="self-start text-left text-xs hover:underline mt-2"
+				>
+					{__('See projects', 'bszyk-portfolio')}&nbsp;&rarr;
+				</Link>
+			)}
 			{projects && (
 				<div className={`w-full flex justify-between`}>
 					{gitHubLink && (

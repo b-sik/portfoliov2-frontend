@@ -13,8 +13,9 @@ export const useSkillsData = () => {
 							type
 						}
 						title
-						iconName {
-							skillIconName
+						skills {
+							iconName
+							isSkill
 						}
 					}
 				}

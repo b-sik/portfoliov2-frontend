@@ -26,7 +26,7 @@ const About = () => {
 	 * Skills CPT data.
 	 */
 	const skillsData = useSkillsData();
-	
+
 	/**
 	 * Skills page description.
 	 */
@@ -49,7 +49,7 @@ const About = () => {
 					<Button
 						url="/about#skills-wrapper"
 						label={__('learn more', 'bszyk-portfolio')}
-						classnames="py-1 flex flex-row place-items-center"
+						classnames="py-1 flex flex-row place-items-center border-indigo-500 bg-indigo-200 hover:bg-indigo-300 hover:animate-hover-grow transition-all"
 						link
 						iconName="faAngleDown"
 						iconClassnames="animate-bounce"

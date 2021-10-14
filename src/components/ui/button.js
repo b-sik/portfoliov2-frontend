@@ -21,7 +21,7 @@ const Button = ({
 
 	return link ? (
 		<Link
-			href={url}
+			to={url}
 			className={`${defaultClasses} ${darkModeClasses} ${
 				grow ? growClasses : ''
 			} ${classnames}`}
