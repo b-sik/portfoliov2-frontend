@@ -4,6 +4,8 @@ import {
 	faFileCode,
 	faMailBulk,
 	faDesktop,
+	faEnvelope,
+	faAngleDown
 } from '@fortawesome/free-solid-svg-icons';
 import {
 	faGithub,
@@ -12,6 +14,8 @@ import {
 	faPhp,
 	faCss3,
 	faWordpress,
+	faLinkedin,
+	faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 
 const Icons = ({ iconName, classnames }) => {
@@ -36,6 +40,14 @@ const Icons = ({ iconName, classnames }) => {
 			return <FontAwesomeIcon icon={faMailBulk} className={classnames} />;
 		case 'faDesktop':
 			return <FontAwesomeIcon icon={faDesktop} className={classnames} />;
+		case 'faLinkedin':
+			return <FontAwesomeIcon icon={faLinkedin} className={classnames} />;
+		case 'faTwitter':
+			return <FontAwesomeIcon icon={faTwitter} className={classnames} />;
+		case 'faEnvelope':
+			return <FontAwesomeIcon icon={faEnvelope} className={classnames} />;
+		case 'faAngleDown':
+			return <FontAwesomeIcon icon={faAngleDown} className={classnames} />;
 		default:
 			return null;
 	}

@@ -10,11 +10,11 @@ import { faMarkdown } from '@fortawesome/free-brands-svg-icons';
 import ReactTooltip from 'react-tooltip';
 import Toggle from '../components/ui/toggle';
 
-const Markdown = ({ mdString, content, wrapperClasses }) => {
+const Markdown = ({ mdString, content }) => {
 	/**
 	 * Markdown view state.
 	 */
-	const [mdView, setMdView] = useState(true);
+	const [mdView, setMdView] = useState(false);
 
 	/**
 	 * Toggle.
@@ -27,9 +27,11 @@ const Markdown = ({ mdString, content, wrapperClasses }) => {
 		<>
 			<div
 				id="markdown"
-				className={wrapperClasses}
+				className={`col-start-2 col-end-12 md:col-start-4 md:col-end-10 row-start-2 row-end-3 self-center ${
+					mdView ? 'prose' : ''
+				}`}
 			>
-				{mdView ? mdOutput(mdParse(mdString)) : parse(content)}
+				{mdView ? parse(content) : mdOutput(mdParse(mdString))}
 			</div>
 			<ReactTooltip
 				type={'light'}
@@ -42,7 +44,7 @@ const Markdown = ({ mdString, content, wrapperClasses }) => {
 				label={
 					<FontAwesomeIcon
 						icon={faMarkdown}
-						className="dark:text-white cursor-pointer"
+						className="dark:text-gray-200 cursor-pointer"
 					/>
 				}
 				onChange={onToggleChange}

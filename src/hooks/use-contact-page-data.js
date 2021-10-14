@@ -8,8 +8,28 @@ export const useContactPageData = () => {
 			allWpPage(filter: { slug: { eq: "contact" } }) {
 				edges {
 					node {
-						id
-						content
+						socialLinks {
+							email {
+								url
+								icon
+								name
+							}
+							github {
+								icon
+								name
+								url
+							}
+							linkedin {
+								icon
+								name
+								url
+							}
+							twitter {
+								icon
+								name
+								url
+							}
+						}
 					}
 				}
 			}

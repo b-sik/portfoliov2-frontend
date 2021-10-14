@@ -23,7 +23,7 @@ const DarkMode = () => {
 		>
 			<FontAwesomeIcon
 				className={
-					'transform -rotate-12 text-lg text-black dark:text-white dark:opacity-80'
+					'transform -rotate-12 text-lg text-black dark:text-gray-200 dark:opacity-80'
 				}
 				icon={darkMode ? faSun : faMoon}
 			/>

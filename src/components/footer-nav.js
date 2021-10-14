@@ -6,14 +6,14 @@ const FooterNav = ({ location }) => {
 		<div className="flex w-full place-items-stretch">
 			{location === '/' || location === '/about' ? (
 				<>
-					<Button url={'/projects'} label={'Projects'} link />
-					<Button url={'/contact'} label={'Contact'} link />
+					<Button url={'/projects'} label={'Projects'} link grow />
+					<Button url={'/contact'} label={'Contact'} link grow />
 				</>
 			) : null}
 			{location === '/projects' && (
 				<>
-					<Button url={'/about'} label={'About'} link />
-					<Button url={'/contact'} label={'Contact'} link />
+					<Button url={'/about'} label={'About'} link grow />
+					<Button url={'/contact'} label={'Contact'} link grow />
 				</>
 			)}
 		</div>

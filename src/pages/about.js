@@ -4,6 +4,7 @@ import { __ } from '@wordpress/i18n';
 import Layout from '../components/layout';
 import Section from '../components/section';
 import Markdown from '../components/markdown';
+import Button from '../components/ui/button';
 import { useAboutPageData } from '../hooks/use-about-page-data.js';
 import { useSkillsData } from '../hooks/use-skills-data.js';
 
@@ -31,18 +32,23 @@ const About = () => {
 	const bgGradient =
 		'bg-gradient-to-r from-indigo-300 to-white dark:from-indigo-500 dark:to-black';
 
-	/**
-	 * Markdown wrapper.
-	 */
-	const mdWrapperClasses = 'col-start-2 col-end-12 md:col-start-4 md:col-end-10 row-start-2 row-end-3 self-center opacity-90';
-
 	return (
 		<Layout location={'/about'} bgImgSrc={bgImgSrc}>
 			<div
 				id="about"
-				className={`${bgGradient} opacity-90 w-full h-auto overflow-hidden flex-grow grid grid-cols-12 sm:grid-rows-about-layout grid-rows-about-layout-mobile`}
+				className={`${bgGradient} opacity-90 w-full h-auto overflow-hidden flex-grow grid grid-cols-12 grid-rows-about-layout`}
 			>
-				<Markdown mdString={mdString} content={content} wrapperClasses={mdWrapperClasses}/>
+				<Markdown mdString={mdString} content={content} />
+				<div className="row-start-4 row-end-5 col-span-full text-center self-center flex flex-col place-items-center">
+					<Button
+						url="/about#skills-wrapper"
+						label={__('learn more', 'bszyk-portfolio')}
+						classnames="py-1 flex flex-row place-items-center"
+						link
+						iconName="faAngleDown"
+						iconClassnames="animate-bounce"
+					/>
+				</div>
 			</div>
 			<Section
 				section={__('skills', 'bszyk-portfolio')}
