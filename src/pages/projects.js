@@ -2,14 +2,19 @@ import React from 'react';
 import { __ } from '@wordpress/i18n';
 import Layout from '../components/layout';
 import Section from '../components/section';
-import { useProjectsData } from '../hooks/use-projects-data.js';
+import { useProjectsData } from '../hooks/use-projects-data';
+import { useProjectsPageData } from '../hooks/use-projects-page-data';
 
 const Projects = () => {
+	const { blocks } = useProjectsPageData();
+
+	const description = blocks[0].innerHtml;
+
 	return (
 		<Layout location="/projects">
 			<Section
 				section={__('projects', 'bsyzk-portfolio')}
-				description={__("A sample of work I've done.", 'bsyzk-portfolio')}
+				description={description}
 				edges={useProjectsData()}
 			/>
 		</Layout>

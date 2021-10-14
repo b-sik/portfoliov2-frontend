@@ -2,8 +2,14 @@ import React from 'react';
 import Nav from '../components/nav';
 import Seo from '../components/seo';
 import Footer from '../components/footer';
+import { useGeneralSettingsData } from '../hooks/use-general-settings-data';
 
 const Layout = ({ location, children, bgImgSrc }) => {
+	/**
+	 * Site title.
+	 */
+	const { title } = useGeneralSettingsData();
+
 	return (
 		<div
 			id="front-page-wrapper"
@@ -21,7 +27,7 @@ const Layout = ({ location, children, bgImgSrc }) => {
 				}
 			>
 				<Nav location={location} />
-				<Seo title="Brian Siklinski - Web Developer" />
+				<Seo title={title} />
 
 				{children}
 			</div>
