@@ -1,9 +1,7 @@
 import { useStaticQuery, graphql } from 'gatsby';
 
 export const useGeneralSettingsData = () => {
-	const {
-		allWp: { edges },
-	} = useStaticQuery(graphql`
+	const { allWp, allWpUser } = useStaticQuery(graphql`
 		query GeneralSettingsQuery {
 			allWp {
 				edges {
@@ -15,7 +13,21 @@ export const useGeneralSettingsData = () => {
 					}
 				}
 			}
+			allWpUser {
+				edges {
+					node {
+						lastName
+						firstName
+					}
+				}
+			}
 		}
 	`);
-	return edges[0].node.generalSettings;
+
+	const { generalSettings } = allWp.edges[0].node;
+	const { lastName, firstName } = allWpUser.edges[0].node;
+
+	return Object.assign(generalSettings, {
+		creatorFullName: `${firstName} ${lastName}`,
+	});
 };
