@@ -1,5 +1,4 @@
 import React from 'react';
-import { getImage } from 'gatsby-plugin-image';
 import { __ } from '@wordpress/i18n';
 import Layout from '../components/layout';
 import Section from '../components/section';
@@ -8,6 +7,7 @@ import Button from '../components/ui/button';
 import { useAboutPageData } from '../hooks/use-about-page-data';
 import { useSkillsData } from '../hooks/use-skills-data';
 import { useSkillsPageData } from '../hooks/use-skills-page-data';
+import { processFeaturedImg } from '../utilities/process-img';
 
 const About = () => {
 	/**
@@ -19,8 +19,7 @@ const About = () => {
 	/**
 	 * Process image data.
 	 */
-	const bgImgData = getImage(featuredImage.node.localFile);
-	const bgImgSrc = bgImgData.images.fallback.src;
+	const bgImgSrc = processFeaturedImg(featuredImage);
 
 	/**
 	 * Skills CPT data.
