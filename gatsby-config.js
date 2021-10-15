@@ -31,6 +31,9 @@ module.exports = {
 				url:
 					process.env.WPGRAPHQL_URL ||
 					`http://localhost:10004/graphql`,
+				production: {
+					allow404Images: true,
+				},
 			},
 		},
 
@@ -66,7 +69,7 @@ module.exports = {
 				background_color: `#ffffff`,
 				theme_color: `#663399`,
 				display: `minimal-ui`,
-				icon: 'content/assets/icon-square.png'
+				icon: 'content/assets/icon-square.png',
 			},
 		},
 
