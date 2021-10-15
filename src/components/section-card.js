@@ -66,7 +66,7 @@ const SectionCard = ({ node }) => {
 	return (
 		<div
 			className={`section-card ${
-				projects ? 'w-3/4 md:w-1/2' : ''
+				projects ? 'w-full md:w-1/2' : ''
 			} hover:animate-hover-grow text-left inline-block mx-8 p-4 md:p-6 h-auto max-w-full bg-white dark:bg-black border dark:border-black rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-xl dark:hover:shadow-xl-white transition-all dark:shadow-lg-white`}
 		>
 			<div className="section-card-title flex w-full justify-between">
