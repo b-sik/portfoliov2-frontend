@@ -4,9 +4,14 @@ import { useContactPageData } from '../hooks/use-contact-page-data';
 import { __ } from '@wordpress/i18n';
 import ContactForm from '../components/contact-form';
 import Icons from '../components/icons';
+import Button from '../components/ui/button';
+import { useResumePdf } from '../hooks/use-resume-pdf';
 
 const Contact = () => {
 	const { socialLinks } = useContactPageData();
+	const resumeUrl = useResumePdf();
+
+	console.log(resumeUrl);
 
 	/**
 	 * Gradient.
@@ -64,6 +69,14 @@ const Contact = () => {
 						);
 					})}
 				</ul>
+				<div className="row-start-4 row-end-5 col-span-full text-center">
+					<Button
+						url={resumeUrl}
+						label={__("View Resume", "bszyk-portfolio")}
+						classnames='py-2'
+						iconName='faFileAlt'
+					/>
+				</div>
 			</div>
 		</Layout>
 	);

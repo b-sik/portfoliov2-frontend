@@ -40,7 +40,7 @@ const Footer = ({ location }) => {
 							rel="noopener noreferrer"
 							className={linkClassnames}
 						>
-							Wordpress
+							WordPress
 						</a>
 						,&nbsp;&&nbsp;
 						<a

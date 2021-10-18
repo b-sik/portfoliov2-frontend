@@ -5,7 +5,8 @@ import {
 	faMailBulk,
 	faDesktop,
 	faEnvelope,
-	faAngleDown
+	faAngleDown,
+	faFileAlt
 } from '@fortawesome/free-solid-svg-icons';
 import {
 	faGithub,
@@ -48,6 +49,8 @@ const Icons = ({ iconName, classnames }) => {
 			return <FontAwesomeIcon icon={faEnvelope} className={classnames} />;
 		case 'faAngleDown':
 			return <FontAwesomeIcon icon={faAngleDown} className={classnames} />;
+		case 'faFileAlt':
+			return <FontAwesomeIcon icon={faFileAlt} className={classnames} />;
 		default:
 			return null;
 	}
