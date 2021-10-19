@@ -7,7 +7,9 @@ import { useScreenshotPng } from '../hooks/local-files/use-screenshot-png';
 const Seo = ({ lang, meta }) => {
 	const { title, description, creatorFullName } = useGeneralSettingsData();
 	const screenshotUrl = `${
-		window.location.origin || 'https://bszyk.dev'
+		typeof window !== 'undefined'
+			? window.location.origin
+			: 'https://bszyk.dev'
 	}${useScreenshotPng()}`;
 
 	return (
