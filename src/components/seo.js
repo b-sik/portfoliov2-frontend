@@ -2,9 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useGeneralSettingsData } from '../hooks/use-general-settings-data';
+import { useScreenshotPng } from '../hooks/local-files/use-screenshot-png';
 
 const Seo = ({ lang, meta }) => {
 	const { title, description, creatorFullName } = useGeneralSettingsData();
+	const screenshotUrl = `${
+		typeof window !== 'undefined'
+			? window.location.origin
+			: 'https://bszyk.dev'
+	}${useScreenshotPng()}`;
 
 	return (
 		<Helmet
@@ -34,8 +40,12 @@ const Seo = ({ lang, meta }) => {
 					content: `summary`,
 				},
 				{
+					name: `twitter:site`,
+					content: `@b_szyk`,
+				},
+				{
 					name: `twitter:creator`,
-					content: creatorFullName || '',
+					content: creatorFullName,
 				},
 				{
 					name: `twitter:title`,
@@ -44,6 +54,10 @@ const Seo = ({ lang, meta }) => {
 				{
 					name: `twitter:description`,
 					content: description,
+				},
+				{
+					name: `twitter:image`,
+					content: screenshotUrl,
 				},
 			].concat(meta)}
 		/>

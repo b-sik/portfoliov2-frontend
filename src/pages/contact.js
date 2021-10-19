@@ -5,7 +5,7 @@ import { __ } from '@wordpress/i18n';
 import ContactForm from '../components/contact-form';
 import Icons from '../components/icons';
 import Button from '../components/ui/button';
-import { useResumePdf } from '../hooks/use-resume-pdf';
+import { useResumePdf } from '../hooks/local-files/use-resume-pdf';
 
 const Contact = () => {
 	const { socialLinks } = useContactPageData();
