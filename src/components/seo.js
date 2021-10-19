@@ -6,6 +6,7 @@ import { useScreenshotPng } from '../hooks/local-files/use-screenshot-png';
 
 const Seo = ({ lang, meta }) => {
 	const { title, description, creatorFullName } = useGeneralSettingsData();
+	const screenshotUrl = `${window.location.origin}${useScreenshotPng()}`;
 
 	return (
 		<Helmet
@@ -52,7 +53,7 @@ const Seo = ({ lang, meta }) => {
 				},
 				{
 					name: `twitter:image`,
-					content: `${window.location.href}${useScreenshotPng()}`,
+					content: screenshotUrl,
 				}
 			].concat(meta)}
 		/>
