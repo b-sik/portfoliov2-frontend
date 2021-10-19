@@ -6,7 +6,9 @@ import { useScreenshotPng } from '../hooks/local-files/use-screenshot-png';
 
 const Seo = ({ lang, meta }) => {
 	const { title, description, creatorFullName } = useGeneralSettingsData();
-	const screenshotUrl = `${window.location.origin}${useScreenshotPng()}`;
+	const screenshotUrl = `${
+		window.location.origin || 'https://bszyk.dev'
+	}${useScreenshotPng()}`;
 
 	return (
 		<Helmet
@@ -37,7 +39,7 @@ const Seo = ({ lang, meta }) => {
 				},
 				{
 					name: `twitter:site`,
-					content: `@b_szyk`
+					content: `@b_szyk`,
 				},
 				{
 					name: `twitter:creator`,
@@ -54,7 +56,7 @@ const Seo = ({ lang, meta }) => {
 				{
 					name: `twitter:image`,
 					content: screenshotUrl,
-				}
+				},
 			].concat(meta)}
 		/>
 	);
