@@ -11,8 +11,6 @@ const Contact = () => {
 	const { socialLinks } = useContactPageData();
 	const resumeUrl = useResumePdf();
 
-	console.log(resumeUrl);
-
 	/**
 	 * Gradient.
 	 */
@@ -69,12 +67,12 @@ const Contact = () => {
 						);
 					})}
 				</ul>
-				<div className="row-start-4 row-end-5 col-span-full text-center">
+				<div className="row-start-4 row-end-5 col-span-full text-center my-6 md:mt-0">
 					<Button
 						url={resumeUrl}
-						label={__("View Resume", "bszyk-portfolio")}
-						classnames='py-2'
-						iconName='faFileAlt'
+						label={__('View Resume', 'bszyk-portfolio')}
+						classnames="py-2"
+						iconName="faFileAlt"
 					/>
 				</div>
 			</div>
