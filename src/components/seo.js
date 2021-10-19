@@ -52,7 +52,7 @@ const Seo = ({ lang, meta }) => {
 				},
 				{
 					name: `twitter:image`,
-					content: useScreenshotPng(),
+					content: `${window.location.href}${useScreenshotPng()}`,
 				}
 			].concat(meta)}
 		/>
