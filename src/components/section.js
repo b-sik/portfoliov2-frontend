@@ -28,7 +28,7 @@ const Section = ({ section, description, edges }) => {
 				<h3>{section[0].toUpperCase() + section.substring(1)}</h3>
 				<p>{description}</p>
 			</div>
-			{chunked.map((nodes, i) => {
+			{chunked.reverse().map((nodes, i) => {
 				const rowStart = 2;
 
 				return (
