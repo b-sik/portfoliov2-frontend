@@ -4,10 +4,11 @@ import Icons from './icons';
 import Button from './ui/button';
 import { Link } from 'gatsby';
 import { __ } from '@wordpress/i18n';
+import { processFeaturedImg } from '../utilities/process-img';
 
 const SectionCard = ({ node }) => {
 	const {
-		node: { blocks, title, projects, skills },
+		node: { blocks, title, projects, skills, featuredImage },
 	} = node;
 
 	// return if no blocks.
@@ -21,7 +22,8 @@ const SectionCard = ({ node }) => {
 	const content = {
 		description: null,
 		code: null,
-		images: [],
+		image: featuredImage ? processFeaturedImg(featuredImage) : null,
+		imgAlt: featuredImage ? featuredImage.node.altText : null,
 		icon: skills?.iconName || null,
 		gitHubLink: projects?.github || null,
 		liveDemoLink: projects?.liveDemo || null,
@@ -41,11 +43,6 @@ const SectionCard = ({ node }) => {
 			case 'CORE_CODE':
 				Object.assign(content, { code: parse(innerHtml) });
 				break;
-			case 'CORE_IMAGE':
-				Object.assign(content, {
-					images: [...content.images, parse(innerHtml)],
-				});
-				break;
 			default:
 				break;
 		}
@@ -56,7 +53,8 @@ const SectionCard = ({ node }) => {
 	 */
 	const {
 		description,
-		images,
+		image,
+		imgAlt,
 		icon,
 		gitHubLink,
 		liveDemoLink,
@@ -81,15 +79,13 @@ const SectionCard = ({ node }) => {
 				)}
 			</div>
 			{description && <p className="mt-2">{parse(description)}</p>}
-			{images.length > 0 &&
-				images.map((image, i) => (
-					<div
-						key={i}
-						className={`mt-4 border flex max-w-full rounded overflow-hidden`}
-					>
-						{image}
-					</div>
-				))}
+			{!isSkill && (
+				<div
+					className={`mt-4 border flex max-w-full rounded overflow-hidden`}
+				>
+					<img src={image} alt={imgAlt} />
+				</div>
+			)}
 			{isSkill && (
 				<Link
 					to="/projects"

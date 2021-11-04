@@ -30,7 +30,7 @@ module.exports = {
 				// the only required plugin option for WordPress is the GraphQL url.
 				url:
 					process.env.WPGRAPHQL_URL ||
-					`http://localhost:10004/graphql`,
+					`http://localhost:10014/graphql`,
 				production: {
 					allow404Images: true,
 				},
@@ -76,17 +76,5 @@ module.exports = {
 		// See https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet/?=gatsby-plugin-react-helmet
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-netlify`,
-
-		/**
-		 * this (optional) plugin enables Progressive Web App + Offline functionality
-		 * To learn more, visit: https://gatsby.dev/offline
-		 */
-		{
-			resolve: `gatsby-plugin-offline`,
-			options: {
-				precachePages: [`/pages/*`, `/templates/*`],
-				debug: false,
-			},
-		},
 	],
 };
