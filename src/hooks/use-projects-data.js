@@ -9,14 +9,24 @@ export const useProjectsData = () => {
 				totalCount
 				edges {
 					node {
-						blocks {
-							innerHtml
-							type
-						}
 						title
 						projects {
 							github
 							liveDemo
+						}
+						featuredImage {
+							node {
+								localFile {
+									childImageSharp {
+										gatsbyImageData
+									}
+								}
+								altText
+							}
+						}
+						blocks {
+							innerHtml
+							type
 						}
 					}
 				}
