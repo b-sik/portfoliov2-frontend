@@ -13,6 +13,10 @@ const Section = ({ section, description, edges }) => {
 	 */
 	const chunked = isMobileOnly ? chunk(edges, 1) : chunk(edges, 2);
 
+	if ('skills' === section) {
+		chunked.reverse();
+	}
+
 	/**
 	 * Gradient.
 	 */
