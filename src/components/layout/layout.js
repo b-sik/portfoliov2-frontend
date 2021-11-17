@@ -3,7 +3,6 @@ import Nav from '../nav/nav';
 import Seo from '../seo';
 import Footer from '../footer/footer';
 import FooterNav from '../footer/footer-nav';
-import { useGeneralSettingsData } from '../../hooks/use-general-settings-data';
 
 const Layout = (props) => {
 	/**
@@ -15,11 +14,6 @@ const Layout = (props) => {
 	} = props;
 
 	/**
-	 * Site title.
-	 */
-	const { title } = useGeneralSettingsData();
-
-	/**
 	 * Gradient.
 	 */
 	const bgGradient =
@@ -27,7 +21,7 @@ const Layout = (props) => {
 
 	return (
 		<>
-			<Seo title={title} />
+			<Seo />
 			<div
 				id="site-container"
 				className={`${bgGradient} flex-wrap grid grid-cols-1 auto-rows-min`}

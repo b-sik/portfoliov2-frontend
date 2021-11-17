@@ -5,9 +5,7 @@ import { useSkillsData } from '../../hooks/use-skills-data';
 import { isMobileOnly } from 'react-device-detect';
 
 const SkillsCards = () => {
-	
 	const skillsData = useSkillsData();
-	console.log('here');
 
 	/**
 	 * Determines num of columns.

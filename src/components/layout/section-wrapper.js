@@ -1,7 +1,6 @@
 import React from 'react';
 import { processFeaturedImg } from '../../utilities/process-img';
 
-
 const SectionWrapper = ({ id, children, featuredImage }) => {
 
 	// const bgImgProps = 'bg-auto bg-left-top bg-no-repeat';

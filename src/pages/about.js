@@ -1,7 +1,7 @@
 import React from 'react';
 import { __ } from '@wordpress/i18n';
 import Layout from '../components/layout/layout';
-import CardsGrid from '../components/cards/card';
+import CardsGrid from '../components/cards/cards-grid';
 import SkillsCards from '../components/cards/skills-cards';
 import Markdown from '../components/markdown';
 import Button from '../components/ui/button';
@@ -12,9 +12,9 @@ import { useSkillsPageData } from '../hooks/use-skills-page-data';
 
 const About = (props) => {
 	/**
-	 * Desctructure props.
+	 * Destructure props.
 	 */
-	const {
+	let {
 		location: { pathname },
 	} = props;
 
@@ -31,10 +31,7 @@ const About = (props) => {
 
 	return (
 		<Layout {...props}>
-			<SectionWrapper
-				id={`${pathname.substring(1)}-1`}
-				featuredImage={featuredImage}
-			>
+			<SectionWrapper id="about-wrapper" featuredImage={featuredImage}>
 				<Markdown mdString={mdString} content={content} />
 				<div className="row-start-3 row-end-4 col-span-full text-center self-end flex flex-col place-items-center">
 					<Button
@@ -48,7 +45,7 @@ const About = (props) => {
 				</div>
 				<div className="row-start-4 row-end-5" />
 			</SectionWrapper>
-			<SectionWrapper id={`${pathname.substring(1)}-2`}>
+			<SectionWrapper id="skills-wrapper">
 				<SectionHeading
 					title={skillsPageData.title}
 					excerpt={skillsPageData.excerpt}
