@@ -1,5 +1,5 @@
 import React from 'react';
-import DarkMode from './nav-tools/dark-mode';
+import DarkMode from './dark-mode';
 // import ColorPicker from './nav-tools/color-picker';
 import ReactTooltip from 'react-tooltip';
 

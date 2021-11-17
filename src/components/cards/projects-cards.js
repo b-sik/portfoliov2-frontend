@@ -1,10 +1,11 @@
 import React from 'react';
 import Card from './card';
-import { useProjectsData } from '../hooks/use-projects-data';
+import { useProjectsData } from '../../hooks/use-projects-data';
 
 const ProjectsCards = () => {
 	const projectsData = useProjectsData();
 
+	console.log(projectsData)
 	const rowStart = 2;
 
 	return (

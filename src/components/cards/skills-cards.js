@@ -1,11 +1,13 @@
 import React from 'react';
 import { chunk } from 'lodash';
 import Card from './card';
-import { useSkillsData } from '../hooks/use-skills-data';
+import { useSkillsData } from '../../hooks/use-skills-data';
 import { isMobileOnly } from 'react-device-detect';
 
 const SkillsCards = () => {
+	
 	const skillsData = useSkillsData();
+	console.log('here');
 
 	/**
 	 * Determines num of columns.

@@ -1,6 +1,6 @@
 import React from 'react';
-import { useContactPageData } from '../hooks/use-contact-page-data';
-import Icons from '../components/icons';
+import { useContactPageData } from '../../hooks/use-contact-page-data';
+import Icons from '../icons';
 
 const Footer = ({ pathname }) => {
 	const { socialLinks } = useContactPageData();

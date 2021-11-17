@@ -1,5 +1,5 @@
 import React from 'react';
-import { processFeaturedImg } from '../utilities/process-img';
+import { processFeaturedImg } from '../../utilities/process-img';
 
 
 const SectionWrapper = ({ id, children, featuredImage }) => {

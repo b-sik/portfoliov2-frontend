@@ -1,12 +1,12 @@
 import React from 'react';
 import { __ } from '@wordpress/i18n';
-import Layout from '../components/layout';
-import CardsGrid from '../components/cards-grid';
-import SkillsCards from '../components/skills-cards';
+import Layout from '../components/layout/layout';
+import CardsGrid from '../components/cards/card';
+import SkillsCards from '../components/cards/skills-cards';
 import Markdown from '../components/markdown';
 import Button from '../components/ui/button';
-import SectionWrapper from '../components/section-wrapper';
-import SectionHeading from '../components/section-heading';
+import SectionWrapper from '../components/layout/section-wrapper';
+import SectionHeading from '../components/layout/section-heading';
 import { useAboutPageData } from '../hooks/use-about-page-data';
 import { useSkillsPageData } from '../hooks/use-skills-page-data';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '../components/layout';
+import Layout from '../components/layout/layout';
 import { useContactPageData } from '../hooks/use-contact-page-data';
 import { __ } from '@wordpress/i18n';
 import ContactForm from '../components/contact-form';

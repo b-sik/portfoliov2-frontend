@@ -1,9 +1,9 @@
 import React from 'react';
 import { __ } from '@wordpress/i18n';
-import Layout from '../components/layout';
-import SectionWrapper from '../components/section-wrapper';
-import CardsGrid from '../components/cards-grid';
-import ProjectsCards from '../components/projects-cards';
+import Layout from '../components/layout/layout';
+import SectionWrapper from '../components/layout/section-wrapper';
+import CardsGrid from '../components/cards/cards-grid';
+import ProjectsCards from '../components/cards/projects-cards';
 import { useProjectsPageData } from '../hooks/use-projects-page-data';
 
 const Projects = (props) => {

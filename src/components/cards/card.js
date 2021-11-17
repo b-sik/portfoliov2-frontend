@@ -1,12 +1,16 @@
 import React from 'react';
 import parse from 'html-react-parser';
-import Icons from './icons';
-import Button from './ui/button';
+import Icons from '../icons';
+import Button from '../ui/button';
 import { Link } from 'gatsby';
 import { __ } from '@wordpress/i18n';
-import { processFeaturedImg } from '../utilities/process-img';
+import { processFeaturedImg } from '../../utilities/process-img';
 
 const Card = ({ node }) => {
+	if (!node) {
+		return null;
+	}
+	
 	const {
 		node: { blocks, title, projects, skills, featuredImage },
 	} = node;

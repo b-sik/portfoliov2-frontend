@@ -1,12 +1,11 @@
 import React from 'react';
-import Nav from '../components/nav';
-import Seo from '../components/seo';
-import Footer from '../components/footer';
-import FooterNav from '../components/footer-nav';
-import { useGeneralSettingsData } from '../hooks/use-general-settings-data';
+import Nav from '../nav/nav';
+import Seo from '../seo';
+import Footer from '../footer/footer';
+import FooterNav from '../footer/footer-nav';
+import { useGeneralSettingsData } from '../../hooks/use-general-settings-data';
 
 const Layout = (props) => {
-	console.log(props);
 	/**
 	 * Destructure props.
 	 */
@@ -38,7 +37,7 @@ const Layout = (props) => {
 					className={`flex-wrap h-auto grid grid-cols-1 grid-rows-auto`}
 				>
 					{children}
-					<FooterNav pathname={pathname}/>
+					<FooterNav pathname={pathname} />
 				</main>
 				<Footer pathname={pathname} />
 			</div>
