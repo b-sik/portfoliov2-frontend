@@ -1,8 +1,13 @@
-import React from 'react';
-import About from '../pages/about';
+import React, { useEffect } from 'react';
+import { navigate } from 'gatsby';
+import Seo from '../components/seo';
 
-const FrontPage = () => {
-	return <About />;
+const FrontPage = (props) => {
+	useEffect(() => {
+		navigate('/about');
+	}, []);
+
+	return <Seo />;
 };
 
 export default FrontPage;
