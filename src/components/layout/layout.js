@@ -4,15 +4,7 @@ import Seo from '../seo';
 import Footer from '../footer/footer';
 import FooterNav from '../footer/footer-nav';
 
-const Layout = (props) => {
-	/**
-	 * Destructure props.
-	 */
-	const {
-		location: { pathname },
-		children,
-	} = props;
-
+const Layout = ({ location: { pathname }, children }) => {
 	/**
 	 * Gradient.
 	 */
