@@ -4,35 +4,37 @@ import Seo from '../components/seo';
 import Footer from '../components/footer';
 import { useGeneralSettingsData } from '../hooks/use-general-settings-data';
 
-const Layout = ({ location, children, bgImgSrc }) => {
+const Layout = (props) => {
+	console.log(props);
+	/**
+	 * Destructure props.
+	 */
+	const {
+		location: { pathname },
+		children,
+	} = props;
+
 	/**
 	 * Site title.
 	 */
 	const { title } = useGeneralSettingsData();
 
 	return (
-		<div
-			id="front-page-wrapper"
-			className="flex flex-wrap overflow-hidden grid grid-cols-1 auto-rows-min dark:text-gray-300"
-		>
+		<>
+			<Seo title={title} />
 			<div
-				id="nav-and-section-wrapper"
-				className={`bg-auto bg-left-top bg-no-repeat flex flex-wrap overflow-hidden h-auto grid grid-cols-1 grid-rows-nav-section-layout`}
-				style={
-					bgImgSrc
-						? {
-								backgroundImage: `url(${bgImgSrc})`,
-						  }
-						: {}
-				}
+				id="site-container"
+				className="flex-wrap grid grid-cols-1 auto-rows-min"
 			>
-				<Nav location={location} />
-				<Seo title={title} />
-
-				{children}
+				<Nav pathname={pathname} />
+				<main
+					className={`flex-wrap h-auto grid grid-cols-1 grid-rows-auto`}
+				>
+					{children}
+				</main>
+				<Footer pathname={pathname} />
 			</div>
-			<Footer location={location} />
-		</div>
+		</>
 	);
 };
 

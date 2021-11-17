@@ -1,6 +1,6 @@
 import React from 'react';
 import { isMobileOnly } from 'react-device-detect';
-import SectionCard from './section-card';
+import SectionCard from './card';
 import { chunk } from 'lodash';
 
 const Section = ({ section, description, edges }) => {

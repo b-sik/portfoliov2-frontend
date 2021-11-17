@@ -12,7 +12,7 @@ const Button = ({
 	grow = false,
 }) => {
 	const defaultClasses =
-		'p-4 mt-4 bg-gray-200 hover:bg-gray-300 text-black rounded';
+		'p-4 bg-gray-200 hover:bg-gray-300 text-black rounded';
 
 	const darkModeClasses =
 		'border dark:border-gray-200 dark:text-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700';

@@ -3,13 +3,13 @@ import { useContactPageData } from '../hooks/use-contact-page-data';
 import FooterNav from '../components/footer-nav';
 import Icons from '../components/icons';
 
-const Footer = ({ location }) => {
+const Footer = ({ pathname }) => {
 	const { socialLinks } = useContactPageData();
 	const linkClassnames = 'text-blue-700 dark:text-blue-200';
 
 	return (
 		<footer className="py-2 bg-white dark:bg-black overflow-hidden relative text-center">
-			<FooterNav location={location} />
+			<FooterNav pathname={pathname} />
 			<div className="flex flex-col sm:flex-row place-content-center">
 				<div id="footer-copyright-div flex place-content-center">
 					<span className="text-xs sm:text-sm text-black dark:text-gray-200 leading-none my-auto">{`© ${new Date().getFullYear()} Brian Siklinski. `}</span>
@@ -55,7 +55,7 @@ const Footer = ({ location }) => {
 					</span>
 					<span
 						className={`text-lg text-black dark:text-gray-200 ${
-							location === '/contact'
+							pathname === '/contact'
 								? 'hidden'
 								: 'hidden md:inline'
 						}`}
@@ -66,7 +66,7 @@ const Footer = ({ location }) => {
 				</div>
 				<ul
 					className={`${
-						location === '/contact' ? 'hidden' : 'inline'
+						pathname === '/contact' ? 'hidden' : 'inline'
 					} w-auto mx-auto sm:mx-0 flex justify-items-center order-first sm:order-none`}
 				>
 					{Object.entries(socialLinks).map((link, i) => {

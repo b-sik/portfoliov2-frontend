@@ -1,25 +1,23 @@
 import React from 'react';
 import { __ } from '@wordpress/i18n';
 import Layout from '../components/layout';
-import Section from '../components/section';
+import Section from '../components/cards-grid';
 import Markdown from '../components/markdown';
 import Button from '../components/ui/button';
+import SectionWrapper from '../components/section-wrapper';
 import { useAboutPageData } from '../hooks/use-about-page-data';
 import { useSkillsData } from '../hooks/use-skills-data';
 import { useSkillsPageData } from '../hooks/use-skills-page-data';
-import { processFeaturedImg } from '../utilities/process-img';
 
-const About = () => {
+const About = (props) => {
+	const {
+		location: { pathname },
+	} = props;
 	/**
 	 * GQL query data.
 	 */
 	const { content, featuredImage, blocks } = useAboutPageData();
 	const mdString = blocks[0].innerHtml;
-
-	/**
-	 * Process image data.
-	 */
-	const bgImgSrc = processFeaturedImg(featuredImage);
 
 	/**
 	 * Skills CPT data.
@@ -31,20 +29,14 @@ const About = () => {
 	 */
 	const skillsDescription = useSkillsPageData().blocks[0].innerHtml;
 
-	/**
-	 * Gradient.
-	 */
-	const bgGradient =
-		'bg-gradient-to-r from-indigo-300 to-white dark:from-indigo-500 dark:to-black';
-
 	return (
-		<Layout location={'/about'} bgImgSrc={bgImgSrc}>
-			<div
-				id="about"
-				className={`${bgGradient} opacity-90 w-full h-auto overflow-hidden flex-grow grid grid-cols-12 grid-rows-about-layout`}
+		<Layout {...props}>
+			<SectionWrapper
+				id={pathname.substring(1)}
+				featuredImage={featuredImage}
 			>
 				<Markdown mdString={mdString} content={content} />
-				<div className="row-start-4 row-end-5 col-span-full text-center self-center flex flex-col place-items-center">
+				<div className="row-start-3 row-end-4 col-span-full text-center self-end flex flex-col place-items-center">
 					<Button
 						url="/about#skills-wrapper"
 						label={__('learn more', 'bszyk-portfolio')}
@@ -54,7 +46,8 @@ const About = () => {
 						iconClassnames="animate-bounce"
 					/>
 				</div>
-			</div>
+				<div className="row-start-4 row-end-5" />
+			</SectionWrapper>
 			<Section
 				section={__('skills', 'bszyk-portfolio')}
 				description={skillsDescription}
