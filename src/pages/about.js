@@ -1,18 +1,23 @@
 import React from 'react';
 import { __ } from '@wordpress/i18n';
 import Layout from '../components/layout';
-import Section from '../components/cards-grid';
+import CardsGrid from '../components/cards-grid';
+import SkillsCards from '../components/skills-cards';
 import Markdown from '../components/markdown';
 import Button from '../components/ui/button';
 import SectionWrapper from '../components/section-wrapper';
+import SectionHeading from '../components/section-heading';
 import { useAboutPageData } from '../hooks/use-about-page-data';
-import { useSkillsData } from '../hooks/use-skills-data';
 import { useSkillsPageData } from '../hooks/use-skills-page-data';
 
 const About = (props) => {
+	/**
+	 * Desctructure props.
+	 */
 	const {
 		location: { pathname },
 	} = props;
+
 	/**
 	 * GQL query data.
 	 */
@@ -20,19 +25,14 @@ const About = (props) => {
 	const mdString = blocks[0].innerHtml;
 
 	/**
-	 * Skills CPT data.
-	 */
-	const skillsData = useSkillsData();
-
-	/**
 	 * Skills page description.
 	 */
-	const skillsDescription = useSkillsPageData().blocks[0].innerHtml;
+	const skillsPageData = useSkillsPageData();
 
 	return (
 		<Layout {...props}>
 			<SectionWrapper
-				id={pathname.substring(1)}
+				id={`${pathname.substring(1)}-1`}
 				featuredImage={featuredImage}
 			>
 				<Markdown mdString={mdString} content={content} />
@@ -48,11 +48,15 @@ const About = (props) => {
 				</div>
 				<div className="row-start-4 row-end-5" />
 			</SectionWrapper>
-			<Section
-				section={__('skills', 'bszyk-portfolio')}
-				description={skillsDescription}
-				edges={skillsData}
-			/>
+			<SectionWrapper id={`${pathname.substring(1)}-2`}>
+				<SectionHeading
+					title={skillsPageData.title}
+					excerpt={skillsPageData.excerpt}
+				/>
+				<CardsGrid>
+					<SkillsCards />
+				</CardsGrid>
+			</SectionWrapper>
 		</Layout>
 	);
 };

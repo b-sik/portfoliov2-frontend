@@ -8,9 +8,8 @@ export const useSkillsPageData = () => {
 			allWpPage(filter: { slug: { eq: "skills" } }) {
 				edges {
 					node {
-						blocks {
-							innerHtml
-						}
+						excerpt
+						title
 					}
 				}
 			}

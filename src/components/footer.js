@@ -1,6 +1,5 @@
 import React from 'react';
 import { useContactPageData } from '../hooks/use-contact-page-data';
-import FooterNav from '../components/footer-nav';
 import Icons from '../components/icons';
 
 const Footer = ({ pathname }) => {
@@ -9,7 +8,6 @@ const Footer = ({ pathname }) => {
 
 	return (
 		<footer className="py-2 bg-white dark:bg-black overflow-hidden relative text-center">
-			<FooterNav pathname={pathname} />
 			<div className="flex flex-col sm:flex-row place-content-center">
 				<div id="footer-copyright-div flex place-content-center">
 					<span className="text-xs sm:text-sm text-black dark:text-gray-200 leading-none my-auto">{`© ${new Date().getFullYear()} Brian Siklinski. `}</span>

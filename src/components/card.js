@@ -6,7 +6,7 @@ import { Link } from 'gatsby';
 import { __ } from '@wordpress/i18n';
 import { processFeaturedImg } from '../utilities/process-img';
 
-const SectionCard = ({ node }) => {
+const Card = ({ node }) => {
 	const {
 		node: { blocks, title, projects, skills, featuredImage },
 	} = node;
@@ -116,4 +116,4 @@ const SectionCard = ({ node }) => {
 	);
 };
 
-export default SectionCard;
+export default Card;
