@@ -1,6 +1,6 @@
 import React from 'react';
 import Icons from '../../icons';
-import { useContactPageData } from '../../../hooks/use-contact-page-data';
+import { useContactPageData } from '../../../hooks/page-data/use-contact-page-data';
 
 const SocialLinks = () => {
 	const { socialLinks } = useContactPageData();

@@ -3,7 +3,7 @@ import { __ } from '@wordpress/i18n';
 import SectionWrapper from '../layout/section-wrapper';
 import Markdown from '../markdown';
 import Button from '../ui/button';
-import { useAboutPageData } from '../../hooks/use-about-page-data';
+import { useAboutPageData } from '../../hooks/page-data/use-about-page-data';
 
 const AboutSection = () => {
 	const { content, featuredImage, blocks } = useAboutPageData();

@@ -5,7 +5,7 @@ import SectionHeading from '../layout/section-heading';
 import ContactForm from './contact-components/contact-form';
 import SocialLinks from './contact-components/social-links';
 import Button from '../ui/button';
-import { useContactPageData } from '../../hooks/use-contact-page-data';
+import { useContactPageData } from '../../hooks/page-data/use-contact-page-data';
 import { useResumePdf } from '../../hooks/local-files/use-resume-pdf';
 
 const ContactSection = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useContactPageData } from '../../hooks/use-contact-page-data';
+import { useContactPageData } from '../../hooks/page-data/use-contact-page-data';
 import Icons from '../icons';
 
 const Footer = ({ pathname }) => {

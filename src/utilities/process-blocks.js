@@ -1,7 +1,12 @@
 import parse from 'html-react-parser';
 
-
-const processBlocks = (blocks, contentSchema) => {
+/**
+ * Process blocks data.
+ * @param {Array<Object>} blocks 
+ * @param {Object} contentSchema 
+ * @returns {Object} Updated content object
+ */
+export const processBlocks = (blocks, contentSchema) => {
     blocks.forEach((block) => {
 		const { type, innerHtml } = block;
 
@@ -12,5 +17,3 @@ const processBlocks = (blocks, contentSchema) => {
 
     return contentSchema;
 }
-
-export default processBlocks;
