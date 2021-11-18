@@ -1,7 +1,7 @@
 /**
  * Utility to help organize Tailwind CSS classes when it becomes overwhelming for a component.
  *
- * Organize your classes in a simple object with one layer of , however you'd like e.g.
+ * Organize your classes in a simple object, e.g.
  * ```
  * let componentStyles = {
  *  dimensions: 'w-80 h-50',
