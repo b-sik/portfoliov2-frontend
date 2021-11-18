@@ -1,9 +1,12 @@
+import parse from 'html-react-parser';
+
+
 const processBlocks = (blocks, contentSchema) => {
     blocks.forEach((block) => {
 		const { type, innerHtml } = block;
 
 		if ('CORE_PARAGRAPH' === type) {
-			Object.assign(contentSchema, { description: innerHtml });
+			Object.assign(contentSchema, { description: parse(innerHtml) });
 		}
 	});
 

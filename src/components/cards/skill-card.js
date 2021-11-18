@@ -1,5 +1,4 @@
 import React from 'react';
-import parse from 'html-react-parser';
 import Icons from '../icons';
 import { Link } from 'gatsby';
 import { __ } from '@wordpress/i18n';
@@ -10,9 +9,9 @@ const SkillCard = ({ node }) => {
 		return null;
 	}
 
-    /**
-     * Destructure node.
-     */
+	/**
+	 * Destructure node.
+	 */
 	const {
 		node: {
 			blocks,
@@ -54,7 +53,7 @@ const SkillCard = ({ node }) => {
 					/>
 				)}
 			</div>
-			{description && <p className="mt-2">{parse(description)}</p>}
+			<p className="mt-2">{description}</p>
 			<Link
 				to="/projects"
 				className="self-start text-left text-xs hover:underline mt-2"
