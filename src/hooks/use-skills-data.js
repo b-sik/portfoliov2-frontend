@@ -15,7 +15,6 @@ export const useSkillsData = () => {
 						title
 						skills {
 							iconName
-							isSkill
 						}
 					}
 				}

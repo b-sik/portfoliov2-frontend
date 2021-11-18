@@ -1,6 +1,6 @@
 import React from 'react';
 import { chunk } from 'lodash';
-import Card from './card';
+import SkillCard from './skill-card';
 import { useSkillsData } from '../../hooks/use-skills-data';
 import { isMobileOnly } from 'react-device-detect';
 
@@ -27,7 +27,7 @@ const SkillsCards = () => {
 						} flex items-center justify-around my-6`}
 					>
 						{nodes.map((node, j) => (
-							<Card key={`${i}-${j}`} node={node} />
+							<SkillCard key={`${i}-${j}`} node={node} />
 						))}
 					</div>
 				);
