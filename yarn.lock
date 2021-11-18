@@ -6189,7 +6189,7 @@ gatsby-source-filesystem@^4.0.0, gatsby-source-filesystem@^4.2.0:
     valid-url "^1.0.9"
     xstate "^4.25.0"
 
-gatsby-source-wordpress@^6.1.0:
+gatsby-source-wordpress@^6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/gatsby-source-wordpress/-/gatsby-source-wordpress-6.2.0.tgz#d29306bfbc69f54bca703ab6f63e226c744d6600"
   integrity sha512-Xqey+i5c3nRIxeLbfuNPbDNqNB3pIKX0fzXWug57tvqrxASWxZgK+0DWeBdgNkk+9Q5omHc28N5d/T+10tgp6A==
