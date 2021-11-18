@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { navigate } from 'gatsby';
 import Seo from '../components/seo';
 
-const FrontPage = (props) => {
+const FrontPage = () => {
 	useEffect(() => {
 		navigate('/about');
 	}, []);

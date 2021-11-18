@@ -2,7 +2,7 @@ import React from 'react';
 import { __ } from '@wordpress/i18n';
 import SectionWrapper from '../layout/section-wrapper';
 import SectionHeading from '../layout/section-heading';
-import ContactForm from '../contact-form';
+import ContactForm from './contact-components/contact-form';
 import SocialLinks from './contact-components/social-links';
 import Button from '../ui/button';
 import { useContactPageData } from '../../hooks/use-contact-page-data';
