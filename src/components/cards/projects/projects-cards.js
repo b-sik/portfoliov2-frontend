@@ -1,6 +1,6 @@
 import React from 'react';
 import ProjectCard from './project-card';
-import { useProjectsData } from '../../hooks/post-type-data/use-projects-data';
+import { useProjectsData } from '../../../hooks/post-type-data/use-projects-data';
 
 const ProjectsCards = () => {
 	const projectsData = useProjectsData();

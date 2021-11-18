@@ -1,7 +1,7 @@
 import React from 'react';
 import { chunk } from 'lodash';
 import SkillCard from './skill-card';
-import { useSkillsData } from '../../hooks/post-type-data/use-skills-data';
+import { useSkillsData } from '../../../hooks/post-type-data/use-skills-data';
 import { isMobileOnly } from 'react-device-detect';
 
 const SkillsCards = () => {

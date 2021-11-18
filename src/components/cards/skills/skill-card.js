@@ -1,8 +1,10 @@
 import React from 'react';
-import Icons from '../icons';
 import { Link } from 'gatsby';
 import { __ } from '@wordpress/i18n';
-import { processBlocks } from '../../utilities/process-blocks';
+import CardContainer from '../card-container';
+import CardHeading from '../card-heading';
+import { processBlocks } from '../../../utilities/process-blocks';
+import CardDescription from '../card-description';
 
 const SkillCard = ({ node }) => {
 	if (!node) {
@@ -39,28 +41,16 @@ const SkillCard = ({ node }) => {
 	const { description, icon } = processBlocks(blocks, content);
 
 	return (
-		<div
-			className={`section-card hover:animate-hover-grow text-left mx-8 p-4 md:p-6 h-auto max-w-full bg-white dark:bg-black border dark:border-black rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-xl dark:hover:shadow-xl-white transition-all dark:shadow-lg-white`}
-		>
-			<div className="section-card-title flex w-full justify-between">
-				<h4 className="mb-2">{title}</h4>
-				{icon && (
-					<Icons
-						iconName={icon}
-						classnames={`text-3xl -mt-1 -mr-1 md:-mt-2 md:-mr-2 ${
-							icon === 'faReact' && 'hover:animate-spin'
-						}`}
-					/>
-				)}
-			</div>
-			<p className="mt-2">{description}</p>
+		<CardContainer>
+			<CardHeading title={title} icon={icon} />
+			<CardDescription description={description} />
 			<Link
 				to="/projects"
 				className="self-start text-left text-xs hover:underline mt-2"
 			>
 				{__('See projects', 'bszyk-portfolio')}&nbsp;&rarr;
 			</Link>
-		</div>
+		</CardContainer>
 	);
 };
 
