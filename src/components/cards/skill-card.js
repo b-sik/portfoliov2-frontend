@@ -3,6 +3,7 @@ import parse from 'html-react-parser';
 import Icons from '../icons';
 import { Link } from 'gatsby';
 import { __ } from '@wordpress/i18n';
+import processBlocks from '../../utilities/process-blocks';
 
 const SkillCard = ({ node }) => {
 	if (!node) {
@@ -34,20 +35,9 @@ const SkillCard = ({ node }) => {
 	};
 
 	/**
-	 * Process individual blocks and add to content object.
-	 */
-	blocks.forEach((block) => {
-		const { type, innerHtml } = block;
-
-		if ('CORE_PARAGRAPH' === type) {
-			Object.assign(content, { description: innerHtml });
-		}
-	});
-
-	/**
 	 * Destructure processed content.
 	 */
-	const { description, icon } = content;
+	const { description, icon } = processBlocks(blocks, content);
 
 	return (
 		<div
