@@ -8,9 +8,8 @@ export const useProjectsPageData = () => {
 			allWpPage(filter: { slug: { eq: "projects" } }) {
 				edges {
 					node {
-						blocks {
-							innerHtml
-						}
+						excerpt
+						title
 					}
 				}
 			}
