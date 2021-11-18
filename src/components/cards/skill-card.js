@@ -2,7 +2,7 @@ import React from 'react';
 import Icons from '../icons';
 import { Link } from 'gatsby';
 import { __ } from '@wordpress/i18n';
-import processBlocks from '../../utilities/process-blocks';
+import { processBlocks } from '../../utilities/process-blocks';
 
 const SkillCard = ({ node }) => {
 	if (!node) {

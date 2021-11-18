@@ -1,8 +1,7 @@
 import React from 'react';
 import Button from '../ui/button';
-import { __ } from '@wordpress/i18n';
 import { processFeaturedImg } from '../../utilities/process-img';
-import processBlocks from '../../utilities/process-blocks';
+import { processBlocks } from '../../utilities/process-blocks';
 
 const ProjectCard = ({ node }) => {
 	if (!node) {
