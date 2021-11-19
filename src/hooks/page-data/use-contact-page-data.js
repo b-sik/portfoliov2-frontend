@@ -30,6 +30,8 @@ export const useContactPageData = () => {
 								url
 							}
 						}
+						excerpt
+						title
 					}
 				}
 			}

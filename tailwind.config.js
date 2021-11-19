@@ -5,7 +5,7 @@ module.exports = {
 		extend: {
 			gridTemplateRows: {
 				'nav-section-layout': 'auto minmax(95vh, min-content)',
-				'about-layout': '15% minmax(min-content, max-content) 10% 15%'
+				'home-layout': '15% minmax(min-content, max-content) 10% 15%'
 			},
 			animation: {
 				'hover-pulse': 'hoverPulse 1s linear infinite',

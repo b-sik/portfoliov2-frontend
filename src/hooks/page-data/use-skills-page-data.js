@@ -1,16 +1,15 @@
 import { useStaticQuery, graphql } from 'gatsby';
 
-export const useProjectsPageData = () => {
+export const useSkillsPageData = () => {
 	const {
 		allWpPage: { edges },
 	} = useStaticQuery(graphql`
-		query ProjectsPageQuery {
-			allWpPage(filter: { slug: { eq: "projects" } }) {
+		query SkillsPageQuery {
+			allWpPage(filter: { slug: { eq: "skills" } }) {
 				edges {
 					node {
-						blocks {
-							innerHtml
-						}
+						excerpt
+						title
 					}
 				}
 			}

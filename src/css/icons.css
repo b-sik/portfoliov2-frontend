@@ -21,23 +21,23 @@
 }
 
 /* section card icons */
-.section-card:hover .section-card-title .fa-css3 {
+.card:hover .card-heading .fa-css3 {
 	color: #264DE3;
 	transition: all 0.2s ease-in;
 }
-.section-card:hover .section-card-title .fa-php {
+.card:hover .card-heading .fa-php {
 	color: #4E5B93;
 	transition: all 0.2s ease-in;
 }
-.section-card:hover .section-card-title .fa-js {
+.card:hover .card-heading .fa-js {
 	color: #EBD41B;
 	transition: all 0.2s ease-in;
 }
-.section-card:hover .section-card-title .fa-wordpress {
+.card:hover .card-heading .fa-wordpress {
 	color: #20749B;
 	transition: all 0.2s ease-in;
 }
-.section-card:hover .section-card-title .fa-react {
+.section-card:hover .card-heading .fa-react {
 	color: #7DDFFF;
 	transition: all 0.2s ease-in;
 }

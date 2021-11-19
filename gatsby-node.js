@@ -14,11 +14,8 @@ const chunk = require(`lodash/chunk`);
 exports.createPages = async ({ actions, graphql, reporter }) => {
 	const { createPage } = actions;
 
-	// Create front page.
-	await createFrontPage({ graphql, createPage });
-
-	// About, Projects, Contact
-	await createPagePages({ graphql, createPage });
+	// Create all pages.
+	await createAllPages({ graphql, createPage });
 
 	// Query our posts from the GraphQL server
 	// const posts = await getPosts({ graphql, reporter });
@@ -38,75 +35,35 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 /**
  * This function creates the front page.
  */
-const createFrontPage = async ({ createPage, graphql }) => {
+const createAllPages = async ({ createPage, graphql }) => {
 	const {
 		data: {
 			allWpPage: { edges },
 		},
 	} = await graphql(/* GraphQL */ `
 		{
-			allWpPage(filter: { isFrontPage: { eq: true } }) {
+			allWpPage {
 				edges {
 					node {
-						id
-					}
-				}
-			}
-		}
-	`);
-
-	const {
-		node: { id },
-	} = edges[0];
-
-	return createPage({
-		// landing page.
-		path: '/',
-		component: path.resolve(`./src/pages/front-page.js`),
-		context: {
-			id
-		},
-	});
-};
-
-/**
- * This function creates pages.
- */
-const createPagePages = async ({ createPage, graphql }) => {
-	const {
-		data: {
-			allWpPage: {
-				edges: { node },
-			},
-		},
-	} = await graphql(/* GraphQL */ `
-		{
-			allWpPage(filter: { isFrontPage: { eq: false } }) {
-				edges {
-					node {
-						uri
-						databaseId
 						slug
+						id
+						uri
 					}
 				}
 			}
 		}
 	`);
-
-	if ('undefined' === typeof node) {
-		return;
-	}
 
 	return Promise.all(
-		node.map(({ uri, databaseId, slug }) =>
-			createPage({
+		edges.map(({ node: { slug, id, uri } }) => {
+			return createPage({
 				path: uri,
-				component: path.resolve(`./src/templates/${slug}.js`),
+				component: path.resolve(`./src/pages/${slug}.js`),
 				context: {
-					id: databaseId,
+					id,
 				},
-			})
-		)
+			});
+		})
 	);
 };
 
@@ -250,7 +207,7 @@ async function getPosts({ graphql, reporter }) {
 
 /**
  * Hack to fix npm run develop error when wp-graphql-gutenberg is enabled.
- * 
+ *
  * @see {@link https://github.com/wp-graphql/wp-graphql/issues/1460#issuecomment-742235504}
  */
 exports.createSchemaCustomization = ({ actions }) => {
@@ -261,4 +218,4 @@ exports.createSchemaCustomization = ({ actions }) => {
 	  }
 	`;
 	createTypes(typeDefs);
-  };
+};

@@ -1,13 +1,13 @@
 import { useStaticQuery, graphql } from 'gatsby';
 
-export const useAboutPageData = () => {
+export const useHomePageData = () => {
 	const {
 		allWpPage: { edges },
 	} = useStaticQuery(graphql`
-		query AboutQuery {
+		query HomeQuery {
 			allWpPage(
 				filter: {
-					slug: { eq: "about" }
+					slug: { eq: "home" }
 					blocks: { elemMatch: { tagName: { eq: "pre" } } }
 				}
 			) {
@@ -19,7 +19,9 @@ export const useAboutPageData = () => {
 							node {
 								localFile {
 									childImageSharp {
-										gatsbyImageData(width: 1440)
+										gatsbyImageData(
+											width: 1440
+										)
 									}
 								}
 							}
