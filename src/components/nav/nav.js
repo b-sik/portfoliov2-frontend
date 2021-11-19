@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { __ } from '@wordpress/i18n';
+import { stripTrailingSlash } from '../../utilities/strip-trailing-slash';
 import NavToolbar from './nav-toolbar';
 
 const config = [
@@ -27,12 +28,12 @@ const Nav = ({ pathname }) => {
 				{config.map((page, i) => {
 					const { name, slug } = page;
 					const linkClassName = `inline-block ${
-						pathname === slug
+						stripTrailingSlash(pathname) === slug
 							? 'cursor-default'
 							: 'hover:bg-gray-200 hover:opacity-70'
 					}  py-2 px-4 h-full border rounded border-indigo-500 dark:border-indigo-900 hover:border-gray-200 dark:hover:border-gray-200`;
 					const hClassName = `${
-						pathname === slug
+						stripTrailingSlash(pathname) === slug
 							? 'text-gray-200 dark:text-black'
 							: 'text-black dark:text-gray-200 dark:hover:text-black'
 					}`;
