@@ -3,6 +3,7 @@ import { chunk } from 'lodash';
 import SkillCard from './skill-card';
 import { useSkillsData } from '../../../hooks/post-type-data/use-skills-data';
 import { isMobileOnly } from 'react-device-detect';
+import CardRow from '../card-row';
 
 const SkillsCards = () => {
 	const skillsData = useSkillsData();
@@ -18,18 +19,11 @@ const SkillsCards = () => {
 				const rowStart = 2;
 
 				return (
-					<div
-						key={i}
-						className={`col-span-full md:col-start-2 md:col-end-12 row-start-${
-							rowStart + i
-						} row-end-${
-							rowStart + 1 + i
-						} flex items-center justify-around my-6`}
-					>
+					<CardRow rowStart={rowStart} currentRow={i} key={i}>
 						{nodes.map((node, j) => (
-							<SkillCard key={`${i}-${j}`} node={node} />
+							<SkillCard key={j} node={node} />
 						))}
-					</div>
+					</CardRow>
 				);
 			})}
 		</>
