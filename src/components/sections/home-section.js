@@ -3,18 +3,18 @@ import { __ } from '@wordpress/i18n';
 import SectionWrapper from '../layout/section-wrapper';
 import Markdown from '../markdown';
 import Button from '../ui/button';
-import { useAboutPageData } from '../../hooks/page-data/use-about-page-data';
+import { useHomePageData } from '../../hooks/page-data/use-home-page-data';
 
-const AboutSection = () => {
-	const { content, featuredImage, blocks } = useAboutPageData();
+const HomeSection = () => {
+	const { content, featuredImage, blocks } = useHomePageData();
 	const mdString = blocks[0].innerHtml;
 
 	return (
-		<SectionWrapper id="about-wrapper" featuredImage={featuredImage}>
+		<SectionWrapper id="home-wrapper" featuredImage={featuredImage}>
 			<Markdown mdString={mdString} content={content} />
 			<div className="row-start-3 row-end-4 col-span-full text-center self-end flex flex-col place-items-center">
 				<Button
-					url="/about#skills-wrapper"
+					url="/home#skills-wrapper"
 					label={__('learn more', 'bszyk-portfolio')}
 					classnames="py-1 flex flex-row place-items-center border-indigo-500 bg-indigo-200 hover:bg-indigo-300 hover:animate-hover-grow transition-all"
 					link
@@ -28,4 +28,4 @@ const AboutSection = () => {
 	);
 };
 
-export default AboutSection;
+export default HomeSection;

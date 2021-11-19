@@ -6,8 +6,8 @@ import NavToolbar from './nav-toolbar';
 
 const config = [
 	{
-		name: __('About', 'bszyk-portfolio'),
-		slug: '/about',
+		name: __('Home', 'bszyk-portfolio'),
+		slug: '/home',
 	},
 	{
 		name: __('Projects', 'bszyk-portfolio'),
