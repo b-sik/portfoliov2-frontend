@@ -3,7 +3,7 @@ import Button from '../ui/button';
 
 const CardButtons = ({ gitHubLink = null, liveDemoLink = null }) => {
 	return (
-		<div className={`w-full flex justify-between`}>
+		<div className={`w-full flex justify-between mt-4`}>
 			{gitHubLink ? (
 				<Button
 					url={gitHubLink}

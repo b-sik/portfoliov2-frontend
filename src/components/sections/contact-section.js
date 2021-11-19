@@ -19,7 +19,8 @@ const ContactSection = () => {
 				<ContactForm />
 			</div>
 			<SocialLinks />
-			<div className="row-start-4 row-end-5 col-span-full text-center my-6 md:mt-0">
+			<div className="row-start-4 row-end-5 md:h-10" />
+			<div className="row-start-5 row-end-6 col-span-full text-center my-6 md:mt-0">
 				<Button
 					url={resumeUrl}
 					label={__('View Resume', 'bszyk-portfolio')}
