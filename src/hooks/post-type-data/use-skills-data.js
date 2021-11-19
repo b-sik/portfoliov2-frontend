@@ -5,7 +5,7 @@ export const useSkillsData = () => {
 		allWpSkill: { edges },
 	} = useStaticQuery(graphql`
 		query SkillsQuery {
-			allWpSkill {
+			allWpSkill(sort: { fields: menuOrder }) {
 				edges {
 					node {
 						blocks {
@@ -16,6 +16,7 @@ export const useSkillsData = () => {
 						skill {
 							iconName
 						}
+						menuOrder
 					}
 				}
 			}

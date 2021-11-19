@@ -5,7 +5,7 @@ export const useProjectsData = () => {
 		allWpProject: { edges },
 	} = useStaticQuery(graphql`
 		query ProjectsQuery {
-			allWpProject {
+			allWpProject(sort: { fields: menuOrder }) {
 				totalCount
 				edges {
 					node {
