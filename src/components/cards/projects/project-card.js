@@ -13,7 +13,7 @@ const ProjectCard = ({ node }) => {
 	}
 
 	const {
-		node: { blocks, title, projects, featuredImage },
+		node: { blocks, title, project, featuredImage },
 	} = node;
 
 	// return if no blocks.
@@ -28,8 +28,8 @@ const ProjectCard = ({ node }) => {
 		description: null,
 		image: featuredImage ? processFeaturedImg(featuredImage) : null,
 		imgAlt: featuredImage ? featuredImage.node.altText : null,
-		gitHubLink: projects?.github || null,
-		liveDemoLink: projects?.liveDemo || null,
+		gitHubLink: project?.github || null,
+		liveDemoLink: project?.liveDemo || null,
 	};
 
 	/**

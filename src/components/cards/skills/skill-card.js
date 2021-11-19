@@ -18,7 +18,7 @@ const SkillCard = ({ node }) => {
 		node: {
 			blocks,
 			title,
-			skills: { iconName },
+			skill,
 		},
 	} = node;
 
@@ -32,7 +32,7 @@ const SkillCard = ({ node }) => {
 	 */
 	const content = {
 		description: null,
-		icon: iconName || null,
+		icon: skill?.iconName || null,
 	};
 
 	/**

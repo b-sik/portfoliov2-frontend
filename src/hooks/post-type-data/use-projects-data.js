@@ -10,7 +10,7 @@ export const useProjectsData = () => {
 				edges {
 					node {
 						title
-						projects {
+						project {
 							github
 							liveDemo
 						}

@@ -4,7 +4,7 @@ import Seo from '../components/seo';
 
 const FrontPage = () => {
 	useEffect(() => {
-		navigate('/about#skills-wrapper');
+		navigate('/home#skills-wrapper');
 	}, []);
 
 	return <Seo />;

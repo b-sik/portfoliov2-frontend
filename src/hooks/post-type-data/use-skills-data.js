@@ -13,7 +13,7 @@ export const useSkillsData = () => {
 							type
 						}
 						title
-						skills {
+						skill {
 							iconName
 						}
 					}
