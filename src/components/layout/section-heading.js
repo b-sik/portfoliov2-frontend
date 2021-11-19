@@ -7,7 +7,7 @@ const SectionHeading = ({ title, excerpt, center }) => {
 			id={`${title.toLowerCase()}-heading`}
 			className={`${
 				center ? 'text-center col-start-1' : 'col-start-2'
-			} col-end-13 row-start-1 row-end-2 my-6 md:my-4`}
+			} col-end-13 row-start-1 row-end-2 mt-8`}
 		>
 			<h3>{title}</h3>
 			{parse(excerpt)}

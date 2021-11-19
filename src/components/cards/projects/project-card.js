@@ -1,5 +1,5 @@
 import React from 'react';
-import { processFeaturedImg } from '../../../utilities/process-img';
+import { getImgSrc } from '../../../utilities/process-img';
 import { processBlocks } from '../../../utilities/process-blocks';
 import CardContainer from '../card-container';
 import CardHeading from '../card-heading';
@@ -26,7 +26,7 @@ const ProjectCard = ({ node }) => {
 	 */
 	const content = {
 		description: null,
-		image: featuredImage ? processFeaturedImg(featuredImage) : null,
+		image: featuredImage ? getImgSrc(featuredImage) : null,
 		imgAlt: featuredImage ? featuredImage.node.altText : null,
 		gitHubLink: project?.github || null,
 		liveDemoLink: project?.liveDemo || null,

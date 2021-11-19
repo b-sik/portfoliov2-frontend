@@ -3,6 +3,7 @@ import { __ } from '@wordpress/i18n';
 import SectionWrapper from '../layout/section-wrapper';
 import Markdown from '../markdown';
 import Button from '../ui/button';
+import { getImgSrc } from '../../utilities/process-img';
 import { useHomePageData } from '../../hooks/page-data/use-home-page-data';
 
 const HomeSection = () => {
@@ -10,9 +11,12 @@ const HomeSection = () => {
 	const mdString = blocks[0].innerHtml;
 
 	return (
-		<SectionWrapper id="home-wrapper" featuredImage={featuredImage}>
+		<SectionWrapper
+			id="home-wrapper"
+			bgImgSrc={getImgSrc(featuredImage)}
+		>
 			<Markdown mdString={mdString} content={content} />
-			<div className="row-start-3 row-end-4 col-span-full text-center self-end flex flex-col place-items-center">
+			<div className="z-10 row-start-3 row-end-4 col-span-full text-center self-end flex flex-col place-items-center">
 				<Button
 					url="/home#skills-wrapper"
 					label={__('learn more', 'bszyk-portfolio')}

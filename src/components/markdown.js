@@ -29,7 +29,7 @@ const Markdown = ({ mdString, content }) => {
 				id="markdown"
 				className={`col-start-2 col-end-12 md:col-start-4 md:col-end-10 row-start-2 row-end-3 self-center ${
 					mdView ? 'prose' : ''
-				}`}
+				} z-10`}
 			>
 				{mdView ? parse(content) : mdOutput(mdParse(mdString))}
 			</div>
