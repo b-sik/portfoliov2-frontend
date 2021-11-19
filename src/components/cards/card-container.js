@@ -3,6 +3,7 @@ import stylesHelper from '../../utilities/styles-helper';
 
 const CardContainer = ({ children }) => {
 	const cardContainerStyles = stylesHelper({
+		id: 'card',
 		display: 'flex flex-col items-center justify-center',
 		dimensions: 'h-auto max-w-full',
 		spacing: 'mx-8 p-4 md:p-6',

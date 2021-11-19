@@ -3,7 +3,7 @@ import Icons from '../icons';
 
 const CardHeading = ({ title, icon = null }) => {
 	return (
-		<div className="flex w-full justify-between">
+		<div className="card-heading flex w-full justify-between">
 			<h4 className="mb-2">{title}</h4>
 			{icon ? (
 				<Icons
