@@ -1,18 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const SectionWrapper = ({ id, children, bgImgSrc = false }) => {
-	/**
-	 * Gradient.
-	 */
-	const bgGradient =
-		'bg-gradient-to-b from-indigo-300 to-white dark:from-indigo-500 dark:to-black';
+const SectionWrapper = ({
+	id,
+	children,
+	bgImgSrc = false,
+	bgImgPos = 'bg-left-top',
+}) => {
+	const [bgCss, setBgCss] = useState('bg-white');
+
+	useEffect(() => {
+		switch (id) {
+			case 'home-wrapper':
+				setBgCss('bg-green-100');
+				break;
+			case 'skills-wrapper':
+				setBgCss('bg-yellow-200');
+				break;
+			case 'projects-wrapper':
+				setBgCss('bg-red-200');
+				break;
+			case 'contact-wrapper':
+				setBgCss('bg-indigo-200');
+				break;
+			default:
+				break;
+		}
+	}, []);
 
 	return (
 		<section
 			id={id}
-			className={`relative ${bgGradient} ${
+			className={`relative ${bgCss} ${
 				bgImgSrc
-					? 'section-wrapper bg-auto bg-left-top bg-no-repeat'
+					? `section-wrapper bg-auto ${bgImgPos} bg-no-repeat`
 					: ''
 			} col-span-full grid grid-cols-12 grid-rows-auto md:m-2`}
 			style={{

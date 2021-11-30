@@ -19,9 +19,7 @@ export const useHomePageData = () => {
 							node {
 								localFile {
 									childImageSharp {
-										gatsbyImageData(
-											width: 1440
-										)
+										gatsbyImageData(width: 1440)
 									}
 								}
 							}

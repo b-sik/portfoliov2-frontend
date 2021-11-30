@@ -10,6 +10,15 @@ export const useSkillsPageData = () => {
 					node {
 						excerpt
 						title
+						featuredImage {
+							node {
+								localFile {
+									childImageSharp {
+										gatsbyImageData(width: 1440)
+									}
+								}
+							}
+						}
 					}
 				}
 			}
