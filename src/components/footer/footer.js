@@ -4,15 +4,15 @@ import Icons from '../icons';
 
 const Footer = ({ pathname }) => {
 	const { socialLinks } = useContactPageData();
-	const linkClassnames = 'text-blue-700 dark:text-blue-200';
+	const linkClassnames = 'text-blue-300';
 
 	return (
-		<footer className="py-2 bg-white dark:bg-black overflow-hidden relative text-center">
+		<footer className="py-2 bg-black overflow-hidden relative text-center">
 			<div className="flex flex-col sm:flex-row place-content-center">
 				<div id="footer-copyright-div flex place-content-center">
-					<span className="text-xs sm:text-sm text-black dark:text-gray-200 leading-none my-auto">{`© ${new Date().getFullYear()} Brian Siklinski. `}</span>
+					<span className="text-xs sm:text-sm text-white leading-none my-auto">{`© ${new Date().getFullYear()} Brian Siklinski. `}</span>
 					<br className="inline sm:hidden" />
-					<span className="text-xs sm:text-sm text-black dark:text-gray-200 leading-none my-auto">
+					<span className="text-xs sm:text-sm text-white leading-none my-auto">
 						Created with&nbsp;
 						<a
 							href="https://reactjs.org/"
@@ -79,7 +79,7 @@ const Footer = ({ pathname }) => {
 									href={url}
 									target="_blank"
 									rel="noreferrer noopener"
-									className={`text-lg text-black dark:text-gray-200`}
+									className={`text-lg text-white`}
 								>
 									<span
 										className={`brand-icon-${name.toLowerCase()} ${
