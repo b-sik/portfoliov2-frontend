@@ -7,7 +7,7 @@ const CardRow = ({ children, rowStart, currentRow }) => {
 				rowStart + currentRow
 			} row-end-${
 				rowStart + 1 + currentRow
-			} flex items-center justify-around my-6`}
+			} grid grid-cols-12 my-6`}
 		>
 			{children}
 		</div>

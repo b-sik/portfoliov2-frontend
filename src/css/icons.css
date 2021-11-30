@@ -37,7 +37,11 @@
 	color: #20749B;
 	transition: all 0.2s ease-in;
 }
-.section-card:hover .card-heading .fa-react {
+.card:hover .card-heading .fa-react {
 	color: #7DDFFF;
+	transition: all 0.2s ease-in;
+}
+.card:hover .card-heading .fa-github {
+	color: #9900fd;
 	transition: all 0.2s ease-in;
 }

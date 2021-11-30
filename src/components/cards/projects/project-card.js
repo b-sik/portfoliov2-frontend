@@ -39,7 +39,7 @@ const ProjectCard = ({ node }) => {
 		processBlocks(blocks, content);
 
 	return (
-		<CardContainer>
+		<CardContainer type='project'>
 			<CardHeading title={title} />
 			<CardDescription description={description} />
 			<CardImage image={image} alt={imgAlt} />

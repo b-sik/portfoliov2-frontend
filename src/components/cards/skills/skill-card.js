@@ -6,7 +6,7 @@ import CardHeading from '../card-heading';
 import { processBlocks } from '../../../utilities/process-blocks';
 import CardDescription from '../card-description';
 
-const SkillCard = ({ node }) => {
+const SkillCard = ({ node, rowIndex }) => {
 	if (!node) {
 		return null;
 	}
@@ -41,15 +41,15 @@ const SkillCard = ({ node }) => {
 	const { description, icon } = processBlocks(blocks, content);
 
 	return (
-		<CardContainer>
+		<CardContainer rowIndex={rowIndex} type='skill'>
 			<CardHeading title={title} icon={icon} />
 			<CardDescription description={description} />
-			<Link
+			{/* <Link
 				to="/projects"
 				className="self-start text-left text-xs hover:underline mt-2"
 			>
 				{__('See projects', 'bszyk-portfolio')}&nbsp;&rarr;
-			</Link>
+			</Link> */}
 		</CardContainer>
 	);
 };

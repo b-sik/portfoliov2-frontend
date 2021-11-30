@@ -11,7 +11,7 @@ const ProjectsCards = () => {
 	/**
 	 * Determines num of columns.
 	 */
-	const chunked = isMobileOnly ? chunk(projectsData, 1) : chunk(projectsData, 2);
+	const chunked = chunk(projectsData, 1);
 
 	return (
 		<>
@@ -21,7 +21,7 @@ const ProjectsCards = () => {
 				return (
 					<CardRow rowStart={rowStart} currentRow={i} key={i}>
 						{nodes.map((node, j) => (
-							<ProjectCard node={node} key={j} />
+							<ProjectCard node={node} key={j}/>
 						))}
 					</CardRow>
 				);

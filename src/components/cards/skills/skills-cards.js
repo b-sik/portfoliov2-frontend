@@ -21,7 +21,7 @@ const SkillsCards = () => {
 				return (
 					<CardRow rowStart={rowStart} currentRow={i} key={i}>
 						{nodes.map((node, j) => (
-							<SkillCard key={j} node={node} />
+							<SkillCard key={j} node={node} rowIndex={j} />
 						))}
 					</CardRow>
 				);
