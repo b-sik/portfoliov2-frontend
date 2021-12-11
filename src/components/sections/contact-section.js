@@ -15,7 +15,7 @@ const ContactSection = () => {
 
 	return (
 		<SectionWrapper
-			id="contact-wrapper"
+			id="contact"
 			bgImgSrc={getImgSrc(featuredImage)}
 		>
 			<SectionHeading title={title} excerpt={excerpt} center />

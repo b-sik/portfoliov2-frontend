@@ -10,7 +10,7 @@ const ProjectsSection = () => {
 	const { title, excerpt, featuredImage } = useProjectsPageData();
 
 	return (
-		<SectionWrapper id="projects-wrapper" bgImgSrc={getImgSrc(featuredImage)}>
+		<SectionWrapper id="projects" bgImgSrc={getImgSrc(featuredImage)}>
 			<SectionHeading title={title} excerpt={excerpt} />
 			<CardsGrid>
 				<ProjectsCards />

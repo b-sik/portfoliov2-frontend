@@ -10,7 +10,7 @@ const SkillsSection = () => {
 	const { title, excerpt, featuredImage } = useSkillsPageData();
 
 	return (
-		<SectionWrapper id="skills-wrapper" bgImgSrc={getImgSrc(featuredImage)}>
+		<SectionWrapper id="skills" bgImgSrc={getImgSrc(featuredImage)}>
 			<SectionHeading title={title} excerpt={excerpt} />
 			<CardsGrid>
 				<SkillsCards />
