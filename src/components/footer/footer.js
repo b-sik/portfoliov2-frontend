@@ -1,9 +1,7 @@
 import React from 'react';
-import { useContactPageData } from '../../hooks/page-data/use-contact-page-data';
-import Icons from '../icons';
+import SocialLinks from '../sections/contact-components/social-links';
 
-const Footer = ({ pathname }) => {
-	const { socialLinks } = useContactPageData();
+const Footer = () => {
 	const linkClassnames = 'text-blue-300';
 
 	return (
@@ -52,49 +50,13 @@ const Footer = ({ pathname }) => {
 						.
 					</span>
 					<span
-						className={`text-lg text-black dark:text-gray-200 ${
-							pathname === '/contact'
-								? 'hidden'
-								: 'hidden md:inline'
-						}`}
+						className={'text-lg text-black'}
 					>
 						{' '}
 						|{' '}
 					</span>
 				</div>
-				<ul
-					className={`${
-						pathname === '/contact' ? 'hidden' : 'inline'
-					} w-auto mx-auto sm:mx-0 flex justify-items-center order-first sm:order-none`}
-				>
-					{Object.entries(socialLinks).map((link, i) => {
-						const { name, url, icon } = link[1];
-
-						return (
-							<li
-								key={i}
-								className="mx-2 cursor-pointer brand-icon-list-item"
-							>
-								<a
-									href={url}
-									target="_blank"
-									rel="noreferrer noopener"
-									className={`text-lg text-white`}
-								>
-									<span
-										className={`brand-icon-${name.toLowerCase()} ${
-											link[0] === 'email'
-												? `hover:text-red-500`
-												: ''
-										}`}
-									>
-										<Icons iconName={icon} />
-									</span>
-								</a>
-							</li>
-						);
-					})}
-				</ul>
+				<SocialLinks iconsOnly />
 			</div>
 		</footer>
 	);
