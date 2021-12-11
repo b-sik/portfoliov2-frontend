@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import { __ } from '@wordpress/i18n';
 import CardContainer from '../card-container';
 import CardHeading from '../card-heading';
 import { processBlocks } from '../../../utilities/process-blocks';
@@ -44,12 +42,6 @@ const SkillCard = ({ node, rowIndex }) => {
 		<CardContainer rowIndex={rowIndex} type='skill'>
 			<CardHeading title={title} icon={icon} />
 			<CardDescription description={description} />
-			{/* <Link
-				to="/projects"
-				className="self-start text-left text-xs hover:underline mt-2"
-			>
-				{__('See projects', 'bszyk-portfolio')}&nbsp;&rarr;
-			</Link> */}
 		</CardContainer>
 	);
 };
