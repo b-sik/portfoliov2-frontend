@@ -2,7 +2,6 @@ import React from 'react';
 import Nav from '../nav/nav';
 import Seo from '../seo';
 import Footer from '../footer/footer';
-// import FooterNav from '../footer/footer-nav';
 
 const Layout = ({ location: { pathname }, children }) => {
 
@@ -18,7 +17,6 @@ const Layout = ({ location: { pathname }, children }) => {
 					className={`flex-wrap h-auto grid grid-cols-1 grid-rows-auto`}
 				>
 					{children}
-					{/* <FooterNav pathname={pathname} /> */}
 				</main>
 				<Footer pathname={pathname} />
 			</div>
