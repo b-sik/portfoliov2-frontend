@@ -12,15 +12,15 @@ const HomeSection = () => {
 
 	return (
 		<SectionWrapper
-			id="home-wrapper"
+			id="home"
 			bgImgSrc={getImgSrc(featuredImage)}
 		>
 			<Markdown mdString={mdString} content={content} />
 			<div className="z-10 row-start-3 row-end-4 col-span-full text-center self-end flex flex-col place-items-center">
 				<Button
-					url="/home#skills-wrapper"
+					url="/#skills"
 					label={__('learn more', 'bszyk-portfolio')}
-					classnames="py-1 flex flex-row place-items-center border-indigo-500 bg-indigo-200 hover:bg-indigo-300 hover:animate-hover-grow transition-all"
+					classnames="hover:animate-hover-grow transition-all"
 					link
 					iconName="faAngleDown"
 					iconClassnames="animate-bounce"
