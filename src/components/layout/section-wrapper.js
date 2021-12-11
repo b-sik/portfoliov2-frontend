@@ -17,14 +17,15 @@ const SectionWrapper = ({
 				setBgCss('bg-yellow-200');
 				break;
 			case 'projects-wrapper':
-				setBgCss('bg-red-200');
+				setBgCss('bg-red-400');
 				break;
 			case 'contact-wrapper':
-				setBgCss('bg-indigo-200');
+				setBgCss('bg-indigo-400');
 				break;
 			default:
 				break;
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
@@ -34,11 +35,8 @@ const SectionWrapper = ({
 				bgImgSrc
 					? `section-wrapper bg-auto ${bgImgPos} bg-no-repeat`
 					: ''
-			} col-span-full grid grid-cols-12 grid-rows-auto md:m-2`}
-			style={{
-				minHeight: '90vh',
-				// backgroundImage: bgImgSrc ? `url(${bgImgSrc})` : '',
-			}}
+			} col-span-full grid grid-cols-12 grid-rows-auto md:m-0.5 rounded`}
+			style={{ minHeight: '90vh' }}
 		>
 			{bgImgSrc && (
 				<div
