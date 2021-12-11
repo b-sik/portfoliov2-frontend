@@ -9,24 +9,12 @@ const Button = ({
 	classnames = '',
 	iconClassnames = '',
 	link = false,
-	grow = false,
 }) => {
-	const defaultClasses =
-		'p-4 bg-gray-200 hover:bg-gray-300 text-black rounded';
-
-	const darkModeClasses =
-		'border dark:border-gray-200 dark:text-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700';
-
-	const growClasses = 'flex-grow text-center m-6 md:m-10';
+	const defaultClasses = 'border border-gray-500 font-bold py-2 px-4 rounded bg-opacity-90 bg-indigo-500 text-white';
 
 	return link ? (
-		<Link
-			to={url}
-			className={`${defaultClasses} ${darkModeClasses} ${
-				grow ? growClasses : ''
-			} ${classnames}`}
-		>
-			{label}&nbsp;
+		<Link to={url} className={`${defaultClasses} ${classnames}`}>
+			{label}&nbsp;&nbsp;
 			{iconName && (
 				<Icons iconName={iconName} iconClassnames={iconClassnames} />
 			)}
@@ -34,11 +22,11 @@ const Button = ({
 	) : (
 		<a
 			href={url}
-			className={`${defaultClasses} ${darkModeClasses} ${classnames}`}
+			className={`${defaultClasses} ${classnames}`}
 			target="_blank"
 			rel="noopener noreferrer"
 		>
-			{label}&nbsp;{iconName && <Icons iconName={iconName} />}
+			{label}&nbsp;&nbsp;{iconName && <Icons iconName={iconName} />}
 		</a>
 	);
 };
