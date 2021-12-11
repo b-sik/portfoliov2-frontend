@@ -3,10 +3,6 @@ module.exports = {
 	darkMode: 'class',
 	theme: {
 		extend: {
-			gridTemplateRows: {
-				'nav-section-layout': 'auto minmax(95vh, min-content)',
-				'home-layout': '15% minmax(min-content, max-content) 10% 15%'
-			},
 			animation: {
 				'hover-pulse': 'hoverPulse 1s linear infinite',
 				'hover-grow': 'hoverGrow 200ms linear 1 forwards',
