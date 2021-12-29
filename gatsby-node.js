@@ -42,7 +42,7 @@ const createAllPages = async ({ createPage, graphql }) => {
 		},
 	} = await graphql(/* GraphQL */ `
 		{
-			allWpPage {
+			allWpPage(filter: {isFrontPage: {eq: true}}) {
 				edges {
 					node {
 						slug
