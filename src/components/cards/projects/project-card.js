@@ -39,11 +39,13 @@ const ProjectCard = ({ node }) => {
 		processBlocks(blocks, content);
 
 	return (
-		<CardContainer type='project'>
-			<CardHeading title={title} />
-			<CardDescription description={description} />
-			<CardImage image={image} alt={imgAlt} />
-			<CardButtons gitHubLink={gitHubLink} liveDemoLink={liveDemoLink} />
+		<CardContainer type="project">
+			<CardHeading title={title} center />
+			<div className='flex items-center my-4'>
+				<CardDescription description={description} center />
+				<CardImage image={image} alt={imgAlt} />
+			</div>
+			<CardButtons gitHubLink={gitHubLink} liveDemoLink={liveDemoLink} center />
 		</CardContainer>
 	);
 };

@@ -1,10 +1,10 @@
 import React from 'react';
 import Icons from '../icons';
 
-const CardHeading = ({ title, icon = null }) => {
+const CardHeading = ({ title, icon = null, center = false }) => {
 	return (
-		<div className="card-heading flex w-full justify-between">
-			<h4 className="mb-2">{title}</h4>
+		<div className={`card-heading flex w-full justify-between`}>
+			<h4 className={`mb-2 w-full ${center ? 'text-center' : ''}`}>{title}</h4>
 			{icon ? (
 				<Icons
 					iconName={icon}
