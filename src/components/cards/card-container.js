@@ -1,17 +1,21 @@
 import React from 'react';
+import { isMobileOnly } from 'react-device-detect';
 import stylesHelper from '../../utilities/styles-helper';
 
 const CardContainer = ({ children, type = '', rowIndex = null }) => {
 	const columns = () => {
 		switch (type) {
 			case 'skill':
-				const leftCol = 'col-start-1 col-end-7';
-				const rightCol = 'col-start-7 col-end-13';
-				return rowIndex !== null
-					? 0 === rowIndex
-						? leftCol
-						: rightCol
-					: '';
+				const leftCol = `card-0 col-start-1 ${
+					isMobileOnly ? 'col-end-13' : 'col-end-7'
+				}`;
+				const rightCol = 'card-1 col-start-7 col-end-13';
+
+				if (null !== rowIndex) {
+					return 0 === rowIndex ? leftCol : rightCol;
+				} else {
+					return '';
+				}
 			case 'project':
 				return 'col-start-1 col-end-13';
 			default:

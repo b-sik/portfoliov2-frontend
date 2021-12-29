@@ -10,16 +10,16 @@ const SectionWrapper = ({
 
 	useEffect(() => {
 		switch (id) {
-			case 'home-wrapper':
+			case 'home':
 				setBgCss('bg-green-100');
 				break;
-			case 'skills-wrapper':
+			case 'skills':
 				setBgCss('bg-yellow-200');
 				break;
-			case 'projects-wrapper':
+			case 'projects':
 				setBgCss('bg-red-400');
 				break;
-			case 'contact-wrapper':
+			case 'contact':
 				setBgCss('bg-indigo-400');
 				break;
 			default:
